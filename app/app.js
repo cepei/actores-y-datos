@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.portalIndex',
+  'myApp.ecoView',
   'myApp.view2',
   'myApp.version'
 ]).

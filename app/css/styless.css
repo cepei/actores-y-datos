@@ -32,8 +32,8 @@
 .header {
   background: url('../images/header_background.jpg') repeat;
   width: 100%;
-  position: absolute;
   margin-top: -8px;
+  height: 100px;
 }
 
 .header h1{
@@ -95,11 +95,17 @@
 */
 
 
+
+
  body {
     overflow-x: hidden;
     background: #DBDBDB;
  }
 
+
+.container{
+  margin-top: -28px;
+}
 /* Toggle Styles */
 
 #wrapper {

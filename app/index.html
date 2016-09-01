@@ -20,65 +20,31 @@
 
 </head>
 <body>
-<!--   <ul class="menu">
-    <li><a href="#!/portalIndex">portalIndex</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
- -->
-<!--   <div class="menulateral">
-
-  </div> -->
-
       <!-- Sidebar -->
  <div id="wrapper">
       <div id="sidebar-wrapper">
           <img src="images/logo_CEPEI.png">
-<!--           <ul class="sidebar-nav">
-              <li class="sidebar-brand">
-                  <a href="#">
-                      Start Bootstrap
-                  </a>
-              </li>
-              <li>
-                  <a href="#">Dashboard</a>
-              </li>
-              <li>
-                  <a href="#">Shortcuts</a>
-              </li>
-              <li>
-                  <a href="#">Overview</a>
-              </li>
-              <li>
-                  <a href="#">Events</a>
-              </li>
-              <li>
-                  <a href="#">About</a>
-              </li>
-              <li>
-                  <a href="#">Services</a>
-              </li>
-              <li>
-                  <a href="#">Contact</a>
-              </li>
-          </ul> -->
+
       </div>
 
         <div id="page-content-wrapper">
-            <div class="content">
-                <div class="header">
-                    <h1>Portal de Datos para el Desarrollo Sostenible en Latinoamérica</h1>
-                </div>
-
-            
+            <div class="container">
+              <div class="row">
+                    <div class="header">
+                        <h1>Portal de Datos para el Desarrollo Sostenible en Latinoamérica</h1>
+                    </div>
+              </div>
+              <div class="row">
+                <div ng-view></div>
+              </div>               
             </div>
-            <div ng-view></div>
-
-            <div>Angular seed app: v<span app-version></span></div>
 
 
+<!--             <div>Angular seed app: v<span app-version></span></div> -->
 
-            <div class="footer">
-            </div>
+
+
+            <div class="footer"></div>
           </div>
     </div>
 
