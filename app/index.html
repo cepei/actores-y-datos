@@ -26,11 +26,13 @@
 <body>
       <!-- Sidebar -->
  <div id="wrapper">
-      <div id="sidebar-wrapper">
+<!--       <div id="sidebar-wrapper">
           <img src="images/logo_CEPEI.png">
 
-      </div>
-
+      </div> -->
+    <div ng-controller="SidebarCtrl">
+        <div sidebar></div>
+    </div> 
         <div id="page-content-wrapper">
             <div class="container">
 
@@ -68,6 +70,7 @@
   <script src="app.js"></script>
   <script src="home/home.js"></script>
   <script src="countries/countries.js"></script>
+  <script src="components/sidebar/sidebar.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
