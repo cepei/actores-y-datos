@@ -4,8 +4,9 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
+  'myApp.countries',
   //'myApp.ecoView',
-  'myApp.view2',
+  //'myApp.view2',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
