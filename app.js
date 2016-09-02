@@ -5,8 +5,9 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.home',
   'myApp.countries',
+  'myApp.sidebar',
   //'myApp.ecoView',
-  //'myApp.view2',
+  //r'myApp.view2',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
