@@ -4,58 +4,39 @@
 			<div class="content">
 				<div class="header">
 					<h2>Portal de datos para el desarrollo sostenible</h2>
-					<a href="#" class="img-header"><img src="images/logo_TELEFONICA.png" class="img-responsive"></a>
+					<a href="#" class="img-header"><img src="images/logo_TELEFONICA.png" class="img-responsive"/></a>
 				</div>
 				<div class="linea-text">
 					<p>Haz clic en un color de la rueda para acceder a los datos de los Objetivos de Desarrollo Sostenible en México</p>
 				</div>
-				<span><a href="#"class="col-xs-12 col-sm-3 col-lg-4 fondo-secc">
-					<h2 class="text-info">México</h2> 
-					<img src="images/mexico.png" class="img-responsive">
-				<a></span>
+				<span><a href="#" class="col-xs-12 col-sm-3 col-lg-4 fondo-secc">
+							<h2 class="text-info">{{name}}</h2> 
+							<img src="images/mexico.png" class="img-responsive"/>
+						</a></span>
 
 				 <div class="col-xs-12 col-sm-4 col-lg-4 titulo-pais">
 					<div class="content-titulos">
 						 <div class="col-xs-12 col-sm-4 col-lg-4 pib">
 							<h3>PIB (Miles de Millones)</h3>
-							<p>1295</p>
+							<p>{{pib}}</p>
 						 </div>
 						  <div class="col-xs-12 col-sm-4 col-lg-4 pib">
 							<h3>Nivel de renta</h3>
-							<p>Renta Media</p>
-							<br>
+							<p>{{incomeLevel}}</p>
+							<br/>
 						 </div>
 						  <div class="col-xs-12 col-sm-4 col-lg-4 pib">
 							<h3>Población (Millones)</h3>
-							<p>127</p>
-							<br>
+							<p>{{population}}</p>
+							<br/>
 						 </div>
 					 </div>
 					 <div class="listas">
 						<h4>Composición de la estructura institucional</h4>
-						<p>Comité Técnico Especializado de los Objetivos de Desarrollo Sostenible (CTEODS)
-						para el seguimiento de la Agenda 2030. Liderado por la Presidencia de la República, de él hacen parte:</p>
-						<ul>
-						  <li>Instituto Nacional de Estadística, Geografía e Informática (INEGI)</li>
-						  <li>Consejo Nacional de Población (CONAPO)</li>
-						  <li>Secretaría de Salud</li>
-						  <li>Secretaría de Medio Ambiente y Recursos Naturales</li>
-						  <li>Instituto Federal de Telecomunicaciones</li>
-						  <li>Secretaría de Educación Pública</li>
-						  <li>Secretaría de Desarrollo Social</li>
-						  <li>Secretaría del Trabajo y Previsión Social</li>						  
-						  <li>Secretaría de Relaciones Exteriores</li>
-						  <li>Consejo Nacional de Evaluación de la Política de Desarrollo Social</li>
-						  <li>Instituto Nacional de las Mujeres</li>
-						  <li>Secretaría de Desarrollo Agrario, Territorial y Urbano</li>
-						  <li>Subsecretaría de Hacienda y Crédito Público</li>
-						  <li>Secretaría de Agricultura, Ganadería, Desarrollo Rural, Pesca y Alimentación</li>
-						  <li>Secretaría de Comunicaciones y Transportes</li>
-						  <li>Secretaría de Gobernación</li>			
-						  <li>Secretaría de Economía</li>
-						  <li>Secretaría de Energía</li>
-						  <li>Agencia Mexicana de Cooperación Internacional para el Desarrollo
-							Invitados permanentes -->Instituto Mexicano de la Juventud y el PNUD</li> 
+					    	<p ng-repeat ="value in structure.head">{{value}}</p>
+					    	<ul>
+					    		<li ng-repeat="value in structure.list">{{value}}</li>
+					    	</ul>
 				    </div>
 				</div>
 				
@@ -63,88 +44,76 @@
 					 <h3>Tasa de incidencia de la
 						pobreza sobre la base
 						1295 de la línea nacional</h3>
-						<p>127</p>
+						<p>{{incidenceOfPoverty}}</p>
 				</div>
 				<div class="col-xs-12 col-sm-3 col-lg-4 content-titulos titulo-pais ">
 					 <h3>Índice de Desarrollo Humano</h3>
-					 <p>0,756</p>
+					 <p>{{hdi}}</p>
 				</div>
 				<div class="col-xs-12 col-sm-3 col-lg-4 content-titulos titulo-pais ">
 					 <h3>Posición en el Indice de Desarrollo Humano</h3>
-					 <p>74</p>
+					 <p>{{hdiRank}}</p>
 				</div>
 				<div class="col-xs-12 col-sm-3 col-lg-4  titulo-pais content-accion">
 					 <h3>Acciones implementadas</h3>
-				<p>Identificación de indicadores globales a los que
-					debe hacer seguimiento cada unidad de
-					gobierno.
-					Se está definiendo la línea base para la medición
-					de los indicadores.
-					Se han identificado también varias comisiones
-					intersecretariales existentes listas para alinearse a
-					la Agenda 2030, a través de la división de las 5Ps.
-					Nueva plataforma informática para el seguimiento
-					de los ODS de forma desagregada.
-					Comunicaciones gubernamentales a nivel
-					nacional, estatal y municipal, promoviendo los
-					ODS.
+				<p>{{actions}}
 				</p>
 				</div>
 			
 			<div class="col-xs-12 col-sm-6 col-lg-12 iconos-desrrollo">
 				<div class="col-xs-12 col-sm-6 col-lg-2 titulos-iconos">
-					<img src="images/titulo.png">
+					<img src="images/titulo.png"/>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS1.png"></a>
+					<a href="#"><img src="images/images_ODS1.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS2.png"></a>
+					<a href="#"><img src="images/images_ODS2.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS3.png"></a>
+					<a href="#"><img src="images/images_ODS3.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS4.png"></a>
+					<a href="#"><img src="images/images_ODS4.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS5.png"></a>
+					<a href="#"><img src="images/images_ODS5.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS6.png"></a>
+					<a href="#"><img src="images/images_ODS6.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS7.png"></a>
+					<a href="#"><img src="images/images_ODS7.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS8.png"></a>
+					<a href="#"><img src="images/images_ODS8.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS9.png"></a>
+					<a href="#"><img src="images/images_ODS9.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS10.png"></a>
+					<a href="#"><img src="images/images_ODS10.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS11.png"></a>
+					<a href="#"><img src="images/images_ODS11.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS12.png"></a>
+					<a href="#"><img src="images/images_ODS12.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS13.png"></a>
+					<a href="#"><img src="images/images_ODS13.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS14.png"></a>
+					<a href="#"><img src="images/images_ODS14.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS15.png"></a>
+					<a href="#"><img src="images/images_ODS15.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS16.png"></a>
+					<a href="#"><img src="images/images_ODS16.png"/></a>
 				</div>
 				<div class="iconos-ods">
-					<a href="#"><img src="images/images_ODS17.png"></a>
+					<a href="#"><img src="images/images_ODS17.png"/></a>
 				</div>
 			</div>
 			</div> 
