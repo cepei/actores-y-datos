@@ -16,20 +16,16 @@
   <link rel="stylesheet" href="css/country.css">
   <link href="css/bootstrap.css" rel="stylesheet" />
    <script src="js/bootstrap.js"></script>
-  <link rel="stylesheet" href="css/styless.css">  <!-- Styles? Styless? Fucking annoying -->
+  <link rel="stylesheet" href="css/styles.css">  <!-- Styles? Styless? Fucking annoying -->
   
   <link href='https://fonts.googleapis.com/css?family=HelveticaNeue:400,300,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=LhelveticaNeue' rel='stylesheet' type='text/css'>
 
 
+
 </head>
 <body>
-      <!-- Sidebar -->
  <div id="wrapper">
-<!--       <div id="sidebar-wrapper">
-          <img src="images/logo_CEPEI.png">
-
-      </div> -->
     <div ng-controller="SidebarCtrl">
         <div sidebar></div>
     </div> 
@@ -37,27 +33,16 @@
             <div class="container">
 
 
-<!--               <div class="row">
-                    <div class="header">
-                        <h1>Portal de Datos para el Desarrollo Sostenible en Latinoamérica</h1>
-                    </div>
-              </div> -->
               <div class="row">
                 <div ng-view></div>
               </div>     
               <div class="row">
                 <div class="linea-footer"></div>
-<!--                     <footer>
-                    </footer>        -->
+                    <footer>
+                    </footer>       
               </div>                 
             
             </div>
-
-
-<!--             <div>Angular seed app: v<span app-version></span></div> -->
-
-
-
 
           </div>
 
@@ -72,6 +57,7 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
