@@ -22,7 +22,7 @@ angular.module('myApp.countries', ['ngRoute'])
 		return structure
 	}
 
-	$http.get("/countries/countries.csv").then(function(response){
+	$http.get("countries/countries.csv").then(function(response){
 
 		var country = d3.csv.parse(response.data)
 						.find(function(country){
