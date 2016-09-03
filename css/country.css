@@ -1,0 +1,462 @@
+body {
+  font-size: 16px;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #DBDBDB;
+  width: 100%;
+}
+
+h2 {
+  font-family: 'Helvetica', serif;
+  color: #fff;
+  text-align: center;
+  width: 70%;
+}
+a{
+	text-decoration:none;
+	color:#000;
+}
+ul {
+	font-size:12px;
+	color:#000!important;
+	margin-top:4px!important;
+	padding-left: 30px;
+}
+li{
+	font-size:12px;
+	color:#000!important;
+}
+.container-fluid{
+	margin:0px;
+	padding:0px;
+}
+/** MENU LATERAL **/
+
+.menulateral {
+  background: #FFFFFF;
+  width: 9%;
+  height: 100%;
+  float: left;
+}
+.menulateral a {
+  border-bottom:1px solid #CACACA;
+  width: 100%!important;
+  float:left!important;
+}
+.menulateral a img{
+  margin: 14px;
+}
+
+.imagen-logo:hover{
+	opacity: 0.3;
+}
+/** CONTENIDO **/
+.portal-cont{
+	width:91%;
+	height:auto;
+	float:left;
+}
+.content{
+  width: 100%;.menulateral a img
+  height: auto;
+  float: left;
+  }
+
+.header {
+    background: url('../images/header_background.png') repeat;
+    height: auto;
+    width: 100%;
+    margin-top: 0;
+    float: left;
+}
+.header h2{
+	font-size: 2.1em;
+    font-weight: 200;
+    color: #fff;
+    padding: 10px 0 15px 31px;
+    float: left;
+    text-align: left;
+}
+.img-header img{
+	float:right;
+	margin-top: 25px;
+    margin-right: 31px;
+}
+
+.intro{
+	width: 100%;
+    height: auto;
+    margin-top: 74px;
+    float: right;
+    margin-bottom: 44px;
+}
+.intro h1{
+      font-family: 'Helvetica', serif;
+    color: #fff;
+    font-size: 3.0em;
+    text-align: center;
+    width: 42%;
+    margin: 0 auto;
+    line-height: 40px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.intro p{
+    font-family: 'Helvetica', serif;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+    width: 48%;
+    margin: 0 auto;
+    line-height: 21px;
+	
+}
+.intro a img{
+	margin-top: 41px;
+}
+.intro a {
+    width: 100%!important;
+    float: left!important;
+}
+#logo-telefonica img{
+	margin:0 auto;
+	margin-top: 45px;
+}
+#logo-telefonica{
+	width:100%;
+	float:left;
+}
+
+.menu-portal{
+    width: 100%;
+    float: right!important;
+	margin-top:40px;
+	padding: 0px!important;
+}
+
+section {
+    display: block;
+    float: left;
+}
+
+/** menu-iconos **/
+.menu-secc{
+	height:auto;
+	border-right:1px solid #1B1464;
+	background:url('../images/mapeo-background.jpg') no-repeat;
+	padding: 0px!important
+}
+.menu-secc img:hover{
+	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+.menu-secc02 img:hover{
+	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+.menu-secc03 img:hover{
+	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+	
+}
+.menu-secc a img{
+	margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc:last-child{
+	border-right:none;
+}
+
+
+.menu-secc h2{
+	width: 79%;
+    margin-bottom: 66px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 83px;
+}
+.menu-secc a img{
+	margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+
+
+.menu-secc02 a img{
+	margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc02 h2{
+	width: 79%;
+    margin-bottom: 66px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 83px;
+}
+.menu-secc02{
+	background:url('../images/background01.png') no-repeat;
+	height:auto;
+	border-right:1px solid #1B1464;
+	padding: 0px!important
+}
+.menu-secc03{
+	background:url('../images/background02.png') no-repeat;
+	height:auto;
+	border-right:1px solid #1B1464;
+	padding: 0px!important
+}
+.menu-secc03 a img{
+	margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc03 h2{
+	width: 79%;
+    margin-bottom: 66px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 83px;
+}
+
+.linea-roja{
+	width:100%;
+	height:5px;
+	background:#B23B39;
+	padding:0px;
+}
+.linea-naranja{
+	width:100%;
+	height:5px;
+	background:#C8611F;
+}
+.linea-azul{
+	width:100%;
+	height:5px;
+	background-color:#5180AF;
+}
+/** CONTENIDO **/
+.linea-footer{
+	width:100%;
+	height:10px;
+	background-color:#282C59;
+	float:left;
+	
+}
+.fondo-mapa{
+  width: 100%;
+  height: 620px;
+  margin-top: 20px;
+  background:  url('../images/mapeo-background.jpg') no-repeat;
+
+}
+
+.menu-paises{
+  width: 100%;
+  height: 100px;
+  background: fff;
+  color: #282C59;
+
+}
+.menu-paises img{
+	position: absolute;
+    top: 0;
+    width: 87%;
+	
+}
+.footer{
+  width: 100%;
+  height: 100px;
+  background: #262B56;
+
+}
+
+/** portal **/
+.linea-text{
+	width:100%;
+	background-color:#f8f8f8;
+	float:left;
+}
+.linea-text p{
+	font-size:1.1em;
+	color:#282c59;
+	padding-top:6px;
+	padding-left:31px;
+}
+.menu-paises{
+	width:100%;
+	float:left;
+	height:auto;
+	background:url('../images/mapeo-background.jpg')repeat;
+	padding:180px 0 230px 0px;
+}
+.seccion-pais{
+	width:100%;
+	float:left;
+	background-color:#fff;
+	margin-top:40px;
+}
+.btn-pais a{
+	font-size: 2.6em;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    float: left;
+    padding: 23px 0 23px 0;	
+}
+.btn-pais a:hover{
+	text-decoration:none;
+}
+.btn-pais:last-child{
+	border-right:0px!important;
+}
+.btn-pais{
+	width:33%;
+	float:left;
+	border-right:1px solid #1b1464!important;
+	padding:0px!important;
+}
+
+/** pais **/
+.titulo-pais{
+	width:100%;
+	height:auto;
+	float:left;
+	margin-top:0px;
+	padding:0px!important;
+}
+.content-titulos{
+	width:100%;
+	height:auto;
+	float:left;
+	border-bottom:1px solid #808080;
+}
+.pib{
+	width:100%;
+	border-right:1px solid #808080;
+	height:77px;
+}
+.titulo-pais h3{
+	margin:0px;
+	color:#282c59;
+	font-weight:600;
+	font-size:1.1em;
+	text-align:center;
+	line-height:15px;
+	margin-top:6px;
+	padding: 8px;
+}
+.titulo-pais p{
+	margin:0px;
+	color:#000;
+	font-size: 1.0em;
+	text-align:center;
+}
+.fondo-secc h2{
+	font-weight:600;
+	width:100%;
+	text-align:center;
+	font-size:2.6em;
+}
+.fondo-secc{
+	width:100%;
+	background:url('../images/seccion-background.jpg')repeat;
+	height:536px;
+}
+.fondo-secc:hover{
+	text-decoration:none;
+	 -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter:sepia(100%);
+
+}
+.fondo-secc img{
+	float:left;
+	opacity:0.5;
+	padding-bottom: 96px;
+	
+}
+.listas{
+	width:100%;
+	height:auto;
+	border-right:1px solid #808080;
+	float: left;
+}
+.listas h4{
+	color:#282c59;
+	font-weight:600;
+	font-size:1.1em;
+	text-align:center;
+	margin-top:5px;
+
+}
+.listas p{
+	font-size:0.7em;
+	color:#000;
+	text-align:left;
+	padding-left: 17px;
+	
+}
+.lista ul li{
+	font-size:12px;
+	color:#000!important;
+}
+.content-accion p{
+	font-size:12px;
+	color:#000;
+	text-align:left;
+	padding:10px;
+	font-weight:200;
+	line-height:22px;
+}
+.titulo-tasa{
+	width:100%;
+	height:77.8px!important;
+}
+.iconos-desrrollo{
+	width:100%;
+	float:left;
+	padding:0px!important;
+}
+.iconos-desrrollo h2{
+	font-size:23px;
+	color:#282c59;
+	text-align:center;
+	width:100%;
+	font-weight:600;
+	margin-top: 9px;
+}
+
+.iconos-desrrollo h3{
+	font-size:15px;
+	width:100%;
+	color:#282c59;
+	text-align:center;
+	font-weight:600;
+	margin-top:0px;
+}
+.iconos-ods{
+    float: left;
+    margin-right: 3px;
+    margin-top: 4px;
+}
+.titulos-iconos{
+	float:left;
+}
+.titulos-iconos img{
+    margin-top: 6px;
+    margin-left: 25px;
+}
+.iconos-ods a img:hover {
+    -webkit-filter: grayscale(100%);
+}
+.iconos-ods img{
+	
+}
