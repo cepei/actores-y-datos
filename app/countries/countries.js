@@ -14,11 +14,11 @@ angular.module('myApp.countries', ['ngRoute'])
 					if(elem.startsWith("-"))
 						structure.list.push(elem.substring(1,elem.length));
 					else{
-							if(elem.toLowerCase().indexOf(country["País"].toLowerCase()) == -1)
+							if(elem.toLowerCase().indexOf(country["País"].toLowerCase()) == -1 && elem!="")
 								structure.head.push(elem);
 					}
 				})
-		// console.log(structure)
+		console.log(structure);
 		return structure
 	}
 
@@ -34,6 +34,10 @@ angular.module('myApp.countries', ['ngRoute'])
 		$scope.incomeLevel =  country["Nivel de renta"];
 		$scope.population = country["Población (Millones)"];
 		$scope.structure = getStructure(country);
+		$scope.incidenceOfPoverty = country["Tasa de incidencia de la pobreza sobre la base de la línea nacional"];
+		$scope.hdi = country["Índice de Desarrollo Humano"];
+		$scope.hdiRank = country["Posición en el Indice de Desarrollo Humano"];
+		$scope.actions = country["Acciones implementadas"];
 		});		
 }])
 .config(['$routeProvider', function($routeProvider) {
