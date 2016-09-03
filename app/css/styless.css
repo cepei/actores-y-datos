@@ -154,18 +154,9 @@
 
 /** CONTENIDO **/
 
-.content{
-  width: 100%;
-  height: 500px;
-  float: left;
-  margin-left: 93px;
-  }
-
 .header {
   background: url('../images/header_background.jpg') repeat;
   height:85px;
-/*  width: 100%;
-  position: absolute;*/
   margin-top: -8px;
 }
 
@@ -537,142 +528,7 @@ section {
   padding:0px!important;
 }
 
-/** pais **/
-.titulo-pais{
-  width:100%;
-  height:auto;
-  float:left;
-  margin-top:0px;
-  padding:0px!important;
-}
-.content-titulos{
-  width:100%;
-  height:auto;
-  float:left;
-  border-bottom:1px solid #808080;
-}
-.pib{
-  width:100%;
-  border-right:1px solid #808080;
-  height:77px;
-}
-.titulo-pais h3{
-  margin:0px;
-  color:#282c59;
-  font-weight:600;
-  font-size:1.1em;
-  text-align:center;
-  line-height:15px;
-  margin-top:6px;
-  padding: 8px;
-}
-.titulo-pais p{
-  margin:0px;
-  color:#000;
-  font-size: 1.0em;
-  text-align:center;
-}
-.fondo-secc h2{
-  font-weight:600;
-  width:100%;
-  text-align:center;
-  font-size:2.6em;
-}
-.fondo-secc{
-  width:100%;
-  background:url('../images/seccion-background.jpg')repeat;
-  height:536px;
-}
-.fondo-secc:hover{
-  text-decoration:none;
-   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter:sepia(100%);
-
-}
-.fondo-secc img{
-  float:left;
-  opacity:0.5;
-  padding-bottom: 96px;
-  
-}
-.listas{
-  width:100%;
-  height:auto;
-  border-right:1px solid #808080;
-  float: left;
-}
-.listas h4{
-  color:#282c59;
-  font-weight:600;
-  font-size:1.1em;
-  text-align:center;
-  margin-top:5px;
-
-}
-.listas p{
-  font-size:0.7em;
-  color:#000;
-  text-align:left;
-  padding-left: 17px;
-  
-}
-.lista ul li{
-  font-size:12px;
-  color:#000!important;
-}
-.content-accion p{
-  font-size:12px;
-  color:#000;
-  text-align:left;
-  padding:10px;
-  font-weight:200;
-  line-height:22px;
-}
-.titulo-tasa{
-  width:100%;
-  height:77.8px!important;
-}
-.iconos-desrrollo{
-  width:100%;
-  float:left;
-  padding:0px!important;
-}
-.iconos-desrrollo h2{
-  font-size:23px;
-  color:#282c59;
-  text-align:center;
-  width:100%;
-  font-weight:600;
-  margin-top: 9px;
-}
-
-.iconos-desrrollo h3{
-  font-size:15px;
-  width:100%;
-  color:#282c59;
-  text-align:center;
-  font-weight:600;
-  margin-top:0px;
-}
-.iconos-ods{
-    float: left;
-    margin-right: 3px;
-    margin-top: 4px;
-}
-.titulos-iconos{
-  float:left;
-}
-.titulos-iconos img{
-    margin-top: 6px;
-    margin-left: 25px;
-}
-.iconos-ods a img:hover {
-    -webkit-filter: grayscale(100%);
-}
-.iconos-ods img{
-  
-}
-
 .container {
     width: auto;
+    height: auto;
 }
