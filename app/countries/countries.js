@@ -22,7 +22,7 @@ angular.module('myApp.countries', ['ngRoute'])
 		return structure
 	}
 
-	$http.get("/countries/countries.csv").then(function(response){
+	$http.get("countries/countries.csv").then(function(response){
 
 		var country = d3.csv.parse(response.data)
 						.find(function(country){
@@ -38,6 +38,11 @@ angular.module('myApp.countries', ['ngRoute'])
 		$scope.hdi = country["Índice de Desarrollo Humano"];
 		$scope.hdiRank = country["Posición en el Indice de Desarrollo Humano"];
 		$scope.actions = country["Acciones implementadas"];
+
+		d3.select('.pull-down').each(function() {
+		  var $this = d3.select(this);
+		  	$this.css('margin-top', $this.parent().height() - $this.height())
+		});
 		});		
 }])
 .config(['$routeProvider', function($routeProvider) {
