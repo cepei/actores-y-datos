@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.home',
   'myApp.countries',
   'myApp.sidebar',
+  'myApp.network-viz',
   //'myApp.ecoView',
   //r'myApp.view2',
   'myApp.version'

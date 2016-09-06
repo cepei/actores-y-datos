@@ -1,0 +1,64 @@
+
+.link {
+  stroke: #222;
+  opacity: 0.5;
+  stroke-width: 1px;
+}
+
+#licensing {
+  fill: green;
+}
+
+/*
+.link.ods-fuente {
+  stroke: green;
+}
+*/
+circle.selected {
+  stroke-width: 1px;
+}
+
+
+.link.selected {
+  stroke-dasharray: 0,2 1;
+  stroke: #000;
+  opacity:1;
+  stroke-width: 3px;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 0px;
+}
+
+text {
+  font: 12px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+.ods {
+ fill:green;
+ color:green;
+}
+
+.fuente {
+ fill:blue;
+ color:blue;
+}
+
+.datos {
+ fill:red;
+ color:red;
+}
+
+#tooltip{
+  font: 14px sans-serif;
+  //text-shadow: 2px 2px 20px #000;
+  padding-top:20px;
+}
+
+.network-viz-container{
+  min-height: 1000px;
+  width: 80%;
