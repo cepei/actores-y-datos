@@ -1,29 +1,25 @@
 
 .link {
   stroke: #222;
-  opacity: 0.5;
-  stroke-width: 1px;
+  /*opacity: 0.5;*/
+  stroke-width: 0.2px;
 }
 
 #licensing {
   fill: green;
 }
 
-/*
-.link.ods-fuente {
-  stroke: green;
-}
-*/
+
 circle.selected {
   stroke-width: 1px;
 }
 
 
 .link.selected {
-  stroke-dasharray: 0,2 1;
+  /*stroke-dasharray: 0,2 1;*/
   stroke: #000;
   opacity:1;
-  stroke-width: 3px;
+  stroke-width: 1px;
 }
 
 circle {

@@ -56,12 +56,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    .attr("width", width)
 				    .attr("height", height);
 
-
-
-				var defs = svg.append("defs");
-				var filter = createFilter(defs)
-
-
 				var path = svg.append("g").selectAll("path")
 				    .data(force.links())
 				  .enter().append("path")
@@ -123,7 +117,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    	var associated = getAssociatedNodes(d);
 				    	d3.selectAll("circle")
 				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})
-				    	.style("filter", function(d){ return associated.indexOf(d.name) != -1?"url(#drop-shadow)":""})
+				    	//.style("filter", function(d){ return associated.indexOf(d.name) != -1?"url(#drop-shadow)":""})
 
 
 				    	d3.selectAll(".link").classed("selected", 
@@ -278,61 +272,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					data.x += (radialPoint.x - data.x) * affectSize;
 					data.y += (radialPoint.y - data.y) * affectSize;
 
-
-				}
-
-				function createFilter(parent){
-
-					var filter = appendNewFilterToParent(parent);
-					appendGaussianBlurToFilter(filter);
-					setOffsetToFilter(filter);
-					overlayOriginalImageToFilter(filter);
-
-
-				}
-
-				function appendNewFilterToParent(parent){
-					// create filter with id #drop-shadow
-					// height=130% so that the shadow is not clipped
-					return parent.append("filter")
-							    .attr("id", "drop-shadow")
-							    .attr("x", "-200%")
-							    .attr("y", "-200%")
-							    .attr("height", "400%")
-								.attr("width", "400%");
-
-				}
-
-				function appendGaussianBlurToFilter(filter){
-					// SourceAlpha refers to opacity of graphic that this filter will be applied to
-					// convolve that with a Gaussian with standard deviation 3 and store result
-					// in blur
-					filter.append("feGaussianBlur")
-					    .attr("in", "SourceAlpha")
-					    .attr("stdDeviation", 5)
-					    .attr("result", "blur");
-
-				}
-
-				function setOffsetToFilter(filter){
-					// translate output of Gaussian blur to the right and downwards with 2px
-					// store result in offsetBlur
-					filter.append("feOffset")
-					    .attr("in", "blur")
-					    .attr("dx", 1)
-					    .attr("dy", 1)
-					    .attr("result", "offsetBlur");
-				}
-
-				function overlayOriginalImageToFilter(filter){
-					// overlay original SourceGraphic over translated blurred opacity by using
-					// feMerge filter. Order of specifying inputs is important!
-					var feMerge = filter.append("feMerge");
-
-					feMerge.append("feMergeNode")
-					    .attr("in", "offsetBlur")
-					feMerge.append("feMergeNode")
-					    .attr("in", "SourceGraphic");
 
 				}
 
