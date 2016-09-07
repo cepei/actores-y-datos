@@ -135,91 +135,7 @@ section {
 }
 
 /** menu-iconos **/
-.menu-secc{
-	height:auto;
-	border-right:1px solid #1B1464;
-	background:url('../images/mapeo-background.jpg') no-repeat;
-	padding: 0px!important
-}
-.menu-secc img:hover{
-	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-}
-.menu-secc02 img:hover{
-	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-}
-.menu-secc03 img:hover{
-	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-	
-}
-.menu-secc a img{
-	margin: 0 auto;
-    width: 30%;
-    margin-top: 45px;
-}
-.menu-secc:last-child{
-	border-right:none;
-}
 
-
-.menu-secc h2{
-	width: 79%;
-    margin-bottom: 66px;
-    font-size: 1.5em;
-    margin: 0 auto;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 83px;
-}
-.menu-secc a img{
-	margin: 0 auto;
-    width: 30%;
-    margin-top: 45px;
-}
-
-
-.menu-secc02 a img{
-	margin: 0 auto;
-    width: 30%;
-    margin-top: 45px;
-}
-.menu-secc02 h2{
-	width: 79%;
-    margin-bottom: 66px;
-    font-size: 1.5em;
-    margin: 0 auto;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 83px;
-}
-.menu-secc02{
-	background:url('../images/background01.png') no-repeat;
-	height:auto;
-	border-right:1px solid #1B1464;
-	padding: 0px!important
-}
-.menu-secc03{
-	background:url('../images/background02.png') no-repeat;
-	height:auto;
-	border-right:1px solid #1B1464;
-	padding: 0px!important
-}
-.menu-secc03 a img{
-	margin: 0 auto;
-    width: 30%;
-    margin-top: 45px;
-}
-.menu-secc03 h2{
-	width: 79%;
-    margin-bottom: 66px;
-    font-size: 1.5em;
-    margin: 0 auto;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 83px;
-}
 
 .linea-roja{
 	width:100%;
@@ -260,12 +176,12 @@ section {
   color: #282C59;
 
 }
-.menu-paises img{
-	position: absolute;
-    top: 0;
-    width: 87%;
-	
+
+
+.menu-paises .text-info{
+
 }
+
 .footer{
   width: 100%;
   height: 100px;
@@ -289,9 +205,15 @@ section {
 	width:100%;
 	float:left;
 	height:auto;
-	background:url('../images/mapeo-background.jpg')repeat;
+	background: #efefef url('../images/fondos/background_maps.png') no-repeat;
+	background-size: 90%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center; 
 	padding:180px 0 230px 0px;
+	min-height: 600px;
 }
+
 .seccion-pais{
 	width:100%;
 	float:left;

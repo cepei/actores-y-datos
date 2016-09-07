@@ -166,14 +166,6 @@
 
 }
 
-.menu-paises{
-  width: 100%;
-  height: 100px;
-  background: fff;
-  color: #282C59;
-
-}
-
 .footer{
   width: 100%;
   height: 100px;
@@ -296,19 +288,6 @@ section {
 
 }
 
-.menu-paises{
-  width: 100%;
-  height: 100px;
-  background: fff;
-  color: #282C59;
-
-}
-.menu-paises img{
-  position: absolute;
-    top: 0;
-    width: 87%;
-  
-}
 .footer{
   width: 100%;
   height: 100px;
@@ -322,19 +301,14 @@ section {
   background-color:#f8f8f8;
   float:left;
 }
+
 .linea-text p{
   font-size:1.1em;
   color:#282c59;
   padding-top:6px;
   padding-left:31px;
 }
-.menu-paises{
-  width:100%;
-  float:left;
-  height:auto;
-  background:url('../images/mapeo-background.jpg')repeat;
-  padding:180px 0 230px 0px;
-}
+
 .seccion-pais{
   width:100%;
   float:left;

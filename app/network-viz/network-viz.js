@@ -86,17 +86,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("width", calculateODSImageSize);
 
 
-/*				var circle = svg.append("g").selectAll("circle")
-				    .data(force.nodes())
-				  .enter().append("circle")
-				    .attr("r", calculateNodeRadius)
-				    .attr("class", function(d) { return d.type; })
-				    .call(force.drag)
-				    .on("click", clickNode)
-
-*/
-
-
 				//************************************
 				//Functions
 				//************************************

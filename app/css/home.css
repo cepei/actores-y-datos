@@ -1,6 +1,92 @@
+.menu-secc{
+  height:auto;
+  border-right:1px solid #1B1464;
+  background:url('../images/mapeo-background.jpg') no-repeat;
+  padding: 0px!important
+}
+.menu-secc img:hover{
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+.menu-secc02 img:hover{
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+.menu-secc03 img:hover{
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+  
+}
+.menu-secc a img{
+  margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc:last-child{
+  border-right:none;
+}
+
+
+.menu-secc h2{
+  width: 79%;
+    margin-bottom: 66px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 83px;
+}
+.menu-secc a img{
+  margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+
+
+.menu-secc02 a img{
+  margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc02 h2{
+  width: 79%;
+    margin-bottom: 66px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 83px;
+}
+.menu-secc02{
+  background:url('../images/background01.png') no-repeat;
+  height:auto;
+  border-right:1px solid #1B1464;
+  padding: 0px!important
+}
+.menu-secc03{
+  background:url('../images/background02.png') no-repeat;
+  height:auto;
+  border-right:1px solid #1B1464;
+  padding: 0px!important
+}
+.menu-secc03 a img{
+  margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc03 h2{
+  width: 79%;
+    margin-bottom: 66px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 83px;
+}
+
 .header-home {
 	background: #efefef url('../images/fondos/background_home.png');
-	background-size: 90%;
+	background-size: 70%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center; 
