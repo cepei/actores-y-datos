@@ -83,7 +83,7 @@ li{
     margin-right: 31px;
 }
 
-.intro{
+/*.intro{
 	width: 100%;
     height: auto;
     margin-top: 74px;
@@ -118,7 +118,7 @@ li{
 .intro a {
     width: 100%!important;
     float: left!important;
-}
+}*/
 #logo-telefonica img{
 	margin:0 auto;
 	margin-top: 45px;
@@ -128,12 +128,6 @@ li{
 	float:left;
 }
 
-.menu-portal{
-    width: 100%;
-    float: right!important;
-	margin-top:40px;
-	padding: 0px!important;
-}
 
 section {
     display: block;

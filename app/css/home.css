@@ -1,0 +1,148 @@
+.header-home {
+	background: #efefef url('../images/fondos/background_home.png');
+	background-size: 90%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center; 
+	width: 100%;
+	margin-top: -8px;
+	height: 400px;
+	min-height:100%;
+}
+
+.header-home h1{
+	font-family: 'Helvetica', serif;
+	color: #282c59;
+	margin: 28px;
+	width: 30%;
+	font-family: 'Helvetica', serif;
+	font-size: 2.5em;
+	text-align: center;
+	margin: 0 auto;
+	line-height: 40px;
+	margin-bottom: 30px;
+	font-weight: 600;
+
+}
+
+.header a{
+  float: left;
+
+
+}
+
+.header {
+    background: url('../images/header_background.png') repeat;
+    height: auto;
+    width: 100%;
+    margin-top: 0;
+    float: left;
+}
+.header h2{
+  font-size: 2.1em;
+    font-weight: 200;
+    color: #fff;
+    padding: 10px 0 15px 31px;
+    float: left;
+    text-align: left;
+}
+.img-header img{
+  float:right;
+  margin-top: 25px;
+    margin-right: 31px;
+}
+
+
+.intro{
+  width: 100%;
+    height: auto;
+    margin-top: 150px;
+    float: right;/*
+    margin-bottom: 44px;*/
+}
+
+
+.intro p{
+    font-family: 'Helvetica', serif;
+    color: #282c59;
+    font-size: 1.2em;
+    text-align: center;
+	width: 30%;
+    margin: 0 auto;
+    line-height: 21px;
+  
+}
+.intro a img{
+  margin-top: 41px;
+}
+.intro a {
+    width: 100%!important;
+    float: left!important;
+}
+
+.menu-portal{
+    width: 100%;
+    float: right!important;
+	padding: 0px!important;
+}
+/** menu-iconos **/
+.menu-secc{
+  height:auto;
+  border-right:1px solid #1B1464;
+  /*background:url('../images/mapeo-background.jpg') no-repeat;*/
+  padding: 0px!important
+}
+.menu-secc img:hover{
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+.menu-secc02 img:hover{
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+.menu-secc03 img:hover{
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+  
+}
+.menu-secc a img{
+  margin: 0 auto;
+    width: 30%;
+    margin-top: 45px;
+}
+.menu-secc:last-child{
+  border-right:none;
+}
+
+
+.menu-secc a img{
+  margin: 0 auto;
+    width: 15%;
+    margin-top: 45px;
+}
+.menu-secc h2{
+  width: 79%;
+    margin-bottom: 45px;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.menu-secc{
+  height:auto;
+  border-right:1px solid #1B1464;
+  padding: 0px!important
+}
+
+.novedades .text-info{
+	color:#282c59;
+	text-align: left;
+	margin-left: 30px;
+}
+
+.novedades .news-box{
+	background-color: #fff;
+	margin:20px;
+	min-height: 100px;
+}
