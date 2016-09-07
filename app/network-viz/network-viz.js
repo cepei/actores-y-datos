@@ -21,7 +21,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var x_center = 450;
 				var y_center = 450;
 				var base_node = {
-					"base_radius":{"ods":10, "fuente":5, "datos":3},
+					"base_radius":{"ods":0, "fuente":5, "datos":3},
 					"charge":{"ods":-50, "fuente":-20, "datos":-10}
 				}
 
@@ -61,8 +61,32 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				  .enter().append("path")
 				    .attr("class", function(d) { return "link " + d.type; })
 				    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+				
 
-				var circle = svg.append("g").selectAll("circle")
+				var nodeEnter = svg.append("g")
+								.selectAll("g")
+								.data(force.nodes())
+								.enter().append("g")
+								.call(force.drag)
+								.on("click", clickNode)
+
+				var circle = nodeEnter.append("svg:circle")
+						.attr("class", function(d) { return d.type; })
+						.attr("r", calculateNodeRadius)
+						.on("click", clickNode)
+
+				var images = nodeEnter.append("svg:image")
+						.attr("xlink:href",  function(d) { if(d.type=="ods")
+																var ods_number = d.name.split(" ")[0]
+																return "images/ODS/Images_ODS-"+ ods_number +".png";
+															return ""})
+						.attr("x", calculateODSImageOfsett)
+						.attr("y", calculateODSImageOfsett)
+						.attr("height", calculateODSImageSize)
+						.attr("width", calculateODSImageSize);
+
+
+/*				var circle = svg.append("g").selectAll("circle")
 				    .data(force.nodes())
 				  .enter().append("circle")
 				    .attr("r", calculateNodeRadius)
@@ -70,6 +94,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    .call(force.drag)
 				    .on("click", clickNode)
 
+*/
 
 
 				//************************************
@@ -130,8 +155,16 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				  	    .attr("class", d.type)
 				    	.html( "<b>" + d.type.toUpperCase() + "</b>: " + d.name)
 
+
+				}
+				function calculateODSImageOfsett(nodedata){
+					return -calculateODSImageSize(nodedata)/2;
 				}
 
+				function calculateODSImageSize(nodedata){
+					var weight = (1 + ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
+					return 30 * weight
+				}
 
 				function calculateNodeRadius(nodedata){
 					var weight = (1 + ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
@@ -235,11 +268,12 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				function moveToRadial(e) {
 					path.attr("d", linkArc);
-				  circle.each(function(d,i) { radial(d,i,e.alpha); });
+				  nodeEnter.each(function(d,i) { radial(d,i,e.alpha); });
 					
-				  circle
+/*				  circle
 					.attr("cx", function(d) { return d.x ; })
-					.attr("cy", function(d) { return d.y ; })
+					.attr("cy", function(d) { return d.y ; })*/
+					nodeEnter.attr("transform", transform)
 				}
 
 
