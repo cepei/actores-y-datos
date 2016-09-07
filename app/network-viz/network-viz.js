@@ -3,13 +3,14 @@
 angular.module('myApp.network-viz', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/network-viz', {
+  $routeProvider.when('/network-viz/:country', {
     templateUrl: 'network-viz/network-viz.html',
     controller: 'NetworkVizCtrl'
   });
 }])
 
-.controller('NetworkVizCtrl', [function() {
+.controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
+	create_graph("network-viz/data/" + $routeParams.country + ".csv")
 	var force
 	function create_graph(filename){
 		d3.csv("network-viz/data/ODSs.csv", function(ODSs){
@@ -338,12 +339,4 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			})
 		})
 	}
-	// console.log("onload");
-	// window.onload = function(){/**/
-		
-			var buttons = d3.selectAll(".country-selector")
-									.on("click", function(d){
-										create_graph(this.value)
-									})
-		// }
 }]);
