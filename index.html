@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/country.css">
   <link href="css/bootstrap.css" rel="stylesheet" />
    <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="css/home.css">  <!-- Styles? Styless? Fucking annoying -->
   <link rel="stylesheet" href="css/styles.css">  <!-- Styles? Styless? Fucking annoying -->
   <link rel="stylesheet" href="css/network-viz.css">  <!-- Styles? Styless? Fucking annoying -->
   
@@ -30,24 +31,26 @@
     <div ng-controller="SidebarCtrl">
         <div sidebar></div>
     </div> 
-        <div id="page-content-wrapper">
-            <div class="container">
+    <div id="page-content-wrapper">
+      <div class="container">
 
 
-              <div class="row">
-                <div ng-view></div>
-              </div>     
-              <div class="row">
-                <div class="linea-footer"></div>
-                    <footer>
-                    </footer>       
-              </div>                 
-            
-            </div>
-
-          </div>
+        <div class="row">
+          <div ng-view></div>
+        </div>     
+        <div class="row">
+          <div class="linea-footer"></div>
+              <footer>
+                <span> Este portal ha sido posible gracias al apoyo y confianza de </span>
+                <img alt="Telefónica" src="images/logo_TELEFONICA.png"></img>
+              </footer>       
+        </div>                 
+      
+      </div>
 
     </div>
+
+  </div>
 
 
   <!--[if lt IE 7]>

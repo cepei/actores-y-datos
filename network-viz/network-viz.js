@@ -3,13 +3,14 @@
 angular.module('myApp.network-viz', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/network-viz', {
+  $routeProvider.when('/network-viz/:country', {
     templateUrl: 'network-viz/network-viz.html',
     controller: 'NetworkVizCtrl'
   });
 }])
 
-.controller('NetworkVizCtrl', [function() {
+.controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
+	create_graph("network-viz/data/" + $routeParams.country + ".csv")
 	var force
 	function create_graph(filename){
 		d3.csv("network-viz/data/ODSs.csv", function(ODSs){
@@ -20,7 +21,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var x_center = 450;
 				var y_center = 450;
 				var base_node = {
-					"base_radius":{"ods":10, "fuente":5, "datos":3},
+					"base_radius":{"ods":0, "fuente":5, "datos":3},
 					"charge":{"ods":-50, "fuente":-20, "datos":-10}
 				}
 
@@ -55,26 +56,34 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    .attr("width", width)
 				    .attr("height", height);
 
-
-
-				var defs = svg.append("defs");
-				var filter = createFilter(defs)
-
-
 				var path = svg.append("g").selectAll("path")
 				    .data(force.links())
 				  .enter().append("path")
 				    .attr("class", function(d) { return "link " + d.type; })
 				    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+				
 
-				var circle = svg.append("g").selectAll("circle")
-				    .data(force.nodes())
-				  .enter().append("circle")
-				    .attr("r", calculateNodeRadius)
-				    .attr("class", function(d) { return d.type; })
-				    .call(force.drag)
-				    .on("click", clickNode)
+				var nodeEnter = svg.append("g")
+								.selectAll("g")
+								.data(force.nodes())
+								.enter().append("g")
+								.call(force.drag)
+								.on("click", clickNode)
 
+				var circle = nodeEnter.append("svg:circle")
+						.attr("class", function(d) { return d.type; })
+						.attr("r", calculateNodeRadius)
+						.on("click", clickNode)
+
+				var images = nodeEnter.append("svg:image")
+						.attr("xlink:href",  function(d) { if(d.type=="ods")
+																var ods_number = d.name.split(" ")[0]
+																return "images/ODS/Images_ODS-"+ ods_number +".png";
+															return ""})
+						.attr("x", calculateODSImageOfsett)
+						.attr("y", calculateODSImageOfsett)
+						.attr("height", calculateODSImageSize)
+						.attr("width", calculateODSImageSize);
 
 
 				//************************************
@@ -122,7 +131,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    	var associated = getAssociatedNodes(d);
 				    	d3.selectAll("circle")
 				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})
-				    	.style("filter", function(d){ return associated.indexOf(d.name) != -1?"url(#drop-shadow)":""})
+				    	//.style("filter", function(d){ return associated.indexOf(d.name) != -1?"url(#drop-shadow)":""})
 
 
 				    	d3.selectAll(".link").classed("selected", 
@@ -135,8 +144,16 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				  	    .attr("class", d.type)
 				    	.html( "<b>" + d.type.toUpperCase() + "</b>: " + d.name)
 
+
+				}
+				function calculateODSImageOfsett(nodedata){
+					return -calculateODSImageSize(nodedata)/2;
 				}
 
+				function calculateODSImageSize(nodedata){
+					var weight = (1 + ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
+					return 30 * weight
+				}
 
 				function calculateNodeRadius(nodedata){
 					var weight = (1 + ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
@@ -240,11 +257,12 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				function moveToRadial(e) {
 					path.attr("d", linkArc);
-				  circle.each(function(d,i) { radial(d,i,e.alpha); });
+				  nodeEnter.each(function(d,i) { radial(d,i,e.alpha); });
 					
-				  circle
+/*				  circle
 					.attr("cx", function(d) { return d.x ; })
-					.attr("cy", function(d) { return d.y ; })
+					.attr("cy", function(d) { return d.y ; })*/
+					nodeEnter.attr("transform", transform)
 				}
 
 
@@ -280,70 +298,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				}
 
-				function createFilter(parent){
-
-					var filter = appendNewFilterToParent(parent);
-					appendGaussianBlurToFilter(filter);
-					setOffsetToFilter(filter);
-					overlayOriginalImageToFilter(filter);
-
-
-				}
-
-				function appendNewFilterToParent(parent){
-					// create filter with id #drop-shadow
-					// height=130% so that the shadow is not clipped
-					return parent.append("filter")
-							    .attr("id", "drop-shadow")
-							    .attr("x", "-200%")
-							    .attr("y", "-200%")
-							    .attr("height", "400%")
-								.attr("width", "400%");
-
-				}
-
-				function appendGaussianBlurToFilter(filter){
-					// SourceAlpha refers to opacity of graphic that this filter will be applied to
-					// convolve that with a Gaussian with standard deviation 3 and store result
-					// in blur
-					filter.append("feGaussianBlur")
-					    .attr("in", "SourceAlpha")
-					    .attr("stdDeviation", 5)
-					    .attr("result", "blur");
-
-				}
-
-				function setOffsetToFilter(filter){
-					// translate output of Gaussian blur to the right and downwards with 2px
-					// store result in offsetBlur
-					filter.append("feOffset")
-					    .attr("in", "blur")
-					    .attr("dx", 1)
-					    .attr("dy", 1)
-					    .attr("result", "offsetBlur");
-				}
-
-				function overlayOriginalImageToFilter(filter){
-					// overlay original SourceGraphic over translated blurred opacity by using
-					// feMerge filter. Order of specifying inputs is important!
-					var feMerge = filter.append("feMerge");
-
-					feMerge.append("feMergeNode")
-					    .attr("in", "offsetBlur")
-					feMerge.append("feMergeNode")
-					    .attr("in", "SourceGraphic");
-
-				}
-
 			})
 		})
 	}
-	// console.log("onload");
-	// window.onload = function(){/**/
-		
-			var buttons = d3.selectAll(".country-selector")
-									.on("click", function(d){
-										create_graph(this.value)
-									})
-		// }
 }]);
