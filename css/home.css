@@ -28,6 +28,7 @@
 
 .menu-secc .text-info{
   color:#282c59;
+  font-family: "BebasNewe"
 }
 
 
@@ -146,7 +147,7 @@
 .intro{
   width: 100%;
     height: auto;
-    margin-top: 150px;
+    margin-top: 3%;
     float: right;/*
     margin-bottom: 44px;*/
 }
@@ -168,6 +169,16 @@
 .intro a {
     width: 100%!important;
     float: left!important;
+}
+
+.intro .big-text{
+  font-size: 15px;
+  text-align: justify;
+}
+
+.intro .small-text{
+  font-size: 12px;
+  text-align: justify;
 }
 
 .menu-portal{
