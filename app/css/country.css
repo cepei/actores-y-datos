@@ -146,6 +146,17 @@ section {
 
 }
 
+.text-info span{
+
+	font-family: "BebasNewe", serif;
+
+}
+
+.country-cover .text-info {
+
+	font-family: "BebasNewe", serif;
+
+}
 .footer{
   width: 100%;
   height: 100px;

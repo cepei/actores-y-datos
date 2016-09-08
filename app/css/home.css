@@ -28,7 +28,6 @@
 
 .menu-secc .text-info{
   color:#282c59;
-  font-family: "BebasNewe"
 }
 
 
@@ -102,17 +101,18 @@
 }
 
 .header-home h1{
-	font-family: 'Helvetica', serif;
+	/*font-family: 'Helvetica', serif;*/
 	color: #282c59;
 	margin: 28px;
-	width: 25%;
-	font-family: 'Helvetica', serif;
+	width: 30%;
+	/*font-family: 'Helvetica', serif;*/
 	font-size: 2.0em;
 	text-align: center;
 	margin: 0 auto;
 	line-height: 40px;
 	margin-bottom: 5px;
 	font-weight: 600;
+  font-family: "BebasNewe", serif;
 
 }
 
@@ -147,7 +147,7 @@
 .intro{
   width: 100%;
     height: auto;
-    margin-top: 3%;
+    margin-top: 4.5%;
     float: right;/*
     margin-bottom: 44px;*/
 }
