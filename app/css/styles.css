@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "BebasNewe";
+    src: url(fonts/BebasNeue.otf) format("truetype");
+}
+
+
  body {
     overflow-x: hidden;
     background: #DBDBDB;
