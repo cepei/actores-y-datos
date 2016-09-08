@@ -26,6 +26,10 @@
   border-right:none;
 }
 
+.menu-secc .text-info{
+  color:#282c59;
+}
+
 
 .menu-secc h2{
   width: 79%;
@@ -86,10 +90,10 @@
 
 .header-home {
 	background: #efefef url('../images/fondos/background_home.png');
-	background-size: 70%;
+	background-size: 80%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: center; 
+	background-position: 60%; 
 	width: 100%;
 	margin-top: -8px;
 	height: 400px;
@@ -100,13 +104,13 @@
 	font-family: 'Helvetica', serif;
 	color: #282c59;
 	margin: 28px;
-	width: 30%;
+	width: 25%;
 	font-family: 'Helvetica', serif;
-	font-size: 2.5em;
+	font-size: 2.0em;
 	text-align: center;
 	margin: 0 auto;
 	line-height: 40px;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 	font-weight: 600;
 
 }
@@ -229,6 +233,7 @@
 
 .novedades .news-box{
 	background-color: #fff;
+  color:#000;
 	margin:20px;
 	min-height: 100px;
 }

@@ -29,6 +29,7 @@ angular.module('myApp.countries', ['ngRoute'])
 								return country.id == $routeParams.countryId;
 							});
 		console.log(country);
+		$scope.countryId =  $routeParams.countryId;
 		$scope.name = country["País"];
 		$scope.pib = country["PIB (Miles de Millones)"];
 		$scope.incomeLevel =  country["Nivel de renta"];
