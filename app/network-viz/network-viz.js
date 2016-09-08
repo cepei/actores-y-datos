@@ -48,6 +48,10 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    .chargeDistance(50)
 				    .on("tick", moveToRadial)
 				    .start()
+
+				var tip = d3.select("body").append("div")	
+					.attr("class", "tooltip")				
+					.style("opacity", 0);
 				
 
 
@@ -68,8 +72,33 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.selectAll("g")
 								.data(force.nodes())
 								.enter().append("g")
+								.attr("class", "node")
 								.call(force.drag)
 								.on("click", clickNode)
+								.on("mouseover",function(d){
+
+									tip	.html("<b>" + d.type.toUpperCase() + "</b>: " + d.name)	
+										.style("left", (d3.event.pageX) + 10 +"px")		
+										.style("top", (d3.event.pageY) + 10 +"px");	
+
+									tip.transition()		
+										.duration(3)		
+										.style("opacity", .9);		
+
+
+
+								})
+								.on("mouseout", function(d) {
+									tip	.html("<b>" + d.type.toUpperCase() + "</b>: " + d.name)	
+										.style("left", -100 + "px")		
+										.style("top", -100 + "px");	
+									tip.transition()		
+										.duration(5)		
+										.style("opacity", 0);	
+										
+								})
+
+
 
 				var circle = nodeEnter.append("svg:circle")
 						.attr("class", function(d) { return d.type; })
@@ -86,8 +115,20 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("x", calculateODSImageOfsett)
 						.attr("y", calculateODSImageOfsett)
 						.attr("height", calculateODSImageSize)
-						.attr("width", calculateODSImageSize);
+						.attr("width", calculateODSImageSize)
+						.on("click", clickNode);
 
+
+
+				
+
+/*				nodeEnter.append("text")
+						.attr("class", "nodetext")
+						.attr("x", 20)
+						.attr("y", 25 +15)
+						.attr("fill","#130C0E")
+						.text(function(d) { return  d.type.toUpperCase() + ": " + d.name });
+*/
 
 				//************************************
 				//Functions
@@ -134,9 +175,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    	var associated = getAssociatedNodes(d);
 				    	d3.selectAll("circle")
 				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})
-				    	//.style("filter", function(d){ return associated.indexOf(d.name) != -1?"url(#drop-shadow)":""})
-
-
 				    	d3.selectAll(".link").classed("selected", 
 				    								function(d){ 
 				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
