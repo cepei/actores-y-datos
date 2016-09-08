@@ -3,14 +3,15 @@
 angular.module('myApp.network-viz', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/network-viz/:country', {
+  $routeProvider.when('/network-viz/:country?', {
     templateUrl: 'network-viz/network-viz.html',
     controller: 'NetworkVizCtrl'
   });
 }])
 
 .controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
-	create_graph("network-viz/data/" + $routeParams.country + ".csv")
+	$scope.countryId =  $routeParams.countryId;
+	create_graph("network-viz/data/" + $routeParams.country + ".csv");
 	var force
 	function create_graph(filename){
 		d3.csv("network-viz/data/ODSs.csv", function(ODSs){
@@ -18,8 +19,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			d3.csv(filename, function(rawdata){
 				var width = 1000,
 				    height = 1000
-				var x_center = 450;
-				var y_center = 450;
+				var x_center = 400;
+				var y_center = 400;
 				var base_node = {
 					"base_radius":{"ods":0, "fuente":5, "datos":3},
 					"charge":{"ods":-50, "fuente":-20, "datos":-10}
@@ -75,7 +76,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("r", calculateNodeRadius)
 						.on("click", clickNode)
 
-				var images = nodeEnter.append("svg:image")
+				var images = nodeEnter
+						.filter(function(d){return d.type=="ods"})
+						.append("svg:image")
 						.attr("xlink:href",  function(d) { if(d.type=="ods")
 																var ods_number = d.name.split(" ")[0]
 																return "images/ODS/Images_ODS-"+ ods_number +".png";
@@ -201,7 +204,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			    	data.filter(function(datanode){
 				    		return datanode[type.toUpperCase()] == name && datanode.ODS != "";
 				    	}).forEach(function(d, i, arr){
-				    		var weight = 1 / (arr.length * (type=="fuente"?1.25:1.1));
+				    		var weight = 1 / (arr.length * (type=="fuente"?1.4:1.2));
 				    		var ods_coordinates = positions.ods[nodes[d.ODS].node_index];
 		    				coordinates.x += (ods_coordinates.x - x_center) * weight;	
 		    				coordinates.y += (ods_coordinates.y - y_center) * weight;									
@@ -213,7 +216,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				function getODSNodePosition(node){
 					var i = parseInt(node.name.split(" ")[0])
 					var increment_angle = 360/17
-					var radius = 400;
+					var radius = 350;
 					var offsetAngle = 0;
 					var currentAngleRadians = (offsetAngle + (increment_angle * i)) * Math.PI / 180 ;
 					return {

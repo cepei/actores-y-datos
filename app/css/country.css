@@ -83,42 +83,6 @@ li{
     margin-right: 31px;
 }
 
-/*.intro{
-	width: 100%;
-    height: auto;
-    margin-top: 74px;
-    float: right;
-    margin-bottom: 44px;
-}
-.intro h1{
-      font-family: 'Helvetica', serif;
-    color: #fff;
-    font-size: 3.0em;
-    text-align: center;
-    width: 42%;
-    margin: 0 auto;
-    line-height: 40px;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-.intro p{
-    font-family: 'Helvetica', serif;
-    color: #fff;
-    font-size: 1.2em;
-    text-align: center;
-    width: 48%;
-    margin: 0 auto;
-    line-height: 21px;
-	
-}
-.intro a img{
-	margin-top: 41px;
-}
-.intro a {
-    width: 100%!important;
-    float: left!important;
-}*/
 #logo-telefonica img{
 	margin:0 auto;
 	margin-top: 45px;
@@ -255,16 +219,39 @@ section {
 	float:left;
 	border-bottom:1px solid #808080;
 }
-.pib{
+.country-cell{
 	width:100%;
 	border-right:1px solid #808080;
-	height:77px;
+	height:250px;
+	text-align: center;
+	vertical-align: center;
+}
+
+.country-cell img{
+	margin-top: 30px;
+}
+
+.big-cell {
+	padding: 50px 80px 50px 80px!important;
+}
+
+.big-cell img{
+	float:left;
+}
+
+.big-cell div h3{
+	text-align: left;
+}
+
+.big-cell div{
+	margin-left: 10px;
+	margin-top: 30px;
 }
 .titulo-pais h3{
 	margin:0px;
 	color:#282c59;
 	font-weight:600;
-	font-size:1.1em;
+	font-size:1em;
 	text-align:center;
 	line-height:15px;
 	margin-top:6px;
@@ -284,15 +271,11 @@ section {
 }
 .fondo-secc{
 	width:100%;
-	background:url('../images/seccion-background.jpg')repeat;
+	background:url('../images/seccion-background.jpg') repeat;
 	height:536px;
+	padding-left: -15px!important;
 }
-.fondo-secc:hover{
-	text-decoration:none;
-	 -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter:sepia(100%);
 
-}
 .fondo-secc img{
 	float:left;
 	opacity:0.5;
@@ -390,3 +373,6 @@ section {
   max-height:100%;
 }
 
+.country-cover h2{
+	color: #282c59;
+}

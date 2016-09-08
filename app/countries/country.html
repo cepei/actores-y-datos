@@ -1,127 +1,93 @@
-<div class="row">
+	<div class="header">
+		<h2>Portal de datos para el desarrollo sostenible</h2>
+		<a href="#" class="img-header"></a>
+	</div>
+	<div class="linea-text">
+		<p>Clic en uno de los ODS para ver más sobre el ecosistema en {{name}}</p>
+	</div>
 	<div class="col-xs-12 col-sm-6 col-lg-12">
 		<div class="portal-cont">
-			<div class="content">
-				<div class="header">
-					<h2>Portal de datos para el desarrollo sostenible</h2>
-					<a href="#" class="img-header"><img src="images/logo_TELEFONICA.png" class="img-responsive"/></a>
-				</div>
-				<div class="linea-text">
-					<p>Haz clic en un color de la rueda para acceder a los datos de los Objetivos de Desarrollo Sostenible en México</p>
-				</div>
-				<span><a href="#" class="col-xs-12 col-sm-3 col-lg-4 fondo-secc">
-							<h2 class="text-info">{{name}}</h2> 
-							<img src="images/mexico.png" class="img-responsive"/>
-						</a></span>
 
-				 <div class="col-xs-12 col-sm-4 col-lg-4 titulo-pais">
-					<div class="content-titulos">
-						 <div class="col-xs-12 col-sm-4 col-lg-4 pib">
-							<h3>PIB (Miles de Millones)</h3>
-							<p>{{pib}}</p>
-						 </div>
-						  <div class="col-xs-12 col-sm-4 col-lg-4 pib">
-							<h3>Nivel de renta</h3>
-							<p>{{incomeLevel}}</p>
-							<br/>
-						 </div>
-						  <div class="col-xs-12 col-sm-4 col-lg-4 pib">
-							<h3>Población (Millones)</h3>
-							<p>{{population}}</p>
-							<br/>
-						 </div>
-					 </div>
-					 <div class="listas">
-						<h4>Composición de la estructura institucional</h4>
-					    	<p ng-repeat ="value in structure.head">{{value}}</p>
-					    	<ul>
-					    		<li ng-repeat="value in structure.list">{{value}}</li>
-					    	</ul>
-				    </div>
+			<div class="content">
+
+				<div class="col-xs-12 col-sm-3 col-lg-3 fondo-secc">
+						<div>
+								<div class="country-cover">
+									<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+									<h2 class="text-info">{{name}}</h2> 
+								</div>
+								<img src="images/maps/{{countryId}}.png" class="img-responsive"/>
+						</div>
 				</div>
+				<div class="col-xs-12 col-sm-8 col-lg-8">
+					<div class="row">
+						 <div class="col-xs-12 col-sm-6 col-lg-6 titulo-pais">
+							<div class="content-titulos">
+								 <div class="col-xs-6 col-sm-6 col-lg-6 country-cell">
+ 									<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+									<h3>PIB <br/>(Miles de Millones)</h3>
+									<p>{{pib}}</p>
+								 </div>
+								  <div class="col-xs-6 col-sm-6 col-lg-6 country-cell">
+								  	<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+									<h3>Nivel de renta</h3>
+									<p>{{incomeLevel}}</p>
+								 </div>
+							 </div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-6 col-lg-6 titulo-pais country-cell">
+							<div class="content-titulos">
+								<div class="col-xs-6 col-sm-6 col-lg-6 country-cell">
+								  		<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+										<h3>Población (Millones)</h3>
+										<p>{{population}}</p>
+								 </div>
+								<div class="col-xs-6 col-sm-6 col-lg-6 country-cell">
+								  	<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+									 <h3>Tasa de incidencia de la
+										pobreza sobre la base
+										1295 de la línea nacional</h3>
+										<p>{{incidenceOfPoverty}}</p>
+								 </div>
+							 </div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-lg-12 titulo-pais">
+							<div class="content-titulos">
+								<div class="col-xs-12 col-sm-6 col-lg-6 country-cell big-cell">
+								  	<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+								  	<div>
+										 <h3>Índice de Desarrollo Humano</h3>
+										 <p>{{hdi}}</p>
+									 </div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-lg-6 country-cell big-cell">
+								  	<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+								  	<div>
+							  			<h3>Posición en el Indice de Desarrollo Humano</h3>
+										<p>{{hdiRank}}</p>
+								  	</div>
+
+								</div>
+							</div>
+						</div>
+					</div>		
+				</div>			
 				
-				<div class="col-xs-12 col-sm-3 col-lg-4 content-titulos titulo-tasa titulo-pais ">
-					 <h3>Tasa de incidencia de la
-						pobreza sobre la base
-						1295 de la línea nacional</h3>
-						<p>{{incidenceOfPoverty}}</p>
-				</div>
-				<div class="col-xs-12 col-sm-3 col-lg-4 content-titulos titulo-pais ">
-					 <h3>Índice de Desarrollo Humano</h3>
-					 <p>{{hdi}}</p>
-				</div>
-				<div class="col-xs-12 col-sm-3 col-lg-4 content-titulos titulo-pais ">
-					 <h3>Posición en el Indice de Desarrollo Humano</h3>
-					 <p>{{hdiRank}}</p>
-				</div>
-				<div class="col-xs-12 col-sm-3 col-lg-4  titulo-pais content-accion">
-					 <h3>Acciones implementadas</h3>
-				<p>{{actions}}
-				</p>
-				</div>
-			
 			<div class="col-xs-12 col-sm-6 col-lg-12 iconos-desarrollo pull-down">
 				<div class="col-xs-12 col-sm-6 col-lg-2 titulos-iconos pull-down">
 					<img src="images/titulo.png"/>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-10 pull-down">
-					<div class="iconos-ods pull-down">
-						<a href="#"><img src="images/images_ODS 1.png"/></a>
+					<div ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8 ,9, 10, 11, 12, 13, 14, 15, 16, 17] track by $index" class="iconos-ods">
+					  <a href="#"><img src="images/images_ODS {{n}}.png"/></a>
 					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 2.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 3.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 4.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 5.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 6.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 7.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 8.png"/></a>
-					</div> 
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 9.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 10.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 11.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 12.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 13.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 14.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 15.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 16.png"/></a>
-					</div>
-					<div class="iconos-ods">
-						<a href="#"><img src="images/images_ODS 17.png"/></a>
-					</div>
+	
 				</div>
 			</div>
 			</div> 
 		</div>
-<!-- 	<div class="linea-footer"></div>
-        <footer>
-        </footer> -->
 	</div>
-</div>

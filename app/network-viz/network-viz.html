@@ -1,35 +1,44 @@
-<div class="row">
-	<div class="col-xs-12 col-sm-6 col-lg-12">
-		<div class="portal-cont">
-			<div class="container">
-				<div class="header">
-					<h2>Portal de datos para el desarrollo sostenible</h2>
-					<a href="#" class="img-header"><img src="images/logo_TELEFONICA.png" class="img-responsive"/></a>
-				</div>
+	<div class="header">
+		<h2>Portal de datos para el desarrollo sostenible</h2>
+		<a href="#" class="img-header"><img src="images/logo_TELEFONICA.png" class="img-responsive"/></a>
+	</div>
+	<div class="linea-text">
+		<p>Estas son las relaciones entre los ODS, los productores de datos y la informaciòn disponible. Selecciona el país de tu interés o vuelve atrás.</p>
+	</div>
+	<div class="portal-cont">
+		<div class="col-xs-12 col-sm-3 col-lg-3 fondo-secc">
+			<div>
+					<div class="country-cover">
+						<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
+						<h2 class="text-info">{{name}}</h2> 
+					</div>
+					<img src="images/maps/{{countryId}}.png" class="img-responsive"/>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-9 col-lg-9">
+			<div class="row">
 				<div class="network-viz-container">
 
-					<div class="row">
-						<div class="col-md-10">
-							<div id="forcemap"></div>
-						</div>
-						<div class="col-md-2">
-							<div id="tooltip"></div>
+				
+					<div class="col-xs-12 col-sm-10 col-lg-10">
+						<div id="forcemap"></div>
+					</div>
+					<div class="col-xs-12 col-sm-2 col-lg-2">
+						<div id="tooltip"></div>
+						<div>
 							<div>
-								<div>
-									<a href="#!network-viz/colombia">Colombia</a>
-								</div>
-								<div>
-									<a href="#!network-viz/costa_rica">Costa Rica</a>
-								</div>
-								<div>
-									<a href="#!network-viz/mexico">México</a>
-								</div>
+								<a href="#!network-viz/colombia">Colombia</a>
+							</div>
+							<div>
+								<a href="#!network-viz/costa_rica">Costa Rica</a>
+							</div>
+							<div>
+								<a href="#!network-viz/mexico">México</a>
 							</div>
 						</div>
-
 					</div>
+
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
