@@ -290,7 +290,7 @@ section {
 .fondo-secc img{
 	float:left;
 	opacity:0.5;
-	padding-bottom: 96px;
+	padding-bottom: -16px;
 	
 }
 .listas{
@@ -386,4 +386,13 @@ section {
 
 .country-cover h2{
 	color: #282c59;
+	width: 350px
+}
+
+.country-cover{
+	position: absolute;
+}
+
+.country-cover{
+	margin-top: 20px;
 }
