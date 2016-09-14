@@ -119,6 +119,13 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.on("click", clickNode);
 
 
+				d3.select("body").on("click",function(){
+
+				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
+				    	d3.selectAll(".node").classed("selected", false);	
+				    	d3.selectAll(".link").classed("selected", false);
+				    }
+				});
 
 				function rowContainsValidODS(row){
 					var ods_index = parseInt(row.ODS.split(" ")[0]);
@@ -161,8 +168,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    	var associated = getAssociatedNodes(d);
 				    	d3.selectAll(".node")
 				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})	
-				    	// d3.selectAll("node.img")
-				    	// .classed("selected", function(d){ return associated.indexOf(d.name) != -1})
 				    	d3.selectAll(".link").classed("selected", 
 				    								function(d){ 
 				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
