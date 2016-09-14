@@ -1,7 +1,7 @@
 
 .link {
   stroke: #222;
-  /*opacity: 0.5;*/
+  opacity: 0.3;
   stroke-width: 0.2px;
 }
 
@@ -9,8 +9,15 @@
   fill: green;
 }
 
+.node {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 0px;
+  opacity: 0.2;
+}
 
-circle.selected {
+.node.selected {
+  opacity: 1;
   stroke-width: 1px;
 }
 
@@ -22,11 +29,7 @@ circle.selected {
   stroke-width: 1px;
 }
 
-circle {
-  fill: #ccc;
-  stroke: #333;
-  stroke-width: 0px;
-}
+
 
 text {
   font: 12px sans-serif;

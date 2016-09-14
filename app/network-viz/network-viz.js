@@ -120,20 +120,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 
 
-				
-
-/*				nodeEnter.append("text")
-						.attr("class", "nodetext")
-						.attr("x", 20)
-						.attr("y", 25 +15)
-						.attr("fill","#130C0E")
-						.text(function(d) { return  d.type.toUpperCase() + ": " + d.name });
-*/
-
-				//************************************
-				//Functions
-				//************************************
-
 				function rowContainsValidODS(row){
 					var ods_index = parseInt(row.ODS.split(" ")[0]);
 					return ods_index > 0 && ods_index <=17;
@@ -173,8 +159,10 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				function clickNode(d){
 				    	var associated = getAssociatedNodes(d);
-				    	d3.selectAll("circle")
-				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})
+				    	d3.selectAll(".node")
+				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})	
+				    	// d3.selectAll("node.img")
+				    	// .classed("selected", function(d){ return associated.indexOf(d.name) != -1})
 				    	d3.selectAll(".link").classed("selected", 
 				    								function(d){ 
 				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
