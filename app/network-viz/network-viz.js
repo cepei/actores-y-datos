@@ -23,7 +23,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var x_center = 400;
 				var y_center = 400;
 				var base_node = {
-					"base_radius":{"ods":0, "fuente":5, "datos":3},
+					"base_radius":{"ods":0, "fuente":3, "datos":1},
 					"charge":{"ods":-50, "fuente":-20, "datos":-10}
 				}
 
@@ -194,7 +194,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function calculateNodeRadius(nodedata){
-					var weight = (1 + ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
+					var weight = (1 + 3*ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
 			    	return base_node.base_radius[nodedata.type] * weight;
 
 				}
@@ -257,7 +257,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					// var i = parseInt(node.name.split(" ")[0])
 					var i = index;
 					var increment_angle = 360/17
-					var radius = 350;
+					var radius = 250;
 					var offsetAngle = -90;
 					var currentAngleRadians = (offsetAngle + (increment_angle * i)) * Math.PI / 180 ;
 					return {
