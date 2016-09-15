@@ -10,7 +10,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 }])
 
 .controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
-	$scope.countryId =  $routeParams.countryId;
+	$scope.countryId =  $routeParams.country;
+	$scope.data = ["relax", "expand"];
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
 	var force
 	function create_graph(filename){
@@ -166,6 +167,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				function clickNode(d){
 				    	var associated = getAssociatedNodes(d);
+				    	$scope.data = associated;
+				    	$scope.$apply()
+				    	console.log($scope);
 				    	d3.selectAll(".node")
 				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})	
 				    	d3.selectAll(".link").classed("selected", 
