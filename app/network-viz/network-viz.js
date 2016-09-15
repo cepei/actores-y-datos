@@ -254,8 +254,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function getODSNodePosition(node, index){
-					// var i = parseInt(node.name.split(" ")[0])
-					var i = index;
+					var i = parseInt(node.name.split(" ")[0])
+					// var i = index;
 					var increment_angle = 360/17
 					var radius = 250;
 					var offsetAngle = -90;
