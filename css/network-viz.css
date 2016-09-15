@@ -16,13 +16,13 @@
   opacity: 0.2;
 }
 
-.node.selected {
+.node.highligthed {
   opacity: 1;
   stroke-width: 1px;
 }
 
 
-.link.selected {
+.link.highligthed {
   /*stroke-dasharray: 0,2 1;*/
   stroke: #000;
   opacity:1;

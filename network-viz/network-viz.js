@@ -20,18 +20,18 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			d3.csv(filename, function(rawdata){
 				var width = 1000,
 				    height = 1000
-				var x_center = 400;
-				var y_center = 400;
+				var x_center = 350;
+				var y_center = 350;
 				var base_node = {
-					"base_radius":{"ods":0, "fuente":5, "datos":3},
+					"base_radius":{"ods":0, "fuente":3, "datos":1},
 					"charge":{"ods":-50, "fuente":-20, "datos":-10}
 				}
 
 				var data = rawdata.filter(rowContainsValidODS);
+				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
 				var nodes = createNodes(data, ODSs);
 				var links = createLinks(data);
-				var positions = getNodesPositions(nodes, data, x_center, y_center);
-				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs)
+				var positions = getNodesPositions(nodes, data, ocurrences, x_center, y_center);
 				setInitialNodePositions(nodes)
 
 				if(force)
@@ -73,7 +73,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.selectAll("g")
 								.data(force.nodes())
 								.enter().append("g")
-								.attr("class", "node")
+								.attr("class", "node highligthed")
 								.call(force.drag)
 								.on("click", clickNode)
 								.on("mouseover",function(d){
@@ -123,8 +123,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				d3.select("body").on("click",function(){
 
 				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
-				    	d3.selectAll(".node").classed("selected", false);	
-				    	d3.selectAll(".link").classed("selected", false);
+				    	d3.selectAll(".node").classed("highligthed", true);	
+				    	d3.selectAll(".link").classed("highligthed", false);
 				    }
 				});
 
@@ -171,8 +171,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    	$scope.$apply()
 				    	console.log($scope);
 				    	d3.selectAll(".node")
-				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})	
-				    	d3.selectAll(".link").classed("selected", 
+				    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
+				    	d3.selectAll(".link").classed("highligthed", 
 				    								function(d){ 
 				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
 				    									var is_target_associated = associated.indexOf(d.target.name) != -1;
@@ -194,7 +194,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function calculateNodeRadius(nodedata){
-					var weight = (1 + ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
+					var weight = (1 + 3*ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
 			    	return base_node.base_radius[nodedata.type] * weight;
 
 				}
@@ -203,20 +203,25 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			    	return base_node.charge[nodedata.type];
 				}
 
-				function getNodesPositions(nodes, data, x_center, y_center){
+				function getNodesPositions(nodes, data, ocurrences, x_center, y_center){
 						var positions = {"ods":{}, "fuente":{}, "datos":{}}		
-						setODSNodesOnCircularPositions(positions, nodes);
+						setODSNodesOnCircularPositions(positions, nodes, ocurrences);
 						setNodesPositionsByODSAfinity(positions, nodes, data, x_center, y_center);
 						return positions;
 				}
 
-				function setODSNodesOnCircularPositions(positions, nodes){
-						for(var key in nodes){
-							var node = nodes[key];
-							if(node.type == "ods"){
-								positions["ods"][node.node_index] = getODSNodePosition(node)
-							}
-						}
+				function setODSNodesOnCircularPositions(positions, nodes, ocurrences){
+					var orderedOcurencies = [];
+					for(var k in ocurrences.ods){
+						if(k!="__max")
+							orderedOcurencies.push({"key":k,"value":ocurrences.ods[k]})
+
+					}
+					orderedOcurencies.sort(function(a,b){return a.value < b.value})
+									 .forEach(function(d,i){
+									 	var node = nodes[d.key];
+									 	positions["ods"][node.node_index] = getODSNodePosition(node, i);
+									 })
 				}
 
 				function setNodesPositionsByODSAfinity(positions, nodes, data, x_center, y_center){
@@ -248,11 +253,12 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				}
 
-				function getODSNodePosition(node){
+				function getODSNodePosition(node, index){
 					var i = parseInt(node.name.split(" ")[0])
+					// var i = index;
 					var increment_angle = 360/17
-					var radius = 350;
-					var offsetAngle = 0;
+					var radius = 250;
+					var offsetAngle = -90;
 					var currentAngleRadians = (offsetAngle + (increment_angle * i)) * Math.PI / 180 ;
 					return {
 							  x: x_center + (radius * Math.cos(currentAngleRadians)),
