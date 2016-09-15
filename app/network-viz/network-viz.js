@@ -28,10 +28,10 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				var data = rawdata.filter(rowContainsValidODS);
+				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
 				var nodes = createNodes(data, ODSs);
 				var links = createLinks(data);
-				var positions = getNodesPositions(nodes, data, x_center, y_center);
-				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs)
+				var positions = getNodesPositions(nodes, data, ocurrences, x_center, y_center);
 				setInitialNodePositions(nodes)
 
 				if(force)
@@ -203,20 +203,25 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			    	return base_node.charge[nodedata.type];
 				}
 
-				function getNodesPositions(nodes, data, x_center, y_center){
+				function getNodesPositions(nodes, data, ocurrences, x_center, y_center){
 						var positions = {"ods":{}, "fuente":{}, "datos":{}}		
-						setODSNodesOnCircularPositions(positions, nodes);
+						setODSNodesOnCircularPositions(positions, nodes, ocurrences);
 						setNodesPositionsByODSAfinity(positions, nodes, data, x_center, y_center);
 						return positions;
 				}
 
-				function setODSNodesOnCircularPositions(positions, nodes){
-						for(var key in nodes){
-							var node = nodes[key];
-							if(node.type == "ods"){
-								positions["ods"][node.node_index] = getODSNodePosition(node)
-							}
-						}
+				function setODSNodesOnCircularPositions(positions, nodes, ocurrences){
+					var orderedOcurencies = [];
+					for(var k in ocurrences.ods){
+						if(k!="__max")
+							orderedOcurencies.push({"key":k,"value":ocurrences.ods[k]})
+
+					}
+					orderedOcurencies.sort(function(a,b){return a.value < b.value})
+									 .forEach(function(d,i){
+									 	var node = nodes[d.key];
+									 	positions["ods"][node.node_index] = getODSNodePosition(node, i);
+									 })
 				}
 
 				function setNodesPositionsByODSAfinity(positions, nodes, data, x_center, y_center){
@@ -248,11 +253,12 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				}
 
-				function getODSNodePosition(node){
-					var i = parseInt(node.name.split(" ")[0])
+				function getODSNodePosition(node, index){
+					// var i = parseInt(node.name.split(" ")[0])
+					var i = index;
 					var increment_angle = 360/17
 					var radius = 350;
-					var offsetAngle = 0;
+					var offsetAngle = -90;
 					var currentAngleRadians = (offsetAngle + (increment_angle * i)) * Math.PI / 180 ;
 					return {
 							  x: x_center + (radius * Math.cos(currentAngleRadians)),
