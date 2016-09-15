@@ -73,7 +73,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.selectAll("g")
 								.data(force.nodes())
 								.enter().append("g")
-								.attr("class", "node")
+								.attr("class", "node highligthed")
 								.call(force.drag)
 								.on("click", clickNode)
 								.on("mouseover",function(d){
@@ -123,8 +123,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				d3.select("body").on("click",function(){
 
 				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
-				    	d3.selectAll(".node").classed("selected", false);	
-				    	d3.selectAll(".link").classed("selected", false);
+				    	d3.selectAll(".node").classed("highligthed", true);	
+				    	d3.selectAll(".link").classed("highligthed", false);
 				    }
 				});
 
@@ -171,8 +171,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    	$scope.$apply()
 				    	console.log($scope);
 				    	d3.selectAll(".node")
-				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})	
-				    	d3.selectAll(".link").classed("selected", 
+				    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
+				    	d3.selectAll(".link").classed("highligthed", 
 				    								function(d){ 
 				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
 				    									var is_target_associated = associated.indexOf(d.target.name) != -1;
