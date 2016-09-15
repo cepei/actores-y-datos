@@ -10,7 +10,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 }])
 
 .controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
-	$scope.countryId =  $routeParams.countryId;
+	$scope.countryId =  $routeParams.country;
+	$scope.data = ["relax", "expand"];
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
 	var force
 	function create_graph(filename){
@@ -119,20 +120,13 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.on("click", clickNode);
 
 
+				d3.select("body").on("click",function(){
 
-				
-
-/*				nodeEnter.append("text")
-						.attr("class", "nodetext")
-						.attr("x", 20)
-						.attr("y", 25 +15)
-						.attr("fill","#130C0E")
-						.text(function(d) { return  d.type.toUpperCase() + ": " + d.name });
-*/
-
-				//************************************
-				//Functions
-				//************************************
+				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
+				    	d3.selectAll(".node").classed("selected", false);	
+				    	d3.selectAll(".link").classed("selected", false);
+				    }
+				});
 
 				function rowContainsValidODS(row){
 					var ods_index = parseInt(row.ODS.split(" ")[0]);
@@ -173,8 +167,11 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				function clickNode(d){
 				    	var associated = getAssociatedNodes(d);
-				    	d3.selectAll("circle")
-				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})
+				    	$scope.data = associated;
+				    	$scope.$apply()
+				    	console.log($scope);
+				    	d3.selectAll(".node")
+				    	.classed("selected", function(d){ return associated.indexOf(d.name) != -1})	
 				    	d3.selectAll(".link").classed("selected", 
 				    								function(d){ 
 				    									var is_source_associated = associated.indexOf(d.source.name) != -1;

@@ -39,6 +39,7 @@ angular.module('myApp.countries', ['ngRoute'])
 		$scope.hdi = country["Índice de Desarrollo Humano"];
 		$scope.hdiRank = country["Posición en el Indice de Desarrollo Humano"];
 		$scope.actions = country["Acciones implementadas"];
+		$scope.ods_indices = d3.range(1,18);
 
 
 		});		
