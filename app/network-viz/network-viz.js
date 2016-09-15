@@ -20,8 +20,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			d3.csv(filename, function(rawdata){
 				var width = 1000,
 				    height = 1000
-				var x_center = 400;
-				var y_center = 400;
+				var x_center = 350;
+				var y_center = 350;
 				var base_node = {
 					"base_radius":{"ods":0, "fuente":3, "datos":1},
 					"charge":{"ods":-50, "fuente":-20, "datos":-10}
