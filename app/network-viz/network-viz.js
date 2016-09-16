@@ -23,8 +23,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var x_center = 350;
 				var y_center = 350;
 				var base_node = {
-					"base_radius":{"ods":0, "fuente":3, "datos":1},
-					"charge":{"ods":-50, "fuente":-20, "datos":-10}
+					"base_radius":{"ods":0, "fuente":3, "datos":3},
+					"charge":{"ods":-50, "fuente":-20, "datos":-5}
 				}
 
 				var data = rawdata.filter(rowContainsValidODS);
@@ -194,7 +194,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function calculateNodeRadius(nodedata){
-					var weight = (1 + 3*ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
+					var weight = (1 + 3*ocurrences[nodedata.type][nodedata.name]/ocurrences["fuente"]["__max"]);
 			    	return base_node.base_radius[nodedata.type] * weight;
 
 				}
@@ -244,7 +244,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			    	data.filter(function(datanode){
 				    		return datanode[type.toUpperCase()] == name && datanode.ODS != "";
 				    	}).forEach(function(d, i, arr){
-				    		var weight = 1 / (arr.length * (type=="fuente"?1.4:1.2));
+				    		var weight = 1 / (arr.length * (type=="fuente"?1.6:1.3));
 				    		var ods_coordinates = positions.ods[nodes[d.ODS].node_index];
 		    				coordinates.x += (ods_coordinates.x - x_center) * weight;	
 		    				coordinates.y += (ods_coordinates.y - y_center) * weight;									
@@ -254,8 +254,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function getODSNodePosition(node, index){
-					var i = parseInt(node.name.split(" ")[0])
-					// var i = index;
+					// var i = parseInt(node.name.split(" ")[0])
+					var i = index;
 					var increment_angle = 360/17
 					var radius = 250;
 					var offsetAngle = -90;

@@ -18,13 +18,17 @@
 
 .node.highligthed {
   opacity: 1;
+}
+
+.node:hover{
   stroke-width: 1px;
+  
 }
 
 
 .link.highligthed {
   /*stroke-dasharray: 0,2 1;*/
-  stroke: #000;
+  stroke: #888;
   opacity:1;
   stroke-width: 1px;
 }
@@ -43,12 +47,12 @@ text {
 }
 
 .fuente {
- fill:blue;
+ fill:#00A2A8;
  color:blue;
 }
 
 .datos {
- fill:red;
+ fill:#FF9122;
  color:red;
 }
 
