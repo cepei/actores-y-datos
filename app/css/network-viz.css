@@ -1,7 +1,7 @@
 
 .link {
-  stroke: #222;
-  opacity: 0.1;
+  stroke: #000;
+  opacity: 0.01;
   stroke-width: 1px;
 }
 
@@ -25,11 +25,15 @@
   
 }
 
+circle{
+  fill:white;
+}
+
 
 .link.highligthed {
   /*stroke-dasharray: 0,2 1;*/
   stroke: #888;
-  opacity:1;
+  opacity:0.4;
   stroke-width: 1px;
 }
 

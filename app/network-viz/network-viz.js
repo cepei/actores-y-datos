@@ -9,13 +9,55 @@ angular.module('myApp.network-viz', ['ngRoute'])
   });
 }])
 
-.controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
+.controller('NetworkVizCtrl', ["$scope", "$routeParams", "$http",  function($scope, $routeParams, $http) {
 	$scope.countryId =  $routeParams.country;
 	$scope.data = ["relax", "expand"];
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
-	var force
+	var force, 
+		data = [];
+
+	$scope.clickNode = function(d){
+	    	var associated = getAssociatedNodes(d);
+	    	$scope.nodeName = d.name;
+	    	$scope.nodeType = d.type;
+	    	//$scope.data = associated;
+	    	$scope.$apply()
+	    	d3.selectAll(".node")
+	    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
+	    	d3.selectAll(".link").classed("highligthed", 
+	    								function(d){ 
+	    									var is_source_associated = associated.indexOf(d.source.name) != -1;
+	    									var is_target_associated = associated.indexOf(d.target.name) != -1;
+	    									return is_source_associated && is_target_associated})
+
+	    	d3.select("#tooltip")
+	  	    .attr("class", d.type)
+	    	.html( "<b>" + d.type.toUpperCase() + "</b>: " + d.name)
+
+
+	}
+
+
+	function getAssociatedNodes(nodedata){
+		var associated = [];
+
+	    	data.filter(function(obj){
+	    		return obj[nodedata.type.toUpperCase()] == nodedata.name
+	    	}).forEach(function(d){
+	    		associated.push(d.ODS);
+	    		associated.push(d.FUENTE);
+	    		associated.push(d.DATOS);
+
+	    	})
+	    return associated;
+	}
+
 	function create_graph(filename){
+		$http.get("network-viz/data/" + $routeParams.country + ".csv");
+
 		d3.csv("network-viz/data/ODSs.csv", function(ODSs){
+
+			// $http.get("network-viz/data/" + $routeParams.country + ".csv");
 
 			d3.csv(filename, function(rawdata){
 				var width = 1000,
@@ -27,7 +69,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					"charge":{"ods":-50, "fuente":-20, "datos":-5}
 				}
 
-				var data = rawdata.filter(rowContainsValidODS);
+				data = rawdata.filter(rowContainsValidODS);
 				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
 				var nodes = createNodes(data, ODSs);
 				var links = createLinks(data);
@@ -65,7 +107,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var path = svg.append("g").selectAll("path")
 				    .data(force.links())
 				  .enter().append("path")
-				    .attr("class", function(d) { return "link " + d.type; })
+				    .attr("class", function(d) { return "link highligthed " + d.type; })
 				    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
 				
 
@@ -75,7 +117,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.enter().append("g")
 								.attr("class", "node highligthed")
 								.call(force.drag)
-								.on("click", clickNode)
+								.on("click", $scope.clickNode)
 								.on("mouseover",function(d){
 
 									tip	.html("<b>" + d.type.toUpperCase() + "</b>: " + d.name)	
@@ -104,7 +146,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var circle = nodeEnter.append("svg:circle")
 						.attr("class", function(d) { return d.type; })
 						.attr("r", calculateNodeRadius)
-						.on("click", clickNode)
+						.on("click", $scope.clickNode)
 
 				var images = nodeEnter
 						.filter(function(d){return d.type=="ods"})
@@ -117,14 +159,14 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("y", calculateODSImageOfsett)
 						.attr("height", calculateODSImageSize)
 						.attr("width", calculateODSImageSize)
-						.on("click", clickNode);
+						.on("click", $scope.clickNode);
 
 
 				d3.select("body").on("click",function(){
 
 				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
 				    	d3.selectAll(".node").classed("highligthed", true);	
-				    	d3.selectAll(".link").classed("highligthed", false);
+				    	d3.selectAll(".link").classed("highligthed", true);
 				    }
 				});
 
@@ -165,25 +207,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						return links
 				}
 
-				function clickNode(d){
-				    	var associated = getAssociatedNodes(d);
-				    	$scope.data = associated;
-				    	$scope.$apply()
-				    	console.log($scope);
-				    	d3.selectAll(".node")
-				    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
-				    	d3.selectAll(".link").classed("highligthed", 
-				    								function(d){ 
-				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
-				    									var is_target_associated = associated.indexOf(d.target.name) != -1;
-				    									return is_source_associated && is_target_associated})
-
-				    	d3.select("#tooltip")
-				  	    .attr("class", d.type)
-				    	.html( "<b>" + d.type.toUpperCase() + "</b>: " + d.name)
-
-
-				}
 				function calculateODSImageOfsett(nodedata){
 					return -calculateODSImageSize(nodedata)/2;
 				}
@@ -309,24 +332,10 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					nodeEnter.attr("transform", transform)
 				}
 
-
-				function getAssociatedNodes(nodedata){
-					var associated = [];
-
-				    	data.filter(function(obj){
-				    		return obj[nodedata.type.toUpperCase()] == nodedata.name
-				    	}).forEach(function(d){
-				    		associated.push(d.ODS);
-				    		associated.push(d.FUENTE);
-				    		associated.push(d.DATOS);
-
-				    	})
-				    return associated;
-				}
-
 				// functions 
 				function linkArc(d) {
 				  return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
+
 				}
 
 				function transform(d) {
