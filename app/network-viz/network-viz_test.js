@@ -14,10 +14,9 @@ describe('myApp.network-viz module', function() {
      $routeParams = {"country":"any_country_id"};
      // backend definition common for all tests
      authRequestHandler = $httpBackend.when('GET', "network-viz/data/" + $routeParams.country + ".csv")
-                            .respond(
-
-                            	// {userId: 'userX'}, {'A-Token': 'xxx'}
-                            	);
+                            .respond()
+                          $httpBackend.when('GET', "network-viz/data/country_names.json")
+                            .respond({"any_country_id":"Country Name"});
 
 
      // The $controller service is used to create instances of controllers
@@ -32,7 +31,7 @@ describe('myApp.network-viz module', function() {
      $httpBackend.verifyNoOutstandingRequest();
    });
 
-    it('should open right file', inject(function($controller) {
+    it('should open right country data file', inject(function($controller) {
       //spec body 
 
       var networkCtrl = createController();
@@ -60,11 +59,23 @@ describe('myApp.network-viz module', function() {
 
     }));
 
-    // it('should ....', inject(function($controller) {
-    //   //spec body 
-    //   var networkCtrl = createController();
-    //   $httpBackend.flush();
-    // }));
+
+    it('should open country_names.json file', inject(function($controller) {
+      //spec body 
+
+      var networkCtrl = createController();
+      $httpBackend.expectGET("network-viz/data/country_names.json");
+      $httpBackend.flush();
+    }));
+
+    it('should put correct country name in scope', inject(function($controller) {
+      //spec body 
+      var networkCtrl = createController();
+      $httpBackend.expectGET("network-viz/data/country_names.json");
+      $httpBackend.flush();
+      expect($rootScope.countryName).toBe("Country Name");
+
+    }));
 
 
 

@@ -12,15 +12,19 @@ angular.module('myApp.network-viz', ['ngRoute'])
 .controller('NetworkVizCtrl', ["$scope", "$routeParams", "$http",  function($scope, $routeParams, $http) {
 	$scope.countryId =  $routeParams.country;
 	$scope.data = ["relax", "expand"];
+	$http.get("network-viz/data/country_names.json").then(
+	function(response){
+		console.info(response.data[$scope.countryId ])
+		$scope.countryName = response.data[$scope.countryId ]
+	});
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
 	var force, 
 		data = [];
 
 	$scope.clickNode = function(d){
-	    	var associated = getAssociatedNodes(d);
+	    	var associated = $scope.getAssociatedNodes(d);
 	    	$scope.nodeName = d.name;
 	    	$scope.nodeType = d.type;
-	    	//$scope.data = associated;
 	    	$scope.$apply()
 	    	d3.selectAll(".node")
 	    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
@@ -38,7 +42,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	}
 
 
-	function getAssociatedNodes(nodedata){
+	$scope.getAssociatedNodes = function(nodedata){
 		var associated = [];
 
 	    	data.filter(function(obj){
@@ -53,11 +57,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	}
 
 	function create_graph(filename){
-		$http.get("network-viz/data/" + $routeParams.country + ".csv");
+		$http.get(filename);
 
-		d3.csv("network-viz/data/ODSs.csv", function(ODSs){
-
-			// $http.get("network-viz/data/" + $routeParams.country + ".csv");
+		d3.csv("network-viz/data/ODSs.csv", function(ODSs){			
 
 			d3.csv(filename, function(rawdata){
 				var width = 1000,
@@ -68,6 +70,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					"base_radius":{"ods":0, "fuente":3, "datos":3},
 					"charge":{"ods":-50, "fuente":-20, "datos":-5}
 				}
+				console.info(rawdata[0]["PAÍS"])
+
 
 				data = rawdata.filter(rowContainsValidODS);
 				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
