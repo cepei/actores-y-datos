@@ -39,12 +39,31 @@ describe('myApp.network-viz module', function() {
       $httpBackend.flush();
     }));
 
+    it('should be nodeName empty string by default', inject(function($controller) {
+      //spec body 
+      var networkCtrl = createController();
+      expect($rootScope.nodeName).toBe("");
+      $httpBackend.flush();
+
+    }));
+
     it('should put correct name in scope when clicked', inject(function($controller) {
       //spec body 
       var networkCtrl = createController();
       var datum = {"name":"node name", "type": "type"}
       $rootScope.clickNode(datum);
       expect($rootScope.nodeName).toBe("node name");
+      $httpBackend.flush();
+
+    }));
+
+    it('should put empty string in nodeName when clicked outside a node after a node was selected', inject(function($controller) {
+      //spec body 
+      var networkCtrl = createController();
+      var datum = {"name":"node name", "type": "type"}
+      $rootScope.clickNode(datum);
+      $rootScope.clickOutsideNode();
+      expect($rootScope.nodeName).toBe("");
       $httpBackend.flush();
 
     }));

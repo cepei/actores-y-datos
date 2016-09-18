@@ -6,28 +6,19 @@
 		<p>Estas son las relaciones entre los ODS, los productores de datos y la informaciòn disponible. Selecciona el país de tu interés o vuelve atrás.</p>
 	</div>
 	<div class="portal-cont">
-		<div class="col-xs-12 col-sm-3 col-lg-3 fondo-secc">
-<!-- 			<div>
-					<div class="country-cover">
+		<div class="col-xs-12 col-sm-3 col-lg-3 network-node-info">
+			<div class="country-name">
+				<h2 class="text-info">{{countryName}}</h2> 
 
-						<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
-						<h2 class="text-info">{{countryName}}</h2> 
-						<h3 ng-repeat="n in data">
-							{{n}}
-						</h3>
-					</div>
-					<img src="images/maps/{{countryId}}.png" class="img-responsive"/>
-			</div>  -->
-			<div>
-					<img src="images/maps/{{countryId}}.png" class="img-responsive country-map"/>
-
-					<div class="country-cover">
-						<img alt="" src="images/iconsPaises/{{countryId}}.png"></img>
-						<h2 class="text-info">{{countryName}}</h2> 
-					</div>
 			</div>
+			<hr/>
+			<span class="network-instructions" ng-show="nodeName==''">Haga click en uno de los puntos de la gráfica</span>
+			<div id="tooltip" ng-show="nodeName!=''" ng-class="nodeType">
+				<b> {{nodeType.toUpperCase()}} </b>: {{nodeName}}
+			</div>
+
+			<hr/>
 			<div class="col-xs-12 col-sm-12 col-lg-12">
-				<div id="tooltip"></div>
 				<div>
 					<div>
 						<a href="#!network-viz/colombia">Colombia</a>

@@ -356,3 +356,14 @@ footer span{
   color:#D7DF01;
   font-size: 1.1em;
 }
+
+hr { 
+    color:#282c59:;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 

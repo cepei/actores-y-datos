@@ -81,3 +81,28 @@ text {
 .node:not(:hover) .nodetext {
   display: none;
 }
+
+
+.network-node-info h2{
+  color:#282c59;
+  font-weight:800;
+  width:100%;
+  text-align:center;
+  font-size:4em;
+}
+.network-node-info{
+  background:url('../images/seccion-background.jpg') repeat;
+  padding-left: -15px!important;
+}
+
+.network-node-info img{
+  float:left;
+  opacity:0.5;
+  padding-bottom: -16px;
+  
+}
+
+.network-node-info .network-instructions{
+  text-align:center;
+  color:#282c59;
+}

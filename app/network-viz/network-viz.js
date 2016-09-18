@@ -12,9 +12,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 .controller('NetworkVizCtrl', ["$scope", "$routeParams", "$http",  function($scope, $routeParams, $http) {
 	$scope.countryId =  $routeParams.country;
 	$scope.data = ["relax", "expand"];
+	$scope.nodeName = "";
 	$http.get("network-viz/data/country_names.json").then(
 	function(response){
-		console.info(response.data[$scope.countryId ])
 		$scope.countryName = response.data[$scope.countryId ]
 	});
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
@@ -34,11 +34,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	    									var is_target_associated = associated.indexOf(d.target.name) != -1;
 	    									return is_source_associated && is_target_associated})
 
-	    	d3.select("#tooltip")
-	  	    .attr("class", d.type)
-	    	.html( "<b>" + d.type.toUpperCase() + "</b>: " + d.name)
-
-
 	}
 
 
@@ -56,6 +51,13 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	    return associated;
 	}
 
+	$scope.clickOutsideNode = function(){
+		$scope.nodeName = "";
+    	d3.selectAll(".node").classed("highligthed", true);	
+    	d3.selectAll(".link").classed("highligthed", true);
+    	$scope.$apply();	
+	}
+
 	function create_graph(filename){
 		$http.get(filename);
 
@@ -70,7 +72,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					"base_radius":{"ods":0, "fuente":3, "datos":3},
 					"charge":{"ods":-50, "fuente":-20, "datos":-5}
 				}
-				console.info(rawdata[0]["PAÍS"])
 
 
 				data = rawdata.filter(rowContainsValidODS);
@@ -96,9 +97,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    .on("tick", moveToRadial)
 				    .start()
 
-				var tip = d3.select("body").append("div")	
-					.attr("class", "tooltip")				
-					.style("opacity", 0);
+				// var tip = d3.select("body").append("div")	
+				// 	.attr("class", "tooltip")				
+				// 	.style("opacity", 0);
 				
 
 
@@ -169,10 +170,11 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				d3.select("body").on("click",function(){
 
 				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
-				    	d3.selectAll(".node").classed("highligthed", true);	
-				    	d3.selectAll(".link").classed("highligthed", true);
+				    	$scope.clickOutsideNode();
 				    }
 				});
+
+
 
 				function rowContainsValidODS(row){
 					var ods_index = parseInt(row.ODS.split(" ")[0]);
@@ -193,7 +195,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						nodes[d.DATOS] = {name: d.DATOS, type: "datos", node_index: i}	
 
 					});
-					console.log(nodes)
 
 					return nodes
 
