@@ -106,3 +106,13 @@ text {
   text-align:center;
   color:#282c59;
 }
+
+.network-conventions{
+  color:#282c59;
+  text-align: center;
+}
+
+.network-convention{
+  margin-left: 5%;
+  margin-right: 5%;
+}

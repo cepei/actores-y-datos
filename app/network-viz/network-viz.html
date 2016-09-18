@@ -13,8 +13,33 @@
 			</div>
 			<hr/>
 			<span class="network-instructions" ng-show="nodeName==''">Haga click en uno de los puntos de la gráfica</span>
-			<div id="tooltip" ng-show="nodeName!=''" ng-class="nodeType">
-				<b> {{nodeType.toUpperCase()}} </b>: {{nodeName}}
+			<div ng-show="nodeName!=''">
+				<div id="tooltip" ng-show="nodeName!=''" ng-class="nodeType">
+					<b> {{nodeType.toUpperCase()}} </b>: {{nodeName}}
+				</div>
+			</div>
+
+			<hr/>
+			<div class="network-conventions">
+				<span class="network-convention">
+					<svg width="12" height="12">
+					  <circle cx="6" cy="6" r="6" class = "ods"/>
+					</svg>
+					<span><b>ODS</b></span>
+				</span>
+				<span class="network-convention">
+					<svg width="12" height="12">
+					  <circle cx="6" cy="6" r="6" class = "fuente"/>
+					</svg>
+					<span><b>FUENTE</b></span>
+				</span>
+				<span class="network-convention">
+					<svg width="12" height="12">
+					  <circle cx="6" cy="6" r="6" class = "datos"/>
+					</svg>
+					<span><b>DATO</b></span>
+				</span>
+
 			</div>
 
 			<hr/>
