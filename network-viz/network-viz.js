@@ -9,25 +9,35 @@ angular.module('myApp.network-viz', ['ngRoute'])
   });
 }])
 
-.controller('NetworkVizCtrl', ["$scope", "$routeParams",function($scope, $routeParams) {
+.controller('NetworkVizCtrl', ["$scope", "$routeParams", "$http",  function($scope, $routeParams, $http) {
 	$scope.countryId =  $routeParams.country;
 	$scope.data = ["relax", "expand"];
+	$scope.nodeName = "";
+
+	$http.get("network-viz/data/country_names.json").then(
+	function(response){
+		$scope.countryName = response.data[$scope.countryId ]
+	});
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
-	var force
+	var force, 
+		data = [];
+
 	function create_graph(filename){
-		d3.csv("network-viz/data/ODSs.csv", function(ODSs){
-
-			d3.csv(filename, function(rawdata){
-				var width = 1000,
-				    height = 1000
-				var x_center = 350;
-				var y_center = 350;
-				var base_node = {
-					"base_radius":{"ods":0, "fuente":3, "datos":1},
-					"charge":{"ods":-50, "fuente":-20, "datos":-10}
-				}
-
-				var data = rawdata.filter(rowContainsValidODS);
+		$http.get(filename).then(
+			function(response){
+			var rawdata = d3.csv.parse(response.data);
+			
+			var width = 1000,
+			    height = 1000
+			var x_center = 350;
+			var y_center = 350;
+			var base_node = {
+				"base_radius":{"ods":0, "fuente":3, "datos":3},
+				"charge":{"ods":-50, "fuente":-20, "datos":-5}
+			}
+			$http.get("network-viz/data/ODSs.csv").then(function(response){		
+				var ODSs = d3.csv.parse(response.data);
+				data = rawdata.filter(rowContainsValidODS);
 				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
 				var nodes = createNodes(data, ODSs);
 				var links = createLinks(data);
@@ -65,7 +75,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var path = svg.append("g").selectAll("path")
 				    .data(force.links())
 				  .enter().append("path")
-				    .attr("class", function(d) { return "link " + d.type; })
+				    .attr("class", function(d) { return "link highligthed " + d.type; })
 				    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
 				
 
@@ -83,8 +93,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 										.style("top", (d3.event.pageY) + 10 +"px");	
 
 									tip.transition()		
-										.duration(3)		
-										.style("opacity", .9);		
+										.duration(200)		
+										.style("opacity", .7);		
 
 
 
@@ -92,9 +102,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.on("mouseout", function(d) {
 									tip	.html("<b>" + d.type.toUpperCase() + "</b>: " + d.name)	
 										.style("left", -100 + "px")		
-										.style("top", -100 + "px");	
-									tip.transition()		
-										.duration(5)		
+										.style("top", -100 + "px")	
 										.style("opacity", 0);	
 										
 								})
@@ -104,7 +112,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var circle = nodeEnter.append("svg:circle")
 						.attr("class", function(d) { return d.type; })
 						.attr("r", calculateNodeRadius)
-						.on("click", clickNode)
 
 				var images = nodeEnter
 						.filter(function(d){return d.type=="ods"})
@@ -117,16 +124,77 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("y", calculateODSImageOfsett)
 						.attr("height", calculateODSImageSize)
 						.attr("width", calculateODSImageSize)
-						.on("click", clickNode);
 
 
 				d3.select("body").on("click",function(){
-
-				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
-				    	d3.selectAll(".node").classed("highligthed", true);	
-				    	d3.selectAll(".link").classed("highligthed", false);
+					var element = d3.select(d3.event.target.parentElement)
+				    if (!element.classed("node") && !element.classed("network-data-list")) {
+				    	$scope.clickOutsideNode();
 				    }
 				});
+
+				function clickNode(rawnodedata){
+						var nodedata = rawnodedata;
+						if(rawnodedata.type == "ods" && parseInt(rawnodedata.name) === rawnodedata.name){
+							nodedata.name = ODSs.filter(function(d){ return parseInt(d.ODS.split(" ")[0]) == rawnodedata.name})[0].ODS;
+						}
+
+				    	var associated = $scope.getAssociatedNodes(nodedata);
+				    	var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos))
+				    	associated.ods = associated.ods.map(function(d){return parseInt(d.split(" ")[0])});
+
+					    setTimeout(function () {
+					        $scope.$apply(function () {
+								$scope.relatedToNode = associated;
+								$scope.nodeName = nodedata.name;
+								$scope.nodeType = nodedata.type;
+								if(nodedata.type == "ods")
+									$scope.odsIndex = parseInt(nodedata.name.split(" ")[0]);
+					        });
+					    }, 100);
+
+
+				    	d3.selectAll(".node")
+				    	.classed("highligthed", function(d){ return associatedList.indexOf(d.name) != -1})
+				    	.classed("selected", function(d){ return d.name == nodedata.name})
+				    	d3.selectAll(".link").classed("highligthed", 
+				    								function(d){ 
+				    									var is_source_associated = associatedList.indexOf(d.source.name) != -1;
+				    									var is_target_associated = associatedList.indexOf(d.target.name) != -1;
+				    									return is_source_associated && is_target_associated})
+
+				}
+
+				$scope.clickNode = clickNode;
+
+
+				$scope.getAssociatedNodes = function(nodedata){
+					var associated = {"datos":[],"fuente":[],"ods":[]};
+				    	data.filter(function(obj){
+				    		return obj[nodedata.type.toUpperCase()] == nodedata.name
+				    	}).forEach(function(d){
+				    		if(associated.ods.indexOf(d.ODS)==-1)
+				    			associated.ods.push(d.ODS);
+
+				    		if(associated.fuente.indexOf(d.FUENTE)==-1)
+				    			associated.fuente.push(d.FUENTE);
+				    		
+				    		if(associated.datos.indexOf(d.DATOS)==-1)
+				    			associated.datos.push(d.DATOS);
+
+				    	})
+				    associated.ods.sort(function(a,b){return parseInt(a.split(" ")[0]) - parseInt(b.split(" ")[0])});
+
+				    return associated;
+				}
+
+				$scope.clickOutsideNode = function(){
+					$scope.nodeName = "";
+			    	d3.selectAll(".node").classed("highligthed", true);	
+			    	d3.selectAll(".link").classed("highligthed", true);
+			    	$scope.$apply();	
+				}
+
 
 				function rowContainsValidODS(row){
 					var ods_index = parseInt(row.ODS.split(" ")[0]);
@@ -147,7 +215,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						nodes[d.DATOS] = {name: d.DATOS, type: "datos", node_index: i}	
 
 					});
-					console.log(nodes)
 
 					return nodes
 
@@ -165,25 +232,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						return links
 				}
 
-				function clickNode(d){
-				    	var associated = getAssociatedNodes(d);
-				    	$scope.data = associated;
-				    	$scope.$apply()
-				    	console.log($scope);
-				    	d3.selectAll(".node")
-				    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
-				    	d3.selectAll(".link").classed("highligthed", 
-				    								function(d){ 
-				    									var is_source_associated = associated.indexOf(d.source.name) != -1;
-				    									var is_target_associated = associated.indexOf(d.target.name) != -1;
-				    									return is_source_associated && is_target_associated})
-
-				    	d3.select("#tooltip")
-				  	    .attr("class", d.type)
-				    	.html( "<b>" + d.type.toUpperCase() + "</b>: " + d.name)
-
-
-				}
 				function calculateODSImageOfsett(nodedata){
 					return -calculateODSImageSize(nodedata)/2;
 				}
@@ -194,7 +242,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function calculateNodeRadius(nodedata){
-					var weight = (1 + 3*ocurrences[nodedata.type][nodedata.name]/ocurrences[nodedata.type]["__max"]);
+					var weight = (1 + 3*ocurrences[nodedata.type][nodedata.name]/ocurrences["fuente"]["__max"]);
 			    	return base_node.base_radius[nodedata.type] * weight;
 
 				}
@@ -244,7 +292,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			    	data.filter(function(datanode){
 				    		return datanode[type.toUpperCase()] == name && datanode.ODS != "";
 				    	}).forEach(function(d, i, arr){
-				    		var weight = 1 / (arr.length * (type=="fuente"?1.4:1.2));
+				    		var weight = 1 / (arr.length * (type=="fuente"?1.6:1.3));
 				    		var ods_coordinates = positions.ods[nodes[d.ODS].node_index];
 		    				coordinates.x += (ods_coordinates.x - x_center) * weight;	
 		    				coordinates.y += (ods_coordinates.y - y_center) * weight;									
@@ -254,8 +302,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				}
 
 				function getODSNodePosition(node, index){
-					var i = parseInt(node.name.split(" ")[0])
-					// var i = index;
+					// var i = parseInt(node.name.split(" ")[0])
+					var i = index;
 					var increment_angle = 360/17
 					var radius = 250;
 					var offsetAngle = -90;
@@ -303,30 +351,14 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					path.attr("d", linkArc);
 				  nodeEnter.each(function(d,i) { radial(d,i,e.alpha); });
 					
-/*				  circle
-					.attr("cx", function(d) { return d.x ; })
-					.attr("cy", function(d) { return d.y ; })*/
+
 					nodeEnter.attr("transform", transform)
-				}
-
-
-				function getAssociatedNodes(nodedata){
-					var associated = [];
-
-				    	data.filter(function(obj){
-				    		return obj[nodedata.type.toUpperCase()] == nodedata.name
-				    	}).forEach(function(d){
-				    		associated.push(d.ODS);
-				    		associated.push(d.FUENTE);
-				    		associated.push(d.DATOS);
-
-				    	})
-				    return associated;
 				}
 
 				// functions 
 				function linkArc(d) {
 				  return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
+
 				}
 
 				function transform(d) {
