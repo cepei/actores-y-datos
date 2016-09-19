@@ -23,29 +23,37 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 	$scope.clickNode = function(d){
 	    	var associated = $scope.getAssociatedNodes(d);
+	    	var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos))
+	    	associated.ods = associated.ods.map(function(d){return parseInt(d.split(" ")[0])});
+	    	$scope.relatedToNode = associated;
 	    	$scope.nodeName = d.name;
 	    	$scope.nodeType = d.type;
 	    	$scope.$apply()
+
 	    	d3.selectAll(".node")
-	    	.classed("highligthed", function(d){ return associated.indexOf(d.name) != -1})	
+	    	.classed("highligthed", function(d){ return associatedList.indexOf(d.name) != -1})	
 	    	d3.selectAll(".link").classed("highligthed", 
 	    								function(d){ 
-	    									var is_source_associated = associated.indexOf(d.source.name) != -1;
-	    									var is_target_associated = associated.indexOf(d.target.name) != -1;
+	    									var is_source_associated = associatedList.indexOf(d.source.name) != -1;
+	    									var is_target_associated = associatedList.indexOf(d.target.name) != -1;
 	    									return is_source_associated && is_target_associated})
 
 	}
 
 
 	$scope.getAssociatedNodes = function(nodedata){
-		var associated = [];
-
+		var associated = {"datos":[],"fuente":[],"ods":[]};
 	    	data.filter(function(obj){
 	    		return obj[nodedata.type.toUpperCase()] == nodedata.name
 	    	}).forEach(function(d){
-	    		associated.push(d.ODS);
-	    		associated.push(d.FUENTE);
-	    		associated.push(d.DATOS);
+	    		if(associated.ods.indexOf(d.ODS)==-1)
+	    			associated.ods.push(d.ODS);
+
+	    		if(associated.fuente.indexOf(d.FUENTE)==-1)
+	    			associated.fuente.push(d.FUENTE);
+	    		
+	    		if(associated.datos.indexOf(d.DATOS)==-1)
+	    			associated.datos.push(d.DATOS);
 
 	    	})
 	    return associated;
@@ -59,21 +67,20 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	}
 
 	function create_graph(filename){
-		$http.get(filename);
-
-		d3.csv("network-viz/data/ODSs.csv", function(ODSs){			
-
-			d3.csv(filename, function(rawdata){
-				var width = 1000,
-				    height = 1000
-				var x_center = 350;
-				var y_center = 350;
-				var base_node = {
-					"base_radius":{"ods":0, "fuente":3, "datos":3},
-					"charge":{"ods":-50, "fuente":-20, "datos":-5}
-				}
-
-
+		$http.get(filename).then(
+			function(response){
+			var rawdata = d3.csv.parse(response.data);
+			
+			var width = 1000,
+			    height = 1000
+			var x_center = 350;
+			var y_center = 350;
+			var base_node = {
+				"base_radius":{"ods":0, "fuente":3, "datos":3},
+				"charge":{"ods":-50, "fuente":-20, "datos":-5}
+			}
+			$http.get("network-viz/data/ODSs.csv").then(function(response){		
+				var ODSs = d3.csv.parse(response.data);
 				data = rawdata.filter(rowContainsValidODS);
 				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
 				var nodes = createNodes(data, ODSs);
@@ -97,9 +104,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    .on("tick", moveToRadial)
 				    .start()
 
-				// var tip = d3.select("body").append("div")	
-				// 	.attr("class", "tooltip")				
-				// 	.style("opacity", 0);
+				var tip = d3.select("body").append("div")	
+					.attr("class", "tooltip")				
+					.style("opacity", 0);
 				
 
 
@@ -130,8 +137,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
 										.style("top", (d3.event.pageY) + 10 +"px");	
 
 									tip.transition()		
-										.duration(3)		
-										.style("opacity", .9);		
+										.duration(200)		
+										.style("opacity", .7);		
 
 
 
@@ -139,9 +146,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.on("mouseout", function(d) {
 									tip	.html("<b>" + d.type.toUpperCase() + "</b>: " + d.name)	
 										.style("left", -100 + "px")		
-										.style("top", -100 + "px");	
-									tip.transition()		
-										.duration(5)		
+										.style("top", -100 + "px")	
 										.style("opacity", 0);	
 										
 								})
@@ -331,9 +336,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					path.attr("d", linkArc);
 				  nodeEnter.each(function(d,i) { radial(d,i,e.alpha); });
 					
-/*				  circle
-					.attr("cx", function(d) { return d.x ; })
-					.attr("cy", function(d) { return d.y ; })*/
+
 					nodeEnter.attr("transform", transform)
 				}
 

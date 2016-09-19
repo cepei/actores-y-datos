@@ -14,10 +14,13 @@ describe('myApp.network-viz module', function() {
      $routeParams = {"country":"any_country_id"};
      // backend definition common for all tests
      authRequestHandler = $httpBackend.when('GET', "network-viz/data/" + $routeParams.country + ".csv")
-                            .respond()
+                            .respond("DATOS,ODS,FUENTE\ndato1,1 ODS,fuente1\ndato2,1 ODS,fuente1")
+
                           $httpBackend.when('GET', "network-viz/data/country_names.json")
                             .respond({"any_country_id":"Country Name"});
 
+                          $httpBackend.when('GET', "network-viz/data/ODSs.csv")
+                            .respond("ODS\n1 ODS");
 
      // The $controller service is used to create instances of controllers
      var $controller = $injector.get('$controller');
@@ -36,6 +39,15 @@ describe('myApp.network-viz module', function() {
 
       var networkCtrl = createController();
       $httpBackend.expectGET("network-viz/data/" + $routeParams.country + ".csv");
+      $httpBackend.flush();
+    }));
+
+
+    it('should open right ODSs data file', inject(function($controller) {
+      //spec body 
+
+      var networkCtrl = createController();
+      $httpBackend.expectGET("network-viz/data/ODSs.csv");
       $httpBackend.flush();
     }));
 
@@ -96,6 +108,16 @@ describe('myApp.network-viz module', function() {
 
     }));
 
+    it('should put relatedToNode names in scope correctly', inject(function($controller) {
+      //spec body 
+      var networkCtrl = createController();
+      $httpBackend.expectGET("network-viz/data/country_names.json");
+      $httpBackend.expectGET("network-viz/data/ODSs.csv");
+      $httpBackend.flush();     
+      var datum = {"name":"1 ODS", "type": "ods"}
+      $rootScope.clickNode(datum);
+      expect($rootScope.relatedToNode).toEqual({"datos":["dato1","dato2"], "fuente":["fuente1"], "ods":[1]});
+    }));
 
 
   });

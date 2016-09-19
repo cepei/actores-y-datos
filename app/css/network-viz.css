@@ -83,6 +83,13 @@ text {
 }
 
 
+.network-node-info{
+  background:url('../images/seccion-background.jpg') repeat;
+  padding-left: -15px!important;
+  color:#282c59;
+  
+}
+
 .network-node-info h2{
   color:#282c59;
   font-weight:800;
@@ -90,29 +97,40 @@ text {
   text-align:center;
   font-size:4em;
 }
-.network-node-info{
-  background:url('../images/seccion-background.jpg') repeat;
-  padding-left: -15px!important;
-}
 
 .network-node-info img{
   float:left;
   opacity:0.5;
   padding-bottom: -16px;
+
   
 }
 
 .network-node-info .network-instructions{
   text-align:center;
-  color:#282c59;
 }
 
 .network-conventions{
-  color:#282c59;
   text-align: center;
 }
 
 .network-convention{
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.network-data {
+   text-transform: capitalize;
+}
+
+.iconos-ods-network img{
+  width: 50px;
+  opacity: 1;
+  /*padding-top: 50px;*/
+  margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    margin-top: 4px;
+    display: inline-block;
+
 }

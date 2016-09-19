@@ -6,7 +6,7 @@ module.exports = function(config) {
 
     files: [
       'bower_components/angular/angular.js',
-      'libs/d3.min.js',
+      'libs/d3.v3.min.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'components/**/*.js',
@@ -18,7 +18,7 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['Chrome'], 
 
     plugins: [
       'karma-chrome-launcher',

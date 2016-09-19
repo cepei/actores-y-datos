@@ -10,12 +10,36 @@
 			<div class="country-name">
 				<h2 class="text-info">{{countryName}}</h2> 
 
+
 			</div>
 			<hr/>
 			<span class="network-instructions" ng-show="nodeName==''">Haga click en uno de los puntos de la gráfica</span>
-			<div ng-show="nodeName!=''">
-				<div id="tooltip" ng-show="nodeName!=''" ng-class="nodeType">
-					<b> {{nodeType.toUpperCase()}} </b>: {{nodeName}}
+			<div class = "network-data" ng-show="nodeName!=''">
+				<div ng-show="nodeName!=''">
+					<h4> {{nodeType}} </h4>
+					{{nodeName.toLowerCase()}}
+					<div ng-show="nodeType!='ods'">
+						<h4> ODS Relacionados </h4>	
+						<div  class="iconos-ods-network">
+							<div ng-repeat = "odsNumber in relatedToNode.ods">
+								<img src="images/images_ODS {{odsNumber}}.png"/>
+							</div>	
+						</div>	
+						<br/>				
+					</div>
+					<div ng-show="nodeType!='fuente'">
+						<h4> Fuentes Relacionadas </h4>		
+						<div ng-repeat = "fuente in relatedToNode.fuente">
+							{{fuente.toLowerCase()}}
+						</div>					
+					</div>
+					<div ng-show="nodeType!='datos'">
+						<h4> Datos Relacionados </h4>		
+						<div ng-repeat = "datos in relatedToNode.datos">
+							{{datos.toLowerCase()}}
+						</div>					
+					</div>
+
 				</div>
 			</div>
 
