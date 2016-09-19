@@ -20,6 +20,12 @@
   opacity: 1;
 }
 
+.node.selected {
+  stroke-width: 1px;
+  -webkit-filter: drop-shadow( -1px -1px 1px #000 );
+            filter: drop-shadow( -1px -1px 1px #000 ); /* Same syntax as box-shadow */
+}
+
 .node:hover{
   stroke-width: 1px;
   
@@ -123,6 +129,11 @@ text {
    text-transform: capitalize;
 }
 
+.network-data h4{
+   text-align: center;
+   text-transform: uppercase;
+}
+
 .iconos-ods-network img{
   width: 50px;
   opacity: 1;
@@ -133,4 +144,41 @@ text {
     margin-top: 4px;
     display: inline-block;
 
+}
+
+.iconos-ods-network{
+  /*display: inline-flex;*/
+  margin-left: 5px;
+  margin-bottom: 5px;
+
+}
+
+.network-data-list div{
+  cursor: pointer;
+}
+
+.network-data-list div:hover{
+  cursor: pointer;
+  font-style: italic;
+  font-size: 1.02em
+
+}
+.ods-image{
+  text-align: center;
+}
+.ods-image img{
+  opacity: 1;
+  margin: auto auto;
+  display: inline;
+  text-align: center;
+  float:none;
+
+}
+
+.ods-image span{
+  text-align: center;
+}
+
+.nodename{
+  text-align: center;
 }

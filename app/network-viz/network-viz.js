@@ -13,6 +13,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	$scope.countryId =  $routeParams.country;
 	$scope.data = ["relax", "expand"];
 	$scope.nodeName = "";
+
 	$http.get("network-viz/data/country_names.json").then(
 	function(response){
 		$scope.countryName = response.data[$scope.countryId ]
@@ -20,51 +21,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 	create_graph("network-viz/data/" + $routeParams.country + ".csv");
 	var force, 
 		data = [];
-
-	$scope.clickNode = function(d){
-	    	var associated = $scope.getAssociatedNodes(d);
-	    	var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos))
-	    	associated.ods = associated.ods.map(function(d){return parseInt(d.split(" ")[0])});
-	    	$scope.relatedToNode = associated;
-	    	$scope.nodeName = d.name;
-	    	$scope.nodeType = d.type;
-	    	$scope.$apply()
-
-	    	d3.selectAll(".node")
-	    	.classed("highligthed", function(d){ return associatedList.indexOf(d.name) != -1})	
-	    	d3.selectAll(".link").classed("highligthed", 
-	    								function(d){ 
-	    									var is_source_associated = associatedList.indexOf(d.source.name) != -1;
-	    									var is_target_associated = associatedList.indexOf(d.target.name) != -1;
-	    									return is_source_associated && is_target_associated})
-
-	}
-
-
-	$scope.getAssociatedNodes = function(nodedata){
-		var associated = {"datos":[],"fuente":[],"ods":[]};
-	    	data.filter(function(obj){
-	    		return obj[nodedata.type.toUpperCase()] == nodedata.name
-	    	}).forEach(function(d){
-	    		if(associated.ods.indexOf(d.ODS)==-1)
-	    			associated.ods.push(d.ODS);
-
-	    		if(associated.fuente.indexOf(d.FUENTE)==-1)
-	    			associated.fuente.push(d.FUENTE);
-	    		
-	    		if(associated.datos.indexOf(d.DATOS)==-1)
-	    			associated.datos.push(d.DATOS);
-
-	    	})
-	    return associated;
-	}
-
-	$scope.clickOutsideNode = function(){
-		$scope.nodeName = "";
-    	d3.selectAll(".node").classed("highligthed", true);	
-    	d3.selectAll(".link").classed("highligthed", true);
-    	$scope.$apply();	
-	}
 
 	function create_graph(filename){
 		$http.get(filename).then(
@@ -129,7 +85,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 								.enter().append("g")
 								.attr("class", "node highligthed")
 								.call(force.drag)
-								.on("click", $scope.clickNode)
+								.on("click", clickNode)
 								.on("mouseover",function(d){
 
 									tip	.html("<b>" + d.type.toUpperCase() + "</b>: " + d.name)	
@@ -156,7 +112,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var circle = nodeEnter.append("svg:circle")
 						.attr("class", function(d) { return d.type; })
 						.attr("r", calculateNodeRadius)
-						.on("click", $scope.clickNode)
 
 				var images = nodeEnter
 						.filter(function(d){return d.type=="ods"})
@@ -169,16 +124,76 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("y", calculateODSImageOfsett)
 						.attr("height", calculateODSImageSize)
 						.attr("width", calculateODSImageSize)
-						.on("click", $scope.clickNode);
 
 
 				d3.select("body").on("click",function(){
-
-				    if (!d3.select(d3.event.target.parentElement).classed("node")) {
+					var element = d3.select(d3.event.target.parentElement)
+				    if (!element.classed("node") && !element.classed("network-data-list")) {
 				    	$scope.clickOutsideNode();
 				    }
 				});
 
+				function clickNode(rawnodedata){
+						var nodedata = rawnodedata;
+						if(rawnodedata.type == "ods" && parseInt(rawnodedata.name) === rawnodedata.name){
+							nodedata.name = ODSs.filter(function(d){ return parseInt(d.ODS.split(" ")[0]) == rawnodedata.name})[0].ODS;
+						}
+
+				    	var associated = $scope.getAssociatedNodes(nodedata);
+				    	var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos))
+				    	associated.ods = associated.ods.map(function(d){return parseInt(d.split(" ")[0])});
+
+					    setTimeout(function () {
+					        $scope.$apply(function () {
+								$scope.relatedToNode = associated;
+								$scope.nodeName = nodedata.name;
+								$scope.nodeType = nodedata.type;
+								if(nodedata.type == "ods")
+									$scope.odsIndex = parseInt(nodedata.name.split(" ")[0]);
+					        });
+					    }, 100);
+
+
+				    	d3.selectAll(".node")
+				    	.classed("highligthed", function(d){ return associatedList.indexOf(d.name) != -1})
+				    	.classed("selected", function(d){ return d.name == nodedata.name})
+				    	d3.selectAll(".link").classed("highligthed", 
+				    								function(d){ 
+				    									var is_source_associated = associatedList.indexOf(d.source.name) != -1;
+				    									var is_target_associated = associatedList.indexOf(d.target.name) != -1;
+				    									return is_source_associated && is_target_associated})
+
+				}
+
+				$scope.clickNode = clickNode;
+
+
+				$scope.getAssociatedNodes = function(nodedata){
+					var associated = {"datos":[],"fuente":[],"ods":[]};
+				    	data.filter(function(obj){
+				    		return obj[nodedata.type.toUpperCase()] == nodedata.name
+				    	}).forEach(function(d){
+				    		if(associated.ods.indexOf(d.ODS)==-1)
+				    			associated.ods.push(d.ODS);
+
+				    		if(associated.fuente.indexOf(d.FUENTE)==-1)
+				    			associated.fuente.push(d.FUENTE);
+				    		
+				    		if(associated.datos.indexOf(d.DATOS)==-1)
+				    			associated.datos.push(d.DATOS);
+
+				    	})
+				    associated.ods.sort(function(a,b){return parseInt(a.split(" ")[0]) - parseInt(b.split(" ")[0])});
+
+				    return associated;
+				}
+
+				$scope.clickOutsideNode = function(){
+					$scope.nodeName = "";
+			    	d3.selectAll(".node").classed("highligthed", true);	
+			    	d3.selectAll(".link").classed("highligthed", true);
+			    	$scope.$apply();	
+				}
 
 
 				function rowContainsValidODS(row){
