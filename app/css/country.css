@@ -1,31 +1,4 @@
-body {
-  font-size: 16px;
-  color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
-  background: #DBDBDB;
-  width: 100%;
-}
 
-h2 {
-  font-family: 'Helvetica', serif;
-  color: #fff;
-  text-align: center;
-  width: 70%;
-}
-a{
-	text-decoration:none;
-	color:#000;
-}
-ul {
-	font-size:12px;
-	color:#000!important;
-	margin-top:4px!important;
-	padding-left: 30px;
-}
-li{
-	font-size:12px;
-	color:#000!important;
-}
 .container-fluid{
 	margin:0px;
 	padding:0px;
@@ -93,10 +66,6 @@ li{
 }
 
 
-section {
-    display: block;
-    float: left;
-}
 
 /** menu-iconos **/
 

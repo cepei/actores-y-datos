@@ -3,8 +3,76 @@
     src: url(fonts/BebasNeue.otf) format("truetype");
 }
 
+@font-face {
+    font-family: 'helvetica_ce_35_thinregular';
+    src: url('fonts/helvetica_neue_ce_35_thin-webfont.woff2') format('woff2'),
+         url('fonts/helvetica_neue_ce_35_thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-/* Toggle Styles */
+}
+
+@font-face{ 
+  font-family: 'MyWebFont';
+  src: url('WebFont.eot');
+  src: url('WebFont.eot?#iefix') format('embedded-opentype'),
+       url('WebFont.woff') format('woff'),
+       url('WebFont.ttf') format('truetype'),
+       url('WebFont.svg#webfont') format('svg');
+}
+
+body {
+  font-size: 16px;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #DBDBDB;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html{
+  background-color:  #77A9CC; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);; /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);; /* IE10+ */
+  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); /* W3C */ 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background-attachment: fixed;
+}
+
+
+
+h2 {
+  font-family: 'Helvetica', serif;
+  color: #fff;
+  text-align: center;
+  width: 70%;
+}
+a{
+  text-decoration:none;
+  color:#000;
+}
+ul {
+  font-size:12px;
+  color:#000!important;
+  margin-top:4px!important;
+  padding-left: 30px;
+}
+li{
+  font-size:12px;
+  color:#000!important;
+}
+
+section {
+    display: block;
+    float: left;
+}
+
+
+.background-strips{
+    background: repeating-linear-gradient(45deg, transparent 0, #ccc 1px /* transition from previous blue stripe */, #ccc 2px, transparent 3px /* from black to blue */, transparent 15px);
+  }
 
 #wrapper {
     padding-left: 0;
@@ -178,55 +246,6 @@
 
 /** Otro jodido archivo de estilos ( home) **/
 
-body {
-  font-size: 16px;
-  color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
-  overflow-x: hidden;
- 
-  width: 100%;
-}
-
-html{
-
-  background-color:  #77A9CC; /* Old browsers */
-  background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);; /* Opera 11.10+ */
-  background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);; /* IE10+ */
-  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); /* W3C */ 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-  /*background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, gray), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, gray), color-stop(.75, gray), color-stop(.75, transparent), to(transparent));*/
-
-  background-attachment: fixed;
-}
-
-.background-strips{
-    background: repeating-linear-gradient(45deg, transparent 0, #ccc 1px /* transition from previous blue stripe */, #ccc 2px, transparent 3px /* from black to blue */, transparent 15px);
-  }
-
-
-h2 {
-  font-family: 'Helvetica', serif;
-  color: #fff;
-  text-align: center;
-  width: 70%;
-}
-a{
-  text-decoration:none;
-  color:#000;
-}
-ul {
-  font-size:12px;
-  color:#000!important;
-  margin-top:4px!important;
-  padding-left: 30px;
-}
-li{
-  font-size:12px;
-  color:#000!important;
-}
 .container-fluid{
   margin:0px;
   padding:0px;
