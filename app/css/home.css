@@ -10,12 +10,14 @@
 
 .menu-home h2{
     width: 79%;
-    margin-top: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-size: 4em;
     font-size: 3vw;
     color:#282c59;
     /*font-family: 'helvetica_ce_35_thinregular';*/
     font-weight: 100;
+    min-height: 11.7vh;
 
 }
 
@@ -32,6 +34,11 @@
   align-items: center;
   justify-content: center;
   font-size: 1.1em;
+}
+
+.home-separator span{
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .header-home {
@@ -110,15 +117,22 @@
 
 .intro .small-text{
   font-size: 1.3em;
-  font-size: 1vw;
+  font-size: calc(6px + 1vw);
   margin-top: 1.1em;
   text-align: center;
   color: white;
 }
 
+@media(max-width:1000px) {
+  .intro .small-text{
+    font-size: 10px;
+  }
+
+}
+
 .menu-portal{
-    width: 100%;
-    float: right!important;
+  width: 100%;
+  float: right!important;
 	padding: 0px!important;
   height: 35vh
 }
@@ -130,27 +144,34 @@
 #novedades .text-info{
 	color:white;
 	text-align: center;
-	margin-left: 30px;
   font-size:4em;
   width: 100%;
-  /*margin-top: 10px;*/
 }
 
 #novedades .news-box{
 	background-color: #fff;
   color:#282c59;
-	margin:3vh;
-  min-height: 50vmin;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1em;
+  font-size: 2.5vmin;
   font-weight: bold;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+
 }
 
-#novedades .news-box p{
-  margin-left:4vw;
-  margin-right:4vw;
+@media (max-width: 768px) { 
+  #novedades .news-box{
+    min-height: 18vh;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    font-size: 3vmin;
+  }
+
 }
 
 .home-scroll{
