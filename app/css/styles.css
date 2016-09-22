@@ -31,12 +31,13 @@ body {
 }
 
 html{
-  background-color:  #77A9CC; /* Old browsers */
+
   background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);; /* Opera 11.10+ */
-  background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);; /* IE10+ */
-  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); /* W3C */ 
+  background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);
+  background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background-color:  #77A9CC; /* Old browsers */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   background-attachment: fixed;
 }
@@ -71,7 +72,7 @@ section {
 
 
 .background-strips{
-    background: repeating-linear-gradient(45deg, transparent 0, #ccc 1px /* transition from previous blue stripe */, #ccc 2px, transparent 3px /* from black to blue */, transparent 15px);
+    background: repeating-linear-gradient(45deg, transparent 0, #ccc 0.1vw /* transition from previous blue stripe */, #ccc 0.2vw, transparent 0.3vw /* from black to blue */, transparent 1vw);
   }
 
 #wrapper {
