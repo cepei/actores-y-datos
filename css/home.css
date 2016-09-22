@@ -215,8 +215,12 @@
   color:#282c59;
 }
 
-.contact-us-text{
-  width:50vw;
-  height: 50vh;
-  margin-bottom: 5vh;
+#contact-us textarea {
+    text-align: left;
+    padding-left:0;
+    padding-top:0;
+    padding-bottom:0.4em;
+    padding-right: 0.4em;
+    width: 60vw;
+    height: 50vh;
 }
