@@ -94,6 +94,7 @@
 
 .intro{
   width: 100%;
+
 }
 
 .intro p{
@@ -134,12 +135,14 @@
   font-family: "BebasNewe", serif;
   color:white;
   text-align: center;
-  font-size:8em;
+  font-size:8vw;
   width: 100%;
 }
 
 #novedades{
   height: 100vh;
+  margin-top: 1vh;
+  margin-bottom: 0.5vh;
 }
 
 #novedades .news-box{
@@ -158,19 +161,24 @@
 
 }
 
+#novedades .news-box div{
+  margin:2vmin;
+
+}
+
 @media (max-width: 768px) { 
   #novedades .news-box{
-    min-height: 18vh;
-    margin-top:1vh;
+    min-height: 14vh;
+    margin-top:2vh;
     margin-bottom:1vh;
-    font-size: 3vmin;
+    font-size: 2.5vmin;
   }
 
 }
 
 .home-scroll{
-  margin-top: 4vh;
-  margin-bottom: 4vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,9 +190,8 @@
 }
 
 .sponsors-text{
-  font-size: 1.3em;
-  font-size: 1vw;
-  margin-top: 1.1em;
+  font-size: 2vh;
+  margin-top: 1vh;
   text-align: center;
   color: white;
   width: 100%;
@@ -196,6 +203,18 @@
   align-items: center;
   justify-content: center;
   height: 15vh;
+}
+
+
+
+@media (max-width: 768px) { 
+  .sponsor-img-container{
+    height: 12vh;
+  }
+  .sponsor-img-container img{
+    max-height: 80%;
+  }
+
 }
 
 
