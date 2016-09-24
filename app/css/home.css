@@ -1,7 +1,7 @@
-#home-header{
+/*#home-header{
   height: 100vh;
 }
-
+*/
 .menu-home{
   background-color: white;
   /*padding: 0px!important;*/
@@ -57,7 +57,7 @@
 .header-home {
 	width: 100%;
 	margin-top: -8px;
-  height: 50vh;
+  height: 45vh;
 	margin-top: 10vh;
 }
 
@@ -148,15 +148,15 @@
 }
 
 #novedades{
-  height: 100vh;
-  margin-top: 1vh;
-  margin-bottom: 0.5vh;
+  /*height: 100vh;*/
+  /*margin-top: 1vh;*/
+
 }
 
 #novedades .news-box{
 	background-color: #fff;
   color:#282c59;
-  min-height: 60vh;
+  min-height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,9 +193,9 @@
 
 }
 
-#sponsors{
+/*#sponsors{
   height: 100vh;
-}
+}*/
 
 .sponsors-text{
   font-size: 2vh;
