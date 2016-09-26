@@ -84,6 +84,11 @@ hr {
 } 
 
 .background-degrade{
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* Standard syntax */
 
   background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
   background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
@@ -91,19 +96,19 @@ hr {
   background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
   background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
   background-color:  #77A9CC; /* Old browsers */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  background-attachment: fixed;
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  /*background-attachment: fixed;*/
 }
 
 
 
 .background-strips{
-    background: repeating-linear-gradient(45deg, transparent 0, #ccc 0.1vw /* transition from previous blue stripe */, #ccc 0.2vw, transparent 0.3vw /* from black to blue */, transparent 1vw);
+    background: repeating-linear-gradient(45deg, transparent 0, #ccc 0.05vw /* transition from previous blue stripe */, #ccc 0.1vw, transparent 0.15vw /* from black to blue */, transparent 1vw);
   }
 
 
 .menu-bar{
-  height: 5vh;
+  height: 10vh;
   background-color: white;
   top: 0px;
   position: fixed;
@@ -111,9 +116,81 @@ hr {
   z-index: 10;
 }
 
+.menu-bar .logo-container{
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.menu-bar nav{
+  display: inline-flex;;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  float: right;
+  height: 100%;
+}
+
+.menu-bar .menu-bar-links{
+  height: 100%;
+  float: right;
+
+}
+
+.menu-bar .menu-link-container{
+  display: inline-flex;;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-style: dotted;
+  border-width: 0px;
+  border-left-width: 1px;
+  height: 100%;  
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #282c59;
+  font-size: 1vw;
+
+}
+
+.menu-bar .menu-locale-container{
+  display: block;
+  float:right;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-style: dotted;
+  border-width: 0px;
+  border-left-width: 1px;
+  height: 100%;  
+  color: #282c59;
+  font-size: 1vw;
+}
+
+.menu-bar .menu-bar-locale-buttons{
+  height: 50%; 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding-right: 10px;
+  padding-left: 10px;
+
+}
+
+.menu-bar .menu-bar-locale-buttons:last-child{
+  border-style: dotted;
+  border-width: 0px;
+  border-top-width: 1px;  
+}
+
+
+
 .screen-container{
-  height: 95vh;
-  padding-top: 5vh;
+  height: 90vh;
+  padding-top: 10vh;
   margin-bottom: 0.5vh;
 }
 
