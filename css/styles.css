@@ -30,20 +30,6 @@ body {
   width: 100%;
 }
 
-html{
-
-  background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);
-  background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background-color:  #77A9CC; /* Old browsers */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  background-attachment: fixed;
-}
-
-
-
 h2 {
   font-family: 'Helvetica', serif;
   color: #fff;
@@ -70,11 +56,145 @@ section {
     float: left;
 }
 
+section {
+    display: block;
+    float: left;
+}
+
+footer{
+  background-color: #282c59;
+  text-align: center;
+}
+
+footer span{
+  width:70%;
+  color:#D7DF01;
+  font-size: 1.1em;
+}
+
+hr { 
+    color:#282c59;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
+
+.background-degrade{
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* Standard syntax */
+
+  background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);
+  background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background-color:  #77A9CC; /* Old browsers */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  /*background-attachment: fixed;*/
+}
+
+
 
 .background-strips{
-    background: repeating-linear-gradient(45deg, transparent 0, #ccc 0.1vw /* transition from previous blue stripe */, #ccc 0.2vw, transparent 0.3vw /* from black to blue */, transparent 1vw);
+    background: repeating-linear-gradient(45deg, transparent 0, #ccc 0.05vw /* transition from previous blue stripe */, #ccc 0.1vw, transparent 0.15vw /* from black to blue */, transparent 1vw);
   }
 
+
+.menu-bar{
+  height: 10vh;
+  background-color: white;
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.menu-bar .logo-container{
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.menu-bar nav{
+  display: inline-flex;;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  float: right;
+  height: 100%;
+}
+
+.menu-bar .menu-bar-links{
+  height: 100%;
+  float: right;
+
+}
+
+.menu-bar .menu-link-container{
+  display: inline-flex;;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-style: dotted;
+  border-width: 0px;
+  border-left-width: 1px;
+  height: 100%;  
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #282c59;
+  font-size: 1vw;
+
+}
+
+.menu-bar .menu-locale-container{
+  display: block;
+  float:right;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-style: dotted;
+  border-width: 0px;
+  border-left-width: 1px;
+  height: 100%;  
+  color: #282c59;
+  font-size: 1vw;
+}
+
+.menu-bar .menu-bar-locale-buttons{
+  height: 50%; 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding-right: 10px;
+  padding-left: 10px;
+
+}
+
+.menu-bar .menu-bar-locale-buttons:last-child{
+  border-style: dotted;
+  border-width: 0px;
+  border-top-width: 1px;  
+}
+
+
+
+.screen-container{
+  height: 90vh;
+  padding-top: 10vh;
+  margin-bottom: 0.5vh;
+}
+
+/*
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -117,7 +237,7 @@ section {
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    /*padding: 15px;*/
+    /*padding: 15px;*
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -125,7 +245,7 @@ section {
     margin-right: -250px;
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles 
 
 .sidebar-nav {
     position: absolute;
@@ -173,38 +293,6 @@ section {
     background: none;
 }
 
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 100px;
-
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: 100px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-
-    .container{
-       margin-right: 100px;    
-    }
-
-
-
-    
-
-}
 
 /** CONTENIDO **/
 
@@ -253,7 +341,7 @@ section {
 }
 /** MENU LATERAL **/
 
-.menulateral {
+/*.menulateral {
   background: #FFFFFF;
   width: 9%;
   height: 100%;
@@ -266,11 +354,11 @@ section {
 }
 .menulateral a img{
   margin: 14px;
-}
+}*/
 
-.imagen-logo:hover{
+/*.imagen-logo:hover{
   opacity: 0.3;
-}
+}*/
 /** CONTENIDO **/
 .portal-cont{
   width:91%;
@@ -282,7 +370,7 @@ section {
   height: auto;
   float: left;
   }
-
+/*
 #logo-telefonica img{
   margin:0 auto;
   margin-top: 45px;
@@ -291,15 +379,11 @@ section {
   width:100%;
   float:left;
 }
-
-section {
-    display: block;
-    float: left;
-}
+*/
 
 
 
-.linea-roja{
+/*.linea-roja{
   width:100%;
   height:5px;
   background:#B23B39;
@@ -314,22 +398,22 @@ section {
   width:100%;
   height:5px;
   background-color:#5180AF;
-}
+}*/
 /** CONTENIDO **/
-.linea-footer{
+/*.linea-footer{
   width:100%;
   height:10px;
   background-color:#282C59;
   float:left;
   
-}
-.fondo-mapa{
+}*/
+/*.fondo-mapa{
   width: 100%;
   height: 620px;
   margin-top: 20px;
   background:  url('../images/mapeo-background.jpg') no-repeat;
 
-}
+}*/
 
 .footer{
   width: 100%;
@@ -383,24 +467,3 @@ section {
     width: auto;
 }
 
-footer{
-  background-color: #282c59;
-  text-align: center;
-}
-
-footer span{
-  width:70%;
-  color:#D7DF01;
-  font-size: 1.1em;
-}
-
-hr { 
-    color:#282c59;
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;
-} 

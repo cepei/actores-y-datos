@@ -6,21 +6,20 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Data República</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <link rel="stylesheet" href="css/country.css">
+  <!-- <link rel="stylesheet" href="css/country.css"> -->
   <link href="css/bootstrap.css" rel="stylesheet" />
    <script src="js/bootstrap.js"></script>  
    <link rel="stylesheet" href="css/styles.css">  <!-- Styles? Styless? Fucking annoying -->  
   <link rel="stylesheet" href="css/home.css">  <!-- Styles? Styless? Fucking annoying -->
 
-  <link rel="stylesheet" href="css/network-viz.css">  <!-- Styles? Styless? Fucking annoying -->
-
+  <!-- <link rel="stylesheet" href="css/network-viz.css">   -->
   <link href='https://fonts.googleapis.com/css?family=HelveticaNeue:400,300,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=LhelveticaNeue' rel='stylesheet' type='text/css'>
 
@@ -28,30 +27,57 @@
 
 </head>
 <body>
- <div id="wrapper">
-    <div ng-controller="SidebarCtrl">
-        <div sidebar></div>
-    </div> 
-    <div id="page-content-wrapper">
-      <div class="container background-strips">
+      <div class="background-degrade">
+      <div class="menu-bar">
+        <div class="logo-container">
+          <a href="#">
+            <img src="images/logo_CEPEI.png"/>
+          </a>
+        </div>
+        <nav>
+          <div class="menu-bar-links">
+            <div class="menu-link-container">
+              <a href="#sponsors">
+                Sponsors
+              </a>
+            </div>
+            <div class="menu-link-container">
+              <a href="#contact-us">
+                Contáctenos
+              </a>
+            </div>
+            <div class="menu-link-container">
+              <a href="#">
+               <img src="images/iconsNav/icon_fb.png"/>
+              </a>
+              <a href="#">
+               <img src="images/iconsNav/icon_tw.png"/>
+              </a>
+              <a href="#">
+               <img src="images/iconsNav/icon_yt.png"/>
+              </a>
 
+            </div>
+            <div class="menu-locale-container">
+              <div class="menu-bar-locale-buttons">
+                 <a href="#">
+                    EN
+                 </a>             
+              </div>
+              <div class="menu-bar-locale-buttons">
+                 <a href="#">
+                    ES
+                 </a>             
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
 
-        <div class="row">
-          <div ng-view></div>
-        </div>     
-<!--         <div class="row">
-          <div class="linea-footer"></div>
-              <footer>
-                <span> Este portal ha sido posible gracias al apoyo y confianza de </span>
-                <img alt="Telefónica" src="images/logo_TELEFONICA.png"></img>
-              </footer>       
-          </div>                 
-      
-      </div> -->
-
-    </div>
-
-  </div>
+            <div class="container background-strips">
+              <div ng-view></div>
+      </div>     
+</div>
 
 
   <!--[if lt IE 7]>
