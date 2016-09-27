@@ -24,16 +24,7 @@
 	opacity: 0.3;
 }
 /** CONTENIDO **/
-.portal-cont{
-	width:91%;
-	height:auto;
-	float:left;
-}
-.content{
-  width: 100%;.menulateral a img
-  height: auto;
-  float: left;
-  }
+
 
 .header {
     background: url('../images/header_background.png') repeat;
@@ -187,7 +178,7 @@
 
 /** pais **/
 .titulo-pais{
-	width:100%;
+	/*width:100%;*/
 	height:auto;
 	float:left;
 	margin-top:0px;
@@ -200,9 +191,8 @@
 	border-bottom:1px solid #808080;
 }
 .country-cell{
-	width:100%;
+	min-height: 30vh;
 	border-right:1px solid #808080;
-	height:250px;
 	text-align: center;
 	vertical-align: center;
 }
@@ -243,20 +233,20 @@
 	font-size: 1.0em;
 	text-align:center;
 }
-.fondo-secc h2{
+
+#country-map-container{
+	min-height: 50vh;
+}
+
+#country-map-container h2{
 	font-weight:600;
 	width:100%;
 	text-align:center;
 	font-size:2.6em;
 }
-.fondo-secc{
-	width:100%;
-	background:url('../images/seccion-background.jpg') repeat;
-	height:536px;
-	padding-left: -15px!important;
-}
 
-.fondo-secc img{
+
+#country-map-container img{
 	float:left;
 	opacity:0.5;
 	padding-bottom: -16px;
@@ -360,10 +350,8 @@
 
 .country-cover{
 	position: absolute;
-}
-
-.country-cover{
 	margin-top: 20px;
+	width: 100%;
 }
 
 .marco-norm-btn{
@@ -375,6 +363,13 @@
 .marco-norm-btn:hover {
  	box-shadow: -10px -10px 5px #888888;
  	background-color: #262B56;
+}
+
+.country-map-img{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .country-map{
