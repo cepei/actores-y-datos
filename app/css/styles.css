@@ -84,17 +84,11 @@ hr {
 } 
 
 .background-degrade{
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(45deg, #5180AE, #7AC543, #282C59 ); /* Standard syntax */
-
   background: -moz-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
   background: -webkit-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
   background: -o-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%);
   background: -ms-linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
-  background: linear-gradient(45deg,  #77A9CC 0%, #7ABE5B 100%); 
+  background:  repeating-linear-gradient(to bottom left, #3efcc2 0vmax, #3ebd40 50vmax, #00a6f3 100vmax, #3ebd40 150vmax,  #3efcc2  200vmax); 
   background-color:  #77A9CC; /* Old browsers */
   /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   /*background-attachment: fixed;*/
@@ -103,8 +97,9 @@ hr {
 
 
 .background-strips{
-    background: repeating-linear-gradient(45deg, transparent 0, #ccc 0.05vw /* transition from previous blue stripe */, #ccc 0.1vw, transparent 0.15vw /* from black to blue */, transparent 1vw);
-  }
+  padding-right: 0px;
+  padding-left: 0px;
+ }
 
 
 .menu-bar{

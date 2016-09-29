@@ -27,11 +27,11 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			function(response){
 			var rawdata = d3.csv.parse(response.data);
 			
-			var width = 1000,
-			    height = 1000
-			var x_center = 350;
-			var y_center = 350;
-			var base_node = {
+			var width = 700,
+			    height = 700,
+				x_center = width/2,
+				y_center = height/2,
+				base_node = {
 				"base_radius":{"ods":0, "fuente":3, "datos":3},
 				"charge":{"ods":-50, "fuente":-20, "datos":-5}
 			}
@@ -118,7 +118,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.append("svg:image")
 						.attr("xlink:href",  function(d) { if(d.type=="ods")
 																var ods_number = d.name.split(" ")[0]
-																return "images/ODS/Images_ODS-"+ ods_number +".png";
+																return "images/Icons_MapeoODS/icons_mapeoODS-"+ ods_number +".png";
 															return ""})
 						.attr("x", calculateODSImageOfsett)
 						.attr("y", calculateODSImageOfsett)
