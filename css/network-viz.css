@@ -1,4 +1,15 @@
 
+#forcemap{
+  text-align: center;
+  position: fixed;
+}
+
+#forcemap svg{
+  top: 0px;
+
+}
+
+
 .link {
   stroke: #000;
   opacity: 0.01;
@@ -79,8 +90,7 @@ text {
 
 .network-viz-container{
   min-height: 1000px;
-  width: 80%;
-
+  background-color: white;
 }
 
 
