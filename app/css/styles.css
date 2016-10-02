@@ -119,6 +119,14 @@ hr {
   margin-right: 5px;
 }
 
+.menu-bar .logo-container img{
+  display: inline-flex;
+  align-items: center;
+  max-height: 10vh;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .menu-bar nav{
   display: inline-flex;;
   align-items: center;
@@ -153,7 +161,7 @@ hr {
 }
 
 .menu-bar .menu-link-container a{
-  width: 100%;
+  /*width: 100%;*/
   text-align: center;
   color: #282c59;
 
