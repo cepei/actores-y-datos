@@ -1,87 +1,101 @@
-	<div class="header">
-		<h2>Laboratorio de datos para el desarrollo sostenible</h2>
-		<a href="#" class="img-header"><img src="images/logo_TELEFONICA.png" class="img-responsive"/></a>
-	</div>
-	<div class="linea-text">
-		<p>Estas son las relaciones entre los ODS, los productores de datos y la informaciòn disponible. Selecciona el país de tu interés o vuelve atrás.</p>
-	</div>
-		<div class="col-xs-12 col-sm-9 col-lg-9 network-viz-container">
-			<div class="row">
-				<div id="forcemap"></div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-3 col-lg-3 network-node-info">
-			<div class="country-name">
-				<h2 class="text-info">{{countryName}}</h2> 
+<div class="network-container">
+    <div class="col-xs-1 col-sm-1 col-lg-1 network-conventions">
+        <div id="network-viz-header">
 
+        </div>
+        <div class="network-convention-box">
+            <div>
+                <div class="network-convention">
+                    <svg height="12" width="12">
+                        <circle class="ods" cx="6" cy="6" r="6"></circle>
+                    </svg>
+                    <span>
+                        <b>ODS</b>
+                    </span>
+                </div> 
 
-			</div>
-			<hr/>
-			<span class="network-instructions" ng-show="nodeName==''">Haga click en uno de los puntos de la gráfica</span>
-			
-			<div class = "network-data" ng-show="nodeName!=''">
-				<div ng-show="nodeName!=''">
-					<h4> {{nodeType}} </h4>
-					<p class="nodename">{{nodeName.toLowerCase()}}</p>
-					<div ng-show="nodeType=='ods'" class="ods-image" >
-						<span>
-							<img src="images/images_ODS {{odsIndex}}.png"/>
-							
-						</span>
+                <div class="network-convention">
+                    <svg height="12" width="12">
+                        <circle class="fuente" cx="6" cy="6" r="6"></circle>
+                    </svg>
+                    <span>
+                        <b>FUENTE</b>
+                    </span>
+                </div> 
 
-					</div>
-					<div ng-show="nodeType!='ods'">
-						<h4> ODS Relacionados </h4>	
-						<div  class="iconos-ods-network row">
-							<div ng-repeat = "odsNumber in relatedToNode.ods">
-								<div  class = "network-data-list">
-									<img src="images/images_ODS {{odsNumber}}.png"  ng-click="clickNode({'name':odsNumber,'type':'ods'})"/>
-								</div>	
-							</div>	
-						</div>	
-						<br/>				
-					</div>
-					<div ng-show="nodeType!='fuente'" class = "network-data-list">
-						<h4> Fuentes Relacionadas </h4>		
-						<div ng-repeat = "fuente in relatedToNode.fuente" ng-click="clickNode({'name':fuente,'type':'fuente'})">
-							{{fuente.toLowerCase()}}
-						</div>					
-					</div>
-					<div ng-show="nodeType!='datos'" class = "network-data-list">
-						<h4> Datos Relacionados </h4>		
-						<div ng-repeat = "datos in relatedToNode.datos"   ng-click="clickNode({'name':datos,'type':'datos'})">
-							{{datos.toLowerCase()}}
-						</div>					
-					</div>
+                <div class="network-convention">
+                    <svg height="12" width="12">
+                        <circle class="datos" cx="6" cy="6" r="6"></circle>
+                    </svg>
+                    <span>
+                        <b>DATO</b>
+                    </span>
+                </div>            
+            </div>            
 
-				</div>
-			</div>
+        </div>
+    </div>
+    <div class="col-xs-11 col-sm-6 col-lg-6 network-viz-container">
+        <div id="network-viz-header">
+            <div>
+                <p>Navegue a través del mapa haciendo clic en alguno de los puntos en relación a los ODS, fuentes y datos.</p>
+                <p>En el panel derecho encontrará la información detallada y el enlace que lo conducira al dato.</p> 
+            </div>
+        </div>
+            <div id="forcemap"></div>
+    </div>
 
-			<hr/>
-			<div class="network-conventions">
-				<span class="network-convention">
-					<svg width="12" height="12">
-					  <circle cx="6" cy="6" r="6" class = "ods"/>
-					</svg>
-					<span><b>ODS</b></span>
-				</span>
-				<span class="network-convention">
-					<svg width="12" height="12">
-					  <circle cx="6" cy="6" r="6" class = "fuente"/>
-					</svg>
-					<span><b>FUENTE</b></span>
-				</span>
-				<span class="network-convention">
-					<svg width="12" height="12">
-					  <circle cx="6" cy="6" r="6" class = "datos"/>
-					</svg>
-					<span><b>DATO</b></span>
-				</span>
+    <div class="col-xs-11 col-sm-5 col-lg-5 network-node-info-container">
+        <div id="network-viz-header">
+            <div class="country-name">
+                {{countryName.toUpperCase()}}
+            </div>
+       </div>
+        <div class=" network-node-info">
 
-			</div>
+            <hr>
+            <span class="network-instructions" ng-show="nodeName==''">Haga click en uno de los puntos de la gráfica</span>
+            
+            <div class = "network-data" ng-show="nodeName!=''">
+                <div ng-show="nodeName!=''">
+                    <h4> {{nodeType}} </h4>
+                    <p class="nodename">{{nodeName.toLowerCase()}}</p>
+                    <div ng-show="nodeType=='ods'" class="ods-image" >
+                        <span>
+                            <img src="images/images_ODS {{odsIndex}}.png"/>
+                            
+                        </span>
 
-			<hr/>
+                    </div>
+                    <div ng-show="nodeType!='ods'">
+                        <h4> ODS Relacionados </h4> 
+                        <div  class="iconos-ods-network row">
+                            <div ng-repeat = "odsNumber in relatedToNode.ods">
+                                <div  class = "network-data-list">
+                                    <img src="images/images_ODS {{odsNumber}}.png"  ng-click="clickNode({'name':odsNumber,'type':'ods'})"/>
+                                </div>  
+                            </div>  
+                        </div>  
+                        <br/>               
+                    </div>
+                    <div ng-show="nodeType!='fuente'" class = "network-data-list">
+                        <h4> Fuentes Relacionadas </h4>     
+                        <div ng-repeat = "fuente in relatedToNode.fuente" ng-click="clickNode({'name':fuente,'type':'fuente'})">
+                            {{fuente.toLowerCase()}}
+                        </div>                  
+                    </div>
+                    <div ng-show="nodeType!='datos'" class = "network-data-list">
+                        <h4> Datos Relacionados </h4>       
+                        <div ng-repeat = "datos in relatedToNode.datos"   ng-click="clickNode({'name':datos,'type':'datos'})">
+                            {{datos.toLowerCase()}}
+                        </div>                  
+                    </div>
 
-			</div>
-		</div>
+                </div>
+            </div>
+            <hr>
 
+            <hr>
+        </div>
+    </div>
+</div>

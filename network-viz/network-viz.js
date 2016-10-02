@@ -27,10 +27,12 @@ angular.module('myApp.network-viz', ['ngRoute'])
 			function(response){
 			var rawdata = d3.csv.parse(response.data);
 			
-			var width = 700,
-			    height = 700,
+			var width = Math.min(screen.height*0.70, screen.width*0.85),
+			    height = width,
+				radius = height*0.4,
 				x_center = width/2,
 				y_center = height/2,
+
 				base_node = {
 				"base_radius":{"ods":0, "fuente":3, "datos":3},
 				"charge":{"ods":-50, "fuente":-20, "datos":-5}
@@ -192,6 +194,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					$scope.nodeName = "";
 			    	d3.selectAll(".node").classed("highligthed", true);	
 			    	d3.selectAll(".link").classed("highligthed", true);
+			    	d3.selectAll(".selected").classed("selected", false);
 			    	$scope.$apply();	
 				}
 
@@ -305,7 +308,6 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					// var i = parseInt(node.name.split(" ")[0])
 					var i = index;
 					var increment_angle = 360/17
-					var radius = 250;
 					var offsetAngle = -90;
 					var currentAngleRadians = (offsetAngle + (increment_angle * i)) * Math.PI / 180 ;
 					return {

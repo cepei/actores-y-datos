@@ -1,6 +1,13 @@
+.network-container{
+  height: 100vh;
+  padding-top: 10vh;
+  /*margin-bottom: 0.5vh;*/
+}
 
 #forcemap{
   text-align: center;
+  background-color: white;
+  height: 100vh;
 }
 
 #forcemap svg{
@@ -66,12 +73,12 @@ text {
 }
 
 .fuente {
- fill:#00A2A8;
+ fill:#3efcc2;
  color:blue;
 }
 
 .datos {
- fill:#FF9122;
+ fill:grey;
  color:red;
 }
 
@@ -87,8 +94,9 @@ text {
 }
 
 .network-viz-container{
-  min-height: 1000px;
   background-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 
@@ -96,6 +104,17 @@ text {
   display: none;
 }
 
+.network-node-info-container{
+  padding-left: 0px;
+  padding-right: 0px;
+  border-width: 0px;
+  border-style: solid;
+  border-left-width: 1px;
+  border-left-color: grey;
+  height: 100%;
+  background-color: white;
+  
+}
 
 .network-node-info{
   background:url('../images/seccion-background.jpg') repeat;
@@ -125,12 +144,28 @@ text {
 }
 
 .network-conventions{
-  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-width: 0px;
+  border-style: solid;
+  border-right-width: 1px;
+  border-right-color: grey;
+  background-color: white;
+  color: black;
+  height: 100%;
 }
 
 .network-convention{
-  margin-left: 5%;
-  margin-right: 5%;
+  text-align: justify;
+  margin:1vw;
+  /*height: 100vh;*/
+}
+
+.network-convention-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .network-data {
@@ -189,4 +224,30 @@ text {
 
 .nodename{
   text-align: center;
+}
+
+#network-viz-header{
+  height: 6.5vh;
+  background-color: #282c59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  font-size: 0.8vw;
+
+}
+
+
+#network-viz-header p{
+  margin-bottom: 0;
+
+}
+
+.country-name{
+  color:#3efcc2;
+  width: 100%;
+  text-align: left;
+  font-size: 4vh;
 }
