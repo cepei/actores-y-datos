@@ -126,10 +126,12 @@ hr {
   color: black;
   float: right;
   height: 100%;
+  padding: 0;
 }
 
 .menu-bar .menu-bar-links{
   height: 100%;
+  width: 100%;
   float: right;
 
 }
@@ -147,6 +149,7 @@ hr {
   padding-left: 10px;
   color: #282c59;
   font-size: 1vw;
+  width: 30%;
 
 }
 
