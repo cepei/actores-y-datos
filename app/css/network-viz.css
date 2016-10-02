@@ -7,7 +7,7 @@
 #forcemap{
   text-align: center;
   background-color: white;
-  height: 100vh;
+  min-height: 83.5vh;
 }
 
 #forcemap svg{
@@ -39,7 +39,8 @@
 .node.selected {
   stroke-width: 1px;
   -webkit-filter: drop-shadow( -1px -1px 1px #000 );
-            filter: drop-shadow( -1px -1px 1px #000 ); /* Same syntax as box-shadow */
+     -moz-filter: drop-shadow( -1px -1px 1px #000 ); 
+          filter: drop-shadow( -1px -1px 1px #000 ); 
 }
 
 .node:hover{
@@ -118,8 +119,10 @@ text {
 
 .network-node-info{
   background:url('../images/seccion-background.jpg') repeat;
-  padding-left: -15px!important;
+  /*padding-left: -15px!important;*/
   color:#282c59;
+  overflow: auto;
+  height: 83.5vh;
   
 }
 
@@ -165,7 +168,7 @@ text {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 83.5vh;
 }
 
 .network-data {
