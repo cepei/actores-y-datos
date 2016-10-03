@@ -99,12 +99,12 @@
                             </div>
                             <div class="col-xs-2 col-sm-2 col-lg-2">
                                 <div class="source-link">
-                                 <a href="{{datum['CONSULTADO EN'].toLowerCase()}}">URL</a>
-                                    
+                                 <a href="{{datum['DISPONIBLE EN']}}" ng-hide="datum['DISPONIBLE EN']==''">[url]</a>
+                                 <span ng-show="datum['DISPONIBLE EN']==''">N/A</span>
                                 </div>
                             </div>
                             <div class="col-xs-2 col-sm-2 col-lg-2">
-                                {{datum.FORMATO.toLowerCase()||"N/A"}}
+                                {{datum.FORMATO.replace("*",", ")||"N/A"}}
                             </div>
                         </div>
                     </div>  
