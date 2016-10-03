@@ -130,7 +130,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				d3.select("body").on("click",function(){
 					var element = d3.select(d3.event.target.parentElement)
-				    if (!element.classed("node") && !element.classed("network-data-list")) {
+				    if (!element.classed("node") && !element.classed("network-row")) {
 				    	$scope.clickOutsideNode();
 				    }
 				});
@@ -147,7 +147,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 					    setTimeout(function () {
 					        $scope.$apply(function () {
-								$scope.relatedToNode = associated;
+								$scope.relatedToNode = $scope.getAssociatedRowsInDB(nodedata);
 								$scope.nodeName = nodedata.name;
 								$scope.nodeType = nodedata.type;
 								if(nodedata.type == "ods")
@@ -189,6 +189,13 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
 				    return associated;
 				}
+
+				$scope.getAssociatedRowsInDB = function(nodedata){
+					return data.filter(function(obj){
+				    		return obj[nodedata.type.toUpperCase()] == nodedata.name
+				    	});
+				}
+
 
 				$scope.clickOutsideNode = function(){
 					$scope.nodeName = "";

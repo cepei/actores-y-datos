@@ -68,7 +68,47 @@
                         </span>
 
                     </div>
-                    <div ng-show="nodeType!='ods'">
+                    <div class="row network-header-row">     
+                        <div class="col-xs-3 col-sm-3 col-lg-3">
+                            FUENTE
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            TIPO FUENTE
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-lg-3">
+                            DATO
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            URL
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            FORMATO
+                        </div>
+                    </div>
+                    <div ng-repeat = "datum in relatedToNode">
+
+                        <div class="row network-row" ng-class="{'network-grey-row':$even,'':$odd}">     
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.FUENTE,'type':'fuente'})">
+                                {{datum.FUENTE.toLowerCase()}}
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-lg-2 ">
+                                {{datum['TIPO DE FUENTE'].toLowerCase()}}
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.DATOS,'type':'datos'})">
+                                {{datum.DATOS.toLowerCase()}}
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-lg-2">
+                                <div class="source-link">
+                                 <a href="{{datum['CONSULTADO EN'].toLowerCase()}}">URL</a>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-lg-2">
+                                {{datum.FORMATO.toLowerCase()||"N/A"}}
+                            </div>
+                        </div>
+                    </div>  
+<!--                     <div ng-show="nodeType!='ods'">
                         <h4> ODS Relacionados </h4> 
                         <div  class="iconos-ods-network row">
                             <div ng-repeat = "odsNumber in relatedToNode.ods">
@@ -90,7 +130,7 @@
                         <div ng-repeat = "datos in relatedToNode.datos"   ng-click="clickNode({'name':datos,'type':'datos'})">
                             {{datos.toLowerCase()}}
                         </div>                  
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
