@@ -138,19 +138,36 @@ describe('myApp.network-viz module', function() {
 
     }));
 
+    it('getAssociatedRowsInDB should det associated rows to a ODS in database',inject(function($controller) {
+      var networkCtrl = createController();
+      $httpBackend.expectGET("network-viz/data/country_names.json");
+      $httpBackend.expectGET("network-viz/data/ODSs.csv");
+      $httpBackend.flush();     
+      var datum = {"name":"1 ODS", "type": "ods"}    
+      var associated = $rootScope.getAssociatedRowsInDB(datum);
+      expect(associated).toEqual([{"DATOS": "dato1", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                                  {"DATOS": "dato2", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                                  ])
+    }));
+
     it('should put relatedToNode names in scope correctly', inject(function($controller) {
       //spec body 
       var networkCtrl = createController();
       $httpBackend.expectGET("network-viz/data/country_names.json");
       $httpBackend.expectGET("network-viz/data/ODSs.csv");
       $httpBackend.flush();     
-      var datum = {"name":"1 ODS", "type": "ods"}
+      var datum = {"name":"fuente1", "type": "fuente"}
       $rootScope.clickNode(datum);
       jasmine.clock().tick(100);
-      expect($rootScope.relatedToNode).toEqual({"datos":["dato1","dato2"], "fuente":["fuente1"], "ods":[1]});
+      expect($rootScope.relatedToNode).toEqual([{"DATOS": "dato1", "ODS":"2 ODS", "FUENTE":"fuente1"},
+                                                {"DATOS": "dato1", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                                                {"DATOS": "dato2", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                                                {"DATOS": "dato1", "ODS":"10 ODS", "FUENTE":"fuente1"},
+                                                ]);
     }));
 
-    it('should put sorted ODSs in relatedToNode in scope correctly', inject(function($controller) {
+
+    it('should put rows in relatedToNode in scope correctly when typedata is dato', inject(function($controller) {
       //spec body 
       var networkCtrl = createController();
       $httpBackend.expectGET("network-viz/data/country_names.json");
@@ -159,8 +176,12 @@ describe('myApp.network-viz module', function() {
       var datum = {"name":"dato1", "type": "datos"}
       $rootScope.clickNode(datum);
       jasmine.clock().tick(100);
-      expect($rootScope.relatedToNode).toEqual({"datos":["dato1"], "fuente":["fuente1"], "ods":[1, 2, 10]});
+      expect($rootScope.relatedToNode).toEqual([{"DATOS": "dato1", "ODS":"2 ODS", "FUENTE":"fuente1"},
+                                                {"DATOS": "dato1", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                                                {"DATOS": "dato1", "ODS":"10 ODS", "FUENTE":"fuente1"},]);
     }));
+
+
 
   });
 });
