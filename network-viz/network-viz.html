@@ -58,7 +58,6 @@
             </span>
             
             <div class = "network-data" ng-show="nodeName!=''">
-                <div ng-show="nodeName!=''">
                     <h4> {{nodeType}} </h4>
                     <p class="nodename">{{nodeName.toLowerCase()}}</p>
                     <div ng-show="nodeType=='ods'" class="ods-image" >
@@ -107,34 +106,32 @@
                                 {{datum.FORMATO.replace("*",", ")||"N/A"}}
                             </div>
                         </div>
-                    </div>  
-<!--                     <div ng-show="nodeType!='ods'">
-                        <h4> ODS Relacionados </h4> 
-                        <div  class="iconos-ods-network row">
-                            <div ng-repeat = "odsNumber in relatedToNode.ods">
-                                <div  class = "network-data-list">
-                                    <img src="images/images_ODS {{odsNumber}}.png"  ng-click="clickNode({'name':odsNumber,'type':'ods'})"/>
-                                </div>  
-                            </div>  
-                        </div>  
-                        <br/>               
-                    </div>
-                    <div ng-show="nodeType!='fuente'" class = "network-data-list">
-                        <h4> Fuentes Relacionadas </h4>     
-                        <div ng-repeat = "fuente in relatedToNode.fuente" ng-click="clickNode({'name':fuente,'type':'fuente'})">
-                            {{fuente.toLowerCase()}}
-                        </div>                  
-                    </div>
-                    <div ng-show="nodeType!='datos'" class = "network-data-list">
-                        <h4> Datos Relacionados </h4>       
-                        <div ng-repeat = "datos in relatedToNode.datos"   ng-click="clickNode({'name':datos,'type':'datos'})">
-                            {{datos.toLowerCase()}}
-                        </div>                  
-                    </div> -->
+                    </div> 
 
-                </div>
             </div>
 
+            <div class ="network-download-links">
+                <span>Descargas</span>
+                <div class="pull-right">
+                    <a href="files/{{countryId}}.zip">
+                        <img src="images/icon-home.png"/>                    
+
+                        <span>
+                            CSV
+                        </span>
+                    </a>
+                </div>
+                <div class="pull-right">
+                    <a href="files/{{countryId}}.xlsx">
+                        <img src="images/icon-home.png"/>                    
+
+                        <span>
+                            XLSX
+                        </span>
+                    </a>
+                </div>
+
+            </div> 
         </div>
     </div>
 </div>

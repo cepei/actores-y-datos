@@ -262,6 +262,9 @@ text {
 }
 
 .network-header-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 1vw; 
   color:#34A6E4;
@@ -297,4 +300,19 @@ text {
 
 .network-grey-row div{
   background-color: #BFBFBF;
+}
+
+.network-download-links{
+  position: absolute;
+  bottom: 0px;
+  background-color: white;
+  width: 100%;
+  font-size: 4vh;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.network-download-links .pull-right{
+  padding-left: 10px;
+  padding-right: 10px;
 }
