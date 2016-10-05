@@ -5,32 +5,14 @@
         </div>
         <div class="network-convention-box">
             <div>
-                <div class="network-convention">
-                    <svg height="12" width="12">
-                        <circle class="ods" cx="6" cy="6" r="6"></circle>
+                <div class="network-convention" ng-repeat="convention_type in ['ods', 'fuente', 'datos'] ">
+                    <svg height="30" width="30">
+                        <circle class="{{convention_type}}" cx="15" cy="15" r="12"></circle>
                     </svg>
                     <span>
-                        <b>ODS</b>
+                        <b>{{convention_type}}</b>
                     </span>
                 </div> 
-
-                <div class="network-convention">
-                    <svg height="12" width="12">
-                        <circle class="fuente" cx="6" cy="6" r="6"></circle>
-                    </svg>
-                    <span>
-                        <b>FUENTE</b>
-                    </span>
-                </div> 
-
-                <div class="network-convention">
-                    <svg height="12" width="12">
-                        <circle class="datos" cx="6" cy="6" r="6"></circle>
-                    </svg>
-                    <span>
-                        <b>DATO</b>
-                    </span>
-                </div>            
             </div>            
 
         </div>
@@ -57,16 +39,22 @@
                 Haga click en uno de los puntos de la gráfica
             </span>
             
-            <div class = "network-data" ng-show="nodeName!=''">
-                    <h4> {{nodeType}} </h4>
-                    <p class="nodename">{{nodeName.toLowerCase()}}</p>
-                    <div ng-show="nodeType=='ods'" class="ods-image" >
-                        <span>
-                            <img src="images/images_ODS {{odsIndex}}.png"/>
-                            
-                        </span>
+<!--             <div>
+                Here goes the bar 
+            </div> -->
 
-                    </div>
+            <div class = "network-data" ng-show="nodeName!=''">
+
+                    <h4> {{nodeType}} </h4>
+                    <p class="nodename">{{nodeName.toLowerCase()}}
+<!--                         <span ng-show="nodeType=='ods'" class="ods-image" >
+                            <span>
+                                <img src="images/images_ODS {{odsIndex}}.png"/>
+                                
+                            </span>
+
+                        </span> -->
+                    </p>
                     <div class="row network-header-row">     
                         <div class="col-xs-3 col-sm-3 col-lg-3">
                             FUENTE
@@ -114,7 +102,7 @@
                 <span>Descargas</span>
                 <div class="pull-right">
                     <a href="files/{{countryId}}.zip">
-                        <img src="images/icon-home.png"/>                    
+                        <img src="images/iconsNav/Icons-downloadCSV.png"/>                    
 
                         <span>
                             CSV
@@ -123,7 +111,7 @@
                 </div>
                 <div class="pull-right">
                     <a href="files/{{countryId}}.xlsx">
-                        <img src="images/icon-home.png"/>                    
+                        <img src="images/iconsNav/Icons-downloadXLSX.png"/>                    
 
                         <span>
                             XLSX

@@ -1,0 +1,89 @@
+,,,,,
+,Variable,Etiquetas,Descripción,Opciones de selección,Especificaciones adicionales
+,Datos,Datos,"Datos, bases de datos u operación estadística que generan las instituciones objeto de estudio.",,Esta variable debe escribirse en mayúscula sostenida.
+,País,País,País al que pertenecen las instituciones objeto de estudio.,"Antigua y Barbuda
+ Argentina
+ Bahamas
+ Barbados
+ Belice
+ Bolivia
+ Brasil
+ Chile
+ Colombia
+ Costa Rica
+ Cuba
+ República Dominicana
+ Ecuador
+ El Salvador
+ Granada
+ Guatemala
+ Guyana
+ Haití
+ Honduras
+ Jamaica
+ México
+ Nicaragua
+ Panamá
+ Paraguay
+ Perú
+ República Dominicana
+ Saint Kitts y Nevis
+ San Vicente y Las Granadinas
+ Santa Lucía
+ Suriname
+ Trinidad y Tobago
+ Uruguay
+ Venezuela",Esta variable debe escribirse en mayúscula sostenida.
+,ODS,Objetivos de Desarrollo Sostenible,Son los objetivos de desarrollo sostenible adoptados por los países miembros de Naciones Unidas a finales del año 2015 y sobre los cuales deben cumplirse metas específicas para los proximos 15 años.,"1 Fin de la pobreza
+ 2 Hambre cero
+ 3 Salud y bienestar
+ 4 Educación de calidad
+ 5 Igualdad de género
+ 6 Agua limpia y saneamiento
+ 7 Energía asequible y no contaminante
+ 8 Trabajo decente y crecimiento económico
+ 9 Industria, innovación e infraestructura
+ 10 Reducción de las desigualdades
+ 11 Ciudades y comunidades sostenibles
+ 12 Producción y consumo responsables
+ 13 Acción por el clima
+ 14 Vida submarina
+ 15 Vida de ecosistemas terrestres
+ 16 Paz, justicia e instituciones sólidas
+ 17 Alianzas para lograr los objetivos",Esta variable debe escribirse en mayúscula sostenida.
+,IND_ODS,Indicador de Objetivos de Desarrollo Sostenible,"Son los indicadores asociados a cada una de las metas de los Objetivos de Desarrollo Sostenible, y que permiten hacer el segumiento al cumplimiento de las mismas.",,Esta variable debe escribirse en mayúscula sostenida.
+,T_INST,Tipo de fuente,Delimita el sector al que pertenece la fuente o institución objeto de estudio.,"Gobierno
+ Sector público
+ Sociedad civil
+ Filantropía
+ Sector privado
+ Academía",Esta variable debe escribirse en mayúscula sostenida.
+,INST,Fuente,Fuente o institución objeto de estudio en la que se busca identificar los datos que genera y que están relacionados o pueden contribuir a la construcción de indicadores relacionados con los ODS.,,Esta variable debe escribirse en mayúscula sostenida.
+,F_DAT,Método de recolección,Método de recolección a través del cual se recolecta y genera la información.,"Censo
+ Encuesta por muestreo
+ Registro administrativo",Esta variable debe escribirse en mayúscula sostenida.
+,Objetivo,Objetivo de los datos,Ojetivo de los datos generados por las intituciones estudiadas.,,Para esta variable deben utilizarse las reglas normales de mayúsculas y minúsculas.
+,Legislación,Legislación,"Normatividad mediante la cual se soporta la generación de los datos por parte de las entidades. En este sentido, hay una legislación enfocada a la recolección, confidencialidad y restricción en la comercialización respectivamente.",,Para esta variable deben utilizarse las reglas normales de mayúsculas y minúsculas.
+,Variables,Variables,Principales variables definidas en los datos generados por las instituciones y que están relacionadas con los ODS.,,"Para esta variable, utilizar como separador entre las diferentes variables encontradas el símbolo (*). Para su escritura deben utilizarse las reglas normales de mayúsculas y minúsculas, en donde seguido al símbolo (*) cada palabra empieza con mayúscula."
+,INF_GEN,Información generada,Principales indicadores generados a partir de los datos o base de datos de las instituciones.,,"Para esta variable, utilizar como separador entre las diferentes indicadores el símbolo (*). Para su escritura deben utilizarse las reglas normales de mayúsculas y minúsculas, en donde seguido al símbolo (*) cada palabra empieza con mayúscula."
+,DE_GEO,Desagregación geográfica,Desagregación geográfica a la cual se genera la información.,,Esta variable debe escribirse en mayúscula sostenida.
+,DA_AB,Disponible en línea,"Especifica si los datos están disponibles en línea para consulta, análisis o tratamiento.","Si
+ No",Esta variable debe escribirse en mayúscula sostenida.
+,Formato,Formato,Tipo de formato de los archivos donde están los datos.,,Esta variable debe escribirse en mayúscula sostenida.
+,DISP,Disponible en,Fuente donde están disponibles los datos.,,
+,FE_CON,Fecha de consulta,Es la fecha de consulta de los datos o la base de datos de las entidades estudiadas.,,
+,PE_DIF,Periodicidad de difusión,Periodicidad con la que se genera la información.,"Permanente
+ Mensual
+ Trimestral
+ Anual
+ Bianual
+ Trianual
+ Quinquenal
+ Decenal
+ No establecido",Esta variable debe escribirse en mayúscula sostenida.
+,CAT_US,Categorías de usuarios,Categorías en las que se clasifican los usuarios de los datos.,"Academía
+ Filantropía
+ Sociedad civil
+ Gobierno
+ Sector privado",Esta variable debe escribirse en mayúscula sostenida.
+,US_INF,Usuarios de la información,Usuarios actuales y potenciales de la información generada por las instituciones objeto de estudio.,,"Para esta variable, utilizar como separador entre las diferentes usuarios el símbolo (*). Para su escritura deben utilizarse las reglas normales de mayúsculas y minúsculas, en donde seguido al símbolo (*) cada palabra empieza con mayúscula."
