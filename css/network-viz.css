@@ -261,7 +261,8 @@ text {
   color:#3efcc2;
   width: 100%;
   text-align: left;
-  font-size: 4vh;
+  font-size: 5vh;
+  font-family: "BebasNewe", serif;
 }
 
 .network-header-row{
