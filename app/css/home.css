@@ -1,15 +1,10 @@
 .menu-home-container{
   width: 100%;
-  height: 35vh;
+  max-height: 35vh;
   background-color: rgba(255,255,255,0.5);
 }
 
-.menu-home-container > div{
-  height: 35vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 
 
@@ -19,8 +14,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 11.7vh;
-  width: 80%;
+  /*min-height: 11.7vh;*/
+
 
 }
 
@@ -44,7 +39,15 @@
 @media(min-width:768px) {
   .menu-home{
     height:100%;
+    width: 80%;
   }
+
+.menu-home-container > div{
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 }
 
 .menu-home h2{
@@ -84,9 +87,9 @@
 
 .header-home {
 	width: 100%;
-	margin-top: -8px;
-  height: 35vh;
-	margin-top: 10vh;
+  min-height: 30vh;
+  margin-top: 10vh;
+  margin-bottom: 2vh;
 }
 
 .header-home h1{
