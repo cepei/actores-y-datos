@@ -37,10 +37,11 @@
 }
 
 .node.selected {
-  stroke-width: 1px;
-  -webkit-filter: drop-shadow( -1px -1px 1px #000 );
+  stroke-width: 2px;
+  stroke: #000;
+/*  -webkit-filter: drop-shadow( -1px -1px 1px #000 );
      -moz-filter: drop-shadow( -1px -1px 1px #000 ); 
-          filter: drop-shadow( -1px -1px 1px #000 ); 
+          filter: drop-shadow( -1px -1px 1px #000 ); */
 }
 
 .node:hover{
@@ -160,7 +161,8 @@ text {
 
 .network-convention{
   text-align: justify;
-  margin:1vw;
+  margin-top:3vh;
+  margin-bottom:3vh;
   /*height: 100vh;*/
 }
 
@@ -224,6 +226,7 @@ text {
   display: inline;
   text-align: center;
   float:none;
+  height: 12vh;
 
 }
 
@@ -310,6 +313,7 @@ text {
   font-size: 4vh;
   padding-left: 10px;
   padding-right: 10px;
+  bor
 }
 
 .network-download-links .pull-right{

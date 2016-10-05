@@ -41,6 +41,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				var ODSs = d3.csv.parse(response.data);
 				data = rawdata.filter(rowContainsValidODS);
 				var ocurrences = getNodesOcurrencesInDatabase(data, ODSs);
+				console.log(ocurrences);
 				var nodes = createNodes(data, ODSs);
 				var links = createLinks(data);
 				var positions = getNodesPositions(nodes, data, ocurrences, x_center, y_center);
@@ -275,8 +276,9 @@ angular.module('myApp.network-viz', ['ngRoute'])
 							orderedOcurencies.push({"key":k,"value":ocurrences.ods[k]})
 
 					}
-					orderedOcurencies.sort(function(a,b){return a.value < b.value})
+					orderedOcurencies.sort(function(a,b){return b.value - a.value})
 									 .forEach(function(d,i){
+									 	console.log(d);
 									 	var node = nodes[d.key];
 									 	positions["ods"][node.node_index] = getODSNodePosition(node, i);
 									 })
