@@ -122,7 +122,8 @@ hr {
 .menu-bar .logo-container img{
   display: inline-flex;
   align-items: center;
-  max-height: 10vh;
+  max-height: 8vh;
+  max-width: 8vw;
   margin-left: 5px;
   margin-right: 5px;
 }
