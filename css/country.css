@@ -1,8 +1,8 @@
 
-.container-fluid{
+/*.container-fluid{
 	margin:0px;
 	padding:0px;
-}
+}*/
 /** MENU LATERAL **/
 
 .menulateral {
@@ -381,7 +381,7 @@
 .pais-data > h2{
   color: #282c59;
   font-family: 'BebasNeue';
-  font-size: 55px;
+  font-size: 3.5vw;
   margin-bottom: 0;
 }
 
@@ -392,6 +392,24 @@
 	font-size: 40px;
 	margin: 35px 0px 30px 10px;
 	line-height: 42px;
+}
+
+.titulo-total-pais > h1{
+	color: #282c59;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 40px;
+	margin: 35px 0px 30px 10px;
+	line-height: 42px;
+}
+
+.descarga  h4{
+	color: #282c59;
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 2vw;
+	line-height: 57px;
+	margin: 0;
 }
 
 /*********************************/
