@@ -1,31 +1,143 @@
 
-	<div class="row">
-		<div class="header">
-			<h2>Laboratorio de datos para el desarrollo sostenible</h2>
-		</div>
-		<div class="linea-text">
-			<p>Haz clic en el país para acceder a los datos</p>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-lg-12 menu-paises">
-			<div class="seccion-pais">
-				<div class="btn-pais col-xs-12 col-sm-8 col-lg-4">
-					<a href="#!network-viz/mexico" class="text-info" >
-						<img alt="" src="images/iconsPaises/mexico.png"></img>
-						<span>México</span>
-					</a>
-				</div>
-				<div class="btn-pais col-xs-12 col-sm-8 col-lg-4">
-					<a href="#!network-viz/colombia" class="text-info" >
-						<img alt="" src="images/iconsPaises/colombia.png"></img>
-						<span>Colombia</span>
-					</a>
-				</div>
-				<div class="btn-pais col-xs-12 col-sm-8 col-lg-4">
-					<a href="#!network-viz/costa_rica" class="text-info" >
-						<img alt="" src="images/iconsPaises/costa_rica.png"></img>
-						<span>Costa Rica</span>
-					</a>
-				</div>
-			</div>  
-		</div>
-	</div>
+<!-- <div class="row"> -->
+	  <div class="container-fluid data-container">
+	    <div class="banner-conectar">
+	      <img class="img-responsive" src="img/banner-conectar.png" alt="Conectar Data">
+	    </div>
+
+	    <div class="datos-fuentes container-fluid">
+	      <div class="titulo-fuentes col-xs-12 col-sm-12 col-md-3 col-lg-3">
+	        Datos por tipo de fuente
+	      </div>
+	      <div class="cifras-fuentes col-xs-12 col-sm-12 col-md-9 col-lg-9 row">
+	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sector Público</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-1">####</div>
+	        </div>
+	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sector Privado</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-2">####</div>
+	        </div>
+	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sociedad Civil</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-3">####</div>
+	        </div>
+	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
+	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sociedad Civil</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-4">####</div>
+	        </div>
+	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente txt1">Filantropía</div>
+	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-5">####</div>
+	        </div>
+	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente txt2">Organismos Multilaterales</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-6">####</div>
+	        </div>
+	      </div>
+	    </div>
+
+	    <div class="totales-data container-fluid row">
+	      <div class="total-ods hidden-xs col-sm-7 col-md-7 col-lg-7 container-fluid">
+	        <div class="titulo-total-ods">
+	          <h1><span id="numero-total-ods">......#</span> Total datasets por ODS</h1>
+	        </div>
+	        <div class="grafica-total-ods container-fluid row">
+	            <ul class="col-sm-12 col-md-12">
+	              <li class="ods-text">ODS</li>
+	              <li class="barra-ods" id="ods-1">1</li>
+	              <li class="barra-ods" id="ods-2">2</li>
+	              <li class="barra-ods" id="ods-3">3</li>
+	              <li class="barra-ods" id="ods-4">4</li>
+	              <li class="barra-ods" id="ods-5">5</li>
+	              <li class="barra-ods" id="ods-6">6</li>
+	              <li class="barra-ods" id="ods-7">7</li>
+	              <li class="barra-ods" id="ods-8">8</li>
+	              <li class="barra-ods" id="ods-9">9</li>
+	              <li class="barra-ods" id="ods-10">10</li>
+	              <li class="barra-ods" id="ods-11">11</li>
+	              <li class="barra-ods" id="ods-12">12</li>
+	              <li class="barra-ods" id="ods-13">13</li>
+	              <li class="barra-ods" id="ods-14">14</li>
+	              <li class="barra-ods" id="ods-15">15</li>
+	              <li class="barra-ods" id="ods-16">16</li>
+	              <li class="barra-ods" id="ods-17">17</li>
+	            </ul>
+	          <div class="text-value-ods col-sm-12 col-md-12">
+	            <h5>Consumo y producción sostenibles</h5>
+	          </div> 
+	        </div>
+	      </div>
+	      <div class="total-ods-res col-xs-12 hidden-sm hidden-md hidden-lg container-fluid">
+	        <div class="titulo-total-ods">
+	          <h1><span id="numero-total-ods">......#</span> Total datasets por ODS</h1>
+	        </div>
+	        <div class="grafica-total-ods-res container-fluid row">
+	          <div class="text-value-ods-res col-xs-1">
+	            <h5>Consumo y producción sostenibles</h5>
+	          </div> 
+	          <ul class="col-xs-11">
+	            <li class="ods-text-res">ODS</li>
+	            <li class="barra-ods-res" id="ods-1">1</li>
+	            <li class="barra-ods-res" id="ods-2">2</li>
+	            <li class="barra-ods-res" id="ods-3">3</li>
+	            <li class="barra-ods-res" id="ods-4">4</li>
+	            <li class="barra-ods-res" id="ods-5">5</li>
+	            <li class="barra-ods-res" id="ods-6">6</li>
+	            <li class="barra-ods-res" id="ods-7">7</li>
+	            <li class="barra-ods-res" id="ods-8">8</li>
+	            <li class="barra-ods-res" id="ods-9">9</li>
+	            <li class="barra-ods-res" id="ods-10">10</li>
+	            <li class="barra-ods-res" id="ods-11">11</li>
+	            <li class="barra-ods-res" id="ods-12">12</li>
+	            <li class="barra-ods-res" id="ods-13">13</li>
+	            <li class="barra-ods-res" id="ods-14">14</li>
+	            <li class="barra-ods-res" id="ods-15">15</li>
+	            <li class="barra-ods-res" id="ods-16">16</li>
+	            <li class="barra-ods-res" id="ods-17">17</li>
+	          </ul>
+	          
+	        </div>
+	      </div>
+	      <div class="total-pais col-xs-12 col-sm-5 col-md-5 col-lg-5">
+	        <div class="titulo-total-pais">
+	          <h1>Total datasets por País</h1>
+	        </div>
+	        <div class="grafica-total-pais">
+	          <ul>
+	          	<a href="#!network-viz/mexico" class="text-info" >
+		            <li class="pais-data">
+		              <h2>MÉXICO <span id="mexico-data">###</span></h2>
+		            </li>
+		        </a>
+		        <a href="#!network-viz/colombia" class="text-info" >
+		            <li class="pais-data">
+		              <h2>COLOMBIA <span id="colombia-data">###</span></h2>
+		            </li>
+		        </a>
+		        <a href="#!network-viz/costa-rica" class="text-info" >
+		            <li class="pais-data">
+		              <h2>COSTA RICA <span id="costa-rica-data">###</span></h2>
+		            </li>
+		        </a>
+	          </ul>
+	        </div>
+	        <div class="descarga row">
+	          <div class="txt-descarga col-xs-5 col-sm-4 col-md-5">
+	            <h4>Descargar</h4>
+	          </div>
+	          <div class="items-descargas col-xs-7 col-sm-8 col-md-7 row">
+	            <div class="item-csv col-xs-6 col-sm-6 col-md-6">
+	              <a href="#"><h4>CSV</h4></a>
+	            </div>
+	            <div class="item-xlsx col-xs-6 col-sm-6 col-md-6">
+	              <a href="#"><h4>XLSX</h4></a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+
+
+<!-- </div> -->

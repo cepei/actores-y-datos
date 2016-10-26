@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,400,400i,900');
 
+@font-face {
+    font-family: "BebasNewe";
+    src: url(fonts/BebasNeue.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "BebasNeue";
+  src: url("fonts/3242FD_0_0.eot?#iefix") format("embedded-opentype"), url("fonts/3242FD_0_0.woff2") format("woff2"), url("fonts/3242FD_0_0.woff") format("woff"), url("fonts/3242FD_0_0.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'helvetica_ce_35_thinregular';
+    src: url('fonts/helvetica_neue_ce_35_thin-webfont.woff2') format('woff2'),
+         url('fonts/helvetica_neue_ce_35_thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face{ 
+  font-family: 'MyWebFont';
+  src: url('WebFont.eot');
+  src: url('WebFont.eot?#iefix') format('embedded-opentype'),
+       url('WebFont.woff') format('woff'),
+       url('WebFont.ttf') format('truetype'),
+       url('WebFont.svg#webfont') format('svg');
+}
+
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2") format("woff2");
+  unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -7,6 +44,15 @@ body {
   overflow-x: hidden;
   width: 100%;
 }
+
+h2 {
+  font-family: 'Helvetica', serif;
+  color: #fff;
+
+}
+
+
+
 a{
   text-decoration:none;
   color:#000;
@@ -18,7 +64,7 @@ ul {
 }
 li{
   font-size:12px;
-  color:#000!important;
+  color:#000;
 }
 section {
     display: block;
@@ -218,12 +264,7 @@ ul.idiomas li a:hover{
   background: #262B56;
 
 }
-/** Otro jodido archivo de estilos ( home) **/
 
-.container-fluid{
-  margin:0px;
-  padding:0px;
-}
 /** CONTENIDO **/
 
 .portal-cont{

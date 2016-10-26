@@ -1,8 +1,8 @@
 
-.container-fluid{
+/*.container-fluid{
 	margin:0px;
 	padding:0px;
-}
+}*/
 /** MENU LATERAL **/
 
 .menulateral {
@@ -372,4 +372,535 @@
 .country-map{
 	height: fill;
 	width: fill;
+}
+
+
+
+/*********************************/
+
+.pais-data > h2{
+  color: #282c59;
+  font-family: 'BebasNeue';
+  font-size: 3.5vw;
+  margin-bottom: 0;
+}
+
+.titulo-total-ods > h1{
+	color: #282c59;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 40px;
+	margin: 35px 0px 30px 10px;
+	line-height: 42px;
+}
+
+.titulo-total-pais > h1{
+	color: #282c59;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 40px;
+	margin: 35px 0px 30px 10px;
+	line-height: 42px;
+}
+
+.descarga  h4{
+	color: #282c59;
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 2vw;
+	line-height: 57px;
+	margin: 0;
+}
+
+/*********************************/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,400,400i,900');
+.data-container{
+	padding: 0;
+	margin-top: 10vh;
+	min-height: 90vh;
+	background-color: white;
+}
+
+.header-data-republica{
+	padding: 0;
+	height: auto;
+	background-color: #fff;
+	margin: 0
+}
+.logo-cepei{
+	margin-left: 5px;
+}
+ul.menu-nav{
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+ul.menu-nav li{
+	font-family: 'BebasNeue';
+	font-size: 20px;
+	float: left;
+	list-style-type: none;
+	height: 85px;
+	padding: 31px 20px 0px 20px;
+    line-height: 20px;
+	border-left: dotted #282c59 1px;
+	text-align: center;
+	
+}
+ul.menu-nav li a{
+	color: #333366;
+}
+ul.menu-nav li a:hover{
+	text-decoration: none;
+	color: #99ffcc;
+}
+ul.redes{
+	float: left;
+	margin: 0;
+	padding: 0;
+	border-left: dotted #282c59 1px;
+}
+ul.redes li{
+	float: left;
+	list-style-type: none;
+	height: 85px;
+	    margin: 0 5px;
+	text-align: center;
+	color: #282c59;
+}
+.fb-icon{
+	width: 45px;
+	background: url(../img/icon_fb.png) center center no-repeat;
+}
+.fb-icon:hover{
+	background: url(../img/icon_fb-on.png) center center no-repeat;
+}
+.tw-icon{
+	width: 45px;
+	background: url(../img/icon_tw.png) center center no-repeat;
+}
+.tw-icon:hover{
+	background: url(../img/icon_tw-on.png) center center no-repeat;
+}
+.yt-icon{
+	width: 45px;
+	background: url(../img/icon_yt.png) center center no-repeat;
+}
+.yt-icon:hover{
+	background: url(../img/icon_yt-on.png) center center no-repeat;
+}
+ul.idiomas{
+	float: left;
+	margin: 0;
+	padding: 0;
+	float: left;
+	border-left: dotted #282c59 1px;
+}
+ul.idiomas li{
+	width: 100%;
+	font-family: 'Roboto';
+	font-size: 18px;
+	font-weight: 100;
+	text-align:center; 
+	list-style-type: none;
+	height: 42px;
+	padding:8px 10px; 
+}
+ul.idiomas li a{
+	text-align: center;
+	color: #282c59;
+}
+ul.idiomas li a:hover{
+	text-decoration: none;
+	color: #99ffcc;
+}
+.border-idiomas{
+	border-bottom: dotted #282c59 1px;
+}
+.datos-fuentes{
+	height: auto;
+	padding: 10px 15px;
+	background-color: #282c59;
+}
+.titulo-fuentes{
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-size: 32px;
+	line-height: 35px;
+    color: #99ffcc;
+    margin: 10px 0;
+}
+.cifras-fuentes.row {
+    margin-left: 0px;
+}
+
+.circulo-fuente{
+	height: 60px;
+	width: 60px;
+	border-radius: 50px;
+	background-color: #99ffcc;
+	color: #282c59;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 12px;
+	text-align: center;
+	padding: 18px 2px;
+	margin: 0 24px;
+}
+.txt1{
+	padding-top: 24px;
+}
+.txt2{
+	font-size: 9.5px;
+	}
+.numero-fuente{
+	color: #99ffcc;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.total-ods{
+	border-right: #282c59 1px solid;
+	height: 415px;
+}
+span#numero-total-ods{
+	font-size: 60px;
+	font-weight: 900;
+}
+.grafica-total-ods ul{
+	padding: 0;
+	margin: 0;
+}
+.grafica-total-ods ul li{
+	padding-top: 245px;
+	float: left;
+	list-style-type: none;
+}
+.ods-text{
+    width: 4%;
+    margin-right: 20px;
+    font-family: 'BebasNeue';
+    font-size: 25px;
+	color: #5180ae;
+	text-align: center;
+}
+.barra-ods{
+	width: 3.3%;
+    margin: 10px 2% 0% 0%;
+	height: 270px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3efcc2+0,3ebd40+50,00a6f3+100 */
+	background: #3efcc2; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3efcc2 0%, #3ebd40 50%, #00a6f3 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #3efcc2 0%,#3ebd40 50%,#00a6f3 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #3efcc2 0%,#3ebd40 50%,#00a6f3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3efcc2', endColorstr='#00a6f3',GradientType=0 ); /* IE6-9 */
+	font-family: 'BebasNeue';
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+}
+.text-value-ods{
+	float: left;
+	background-color: #eeeeee;
+	text-align: center;
+	border-top: 1px solid #5180ae;
+}
+.text-value-ods h5{
+	color: #282c59;
+	font-family: 'Roboto';
+	font-size: 16px;
+	font-weight: 400;
+}
+.total-ods-res{
+	border-bottom: #282c59 1px solid;
+}
+.grafica-total-ods-res{
+	margin-bottom: 20px;
+}
+.grafica-total-ods-res ul{
+	padding: 0;
+	margin: 0;
+	border-left: 1px solid #5180ae;
+}
+.grafica-total-ods-res ul li{
+	list-style-type: none;
+}
+.barra-ods-res{
+	height: 24px;
+    margin: 10px 0px 10px 0px;
+    padding-left: 5px;
+	width: 300px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00a6f3+0,3ebd40+50,3efcc2+100 */
+	background: #00a6f3; /* Old browsers */
+	background: -moz-linear-gradient(left,  #00a6f3 0%, #3ebd40 50%, #3efcc2 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #00a6f3 0%,#3ebd40 50%,#3efcc2 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #00a6f3 0%,#3ebd40 50%,#3efcc2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a6f3', endColorstr='#3efcc2',GradientType=1 ); /* IE6-9 */
+	font-family: 'BebasNeue';
+	font-size: 17px;
+	color: #fff;
+	text-align: left;
+}
+.ods-text-res{
+    margin-left: 6px;
+    font-family: 'BebasNeue';
+    font-size: 25px;
+	color: #5180ae;
+}
+.text-value-ods-res{
+	height: 622px;
+	float: left;
+	background-color: #eeeeee;
+	text-align: center;
+}
+.text-value-ods-res h5{
+    width: 300px;
+	color: #282c59;
+	font-family: 'Roboto';
+	font-size: 16px;
+	font-weight: 400;
+	transform: rotate(-90deg);
+    transform-origin: left top 0;
+    position: relative;
+    float: left;
+    top: 460px;
+}
+.grafica-total-pais ul{
+	padding: 0;
+	margin: 0;
+}
+.grafica-total-pais ul li{
+	list-style-type: none;
+	border-bottom: #00A6F3 1px solid;
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+}
+.pais-data h2>span{
+	background-color: #eee;
+	margin: 0 5px;
+	float: right;
+	font-family: 'Roboto';
+	padding: 0 5px;
+}
+.descarga{
+	height: 57px;
+	background-color: #eeeeee;
+}
+
+.item-csv a>h4{
+	background-image: url(../img/icons-downloadcsv.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 40px;
+}
+.item-xlsx a>h4{
+	background-image: url(../img/icons-downloadxlsx.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 40px;
+}
+.item-csv a:hover{
+	text-decoration: none;
+}
+.item-csv a>h4:hover{
+	background-image: url(../img/icons-download_hover.png);
+	color: #00a6f3;
+}
+.item-xlsx a:hover{
+	text-decoration: none;
+}
+.item-xlsx a>h4:hover{
+	background-image: url(../img/icons-download_hover.png);
+	/*color: #3fffcb;*/
+}
+@media only screen and (max-width: 1093px){
+	.total-ods {
+	    height: 450px;
+	}
+}
+@media only screen and (min-width: 1200px){
+	.titulo-fuentes{
+		font-size: 32px;
+		line-height: 35px;
+		text-align: left;
+		margin: 10px 0 5px 10px;
+	}
+	.cifra{
+    	padding: 0 0 0 30px;
+    	margin: 0;
+	}
+	.circulo-fuente{
+		margin: 0;
+	}
+	.txt1{
+		padding-top: 24px;
+	}
+
+	.numero-fuente{
+		line-height: 60px;
+		text-align: left;
+	}
+	.barra-ods {
+	    width: 3.4%;
+	}
+	.total-ods {
+	    height: 450px;
+	}
+}
+@media only screen and (max-width: 992px){
+	.titulo-fuentes{
+		font-size: 35px;
+	    line-height: 50px;
+	    margin: 15px 0px;
+	    text-align: center;
+	}
+	.cifra{
+		margin:15px auto; 
+		padding: 0 8%;
+	}
+	.circulo-fuente{
+		margin: 0;
+	}
+	.txt1{
+		padding-top: 24px;
+	}
+	.numero-fuente{
+		line-height: 60px;
+		font-size: 22px;
+		text-align: left;
+	}
+	.ods-text{
+	    margin-right: 20px;
+	    font-size: 20px;
+	}
+	.total-ods {
+	    height: 425px;
+	}
+}
+@media only screen and (max-width: 768px){
+	.logo-cepei{
+		margin-left: 0;
+	}	
+	.redes-res ul{
+		float: right;
+		margin: 0;
+		padding: 0;
+	}
+	.redes-res li{
+		float: left;
+		list-style-type: none;
+		height: 85px;
+	    margin: 0 5px;
+		text-align: center;
+		color: #282c59;
+	}
+	ul.menu-nav-res{
+		margin: 0;
+		padding: 0;
+	}
+	ul.menu-nav-res li{
+		font-family: 'BebasNeue';
+		font-size: 20px;
+		list-style-type: none;
+		height: 45px;
+		padding: 10px 0px;
+	    line-height: 20px;
+		border-top: dotted #282c59 1px;
+		text-align: center;
+	
+	}
+	ul.menu-nav-res li a{
+		color: #333366;
+	}
+	ul.menu-nav-res li a:hover{
+		text-decoration: none;
+		color: #99ffcc;
+	}
+	.idiomas-res{
+		margin: 0;
+		padding: 0;
+	}
+	.idiomas-res{
+		text-align: center;
+		font-family: 'Roboto';
+		font-size: 18px;
+		font-weight: 100;
+		list-style-type: none;
+		height: 42px;
+		padding:8px 10px; 
+		border-top: dotted #282c59 1px;
+	}
+	.idiomas-res a{
+		text-align: center;
+		color: #282c59;
+	}
+	.idiomas-res a:hover{
+		text-decoration: none;
+		color: #99ffcc;
+	}
+	.titulo-fuentes{
+		font-size: 35px;
+	    line-height: 50px;
+	    margin: 15px 0px;
+	    text-align: center;
+	}
+	
+	.cifra{
+		margin:15px auto; 
+		padding: 0 13%;
+	}
+	.circulo-fuente{
+		height: 90px;
+		width: 90px;
+		font-size: 14px;
+		line-height: 15px;
+		text-align: center;
+		padding: 30px 2px;
+		margin: 0 34px;
+	}
+	.txt1{
+		padding-top: 38px;
+	}
+	.txt2{
+		font-size: 13px;
+	}
+	.numero-fuente{
+		font-size: 22px;
+		line-height: 70px;
+		padding: 0;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 591px){
+	.cifra{
+		padding: 0 10%;
+	}
+	.circulo-fuente{
+		margin: 0 28px;
+	}
+}
+@media only screen and (max-width: 500px){
+	.titulo-fuentes{
+		
+	}
+	.cifra{
+		margin:15px auto; 
+		padding: 0 9%;
+	}
+	.circulo-fuente{
+		text-align: center;
+		margin: 0 15px;
+	}
+	h5{
+		line-height: 0.1;
+	}
+	.grafica-total-ods-res>ul.col-xs-11 {
+    width: 90%;
+}
+
 }

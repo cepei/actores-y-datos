@@ -50,16 +50,18 @@
  align-items: center;
 }
 
-.menu-modulos p{
-  font-family: 'Roboto';
-  font-weight: 400;
-  padding-top: 1.5vh;
-  font-size: 14px;
-  line-height: 16px;
-  color:#282c59;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
+
+.menu-home h2{
+    margin-top: 0px;
+    margin-bottom: 2vh;
+    font-size: 3vw;
+    color:#282c59;
+    font-weight: 100;
+    width: 100%;
+    text-align: center;
+  /*width: 70%;*/
+
+
 }
 .menu-modulos a:hover{
   text-decoration: none;
