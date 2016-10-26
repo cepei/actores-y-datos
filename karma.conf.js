@@ -12,6 +12,7 @@ module.exports = function(config) {
       'components/**/*.js',
       'view*/**/*.js',
       'network-viz/**/*.js',
+      'countries/**/*.js',
     ],
 
     autoWatch: true,

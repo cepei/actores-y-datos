@@ -1,7 +1,35 @@
 'use strict';
 
 angular.module('myApp.countries', ['ngRoute'])
-.controller('CountriesCtrl', [function() {
+.controller('CountriesCtrl', ["$scope", "$routeParams", "$http", function($scope, $routeParams, $http) {
+	$scope.data = [];
+	var ods_totals = [];
+
+	$http.get("countries/data/allcountries.csv").then(
+	function(response){
+		$scope.data = d3.csv.parse(response.data);
+		for(var i = 1; i <=17; i++){
+			ods_totals[i] = $scope.data.filter(function(obj){
+					return obj["ODS"].split(" ")[0] == i;
+				}).length
+		}
+
+		console.info(ods_totals);
+		// console.info(ods_totals.map())
+
+	});
+
+	$scope.countByType = function(type){
+		return $scope.data.filter(function(obj){
+			return obj["TIPO DE FUENTE"] == type;
+		}).length
+	}
+
+	$scope.countByCountry = function(country){
+		return $scope.data.filter(function(obj){
+			return obj["PAÍS"] == country;
+		}).length
+	}
 
 }])
 .controller('CountryCtrl', ["$scope", "$routeParams", "$http",function($scope, $routeParams, $http) {
