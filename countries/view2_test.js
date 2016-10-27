@@ -76,7 +76,7 @@ describe('myApp.countries module', function() {
       var CountriesCtrl = createController();
       $httpBackend.expectGET("countries/data/allcountries.csv");
       $httpBackend.flush();
-      expect($rootScope.relPercentODS(10)).toEqual("25%");
+      expect($rootScope.relPercentODS(10)).toEqual(0.5);
     }));
 
   });
