@@ -3,7 +3,8 @@
 angular.module('myApp.countries', ['ngRoute'])
 .controller('CountriesCtrl', ["$scope", "$routeParams", "$http", function($scope, $routeParams, $http) {
 	$scope.data = [];
-	var ods_totals = [];
+	var ods_totals = [0];
+	var max_total_ods = 0;
 
 	$http.get("countries/data/allcountries.csv").then(
 	function(response){
@@ -14,8 +15,42 @@ angular.module('myApp.countries', ['ngRoute'])
 				}).length
 		}
 
-		console.info(ods_totals);
-		// console.info(ods_totals.map())
+		max_total_ods = Math.max.apply(null,ods_totals)
+
+		function calculateBars()
+		{
+			d3.selectAll(".barra-ods")
+			  .each(function(d,i){
+			  	d3.select(this).style("height",null);
+			  	var height = d3.select(this).node().getBoundingClientRect().height;
+		      	var odsIndex = d3.select(this).attr("id").split("-")[1];
+			  	d3.select(this)
+				  	.style("margin-top", function(d){
+				      	return height*(1-$scope.relPercentODS(odsIndex)) + "px";
+				    })
+				    .style("padding-top", function(d){
+				      	return height*($scope.relPercentODS(odsIndex)-0.1) + "px";
+				    })
+				    .style("height", function(d){
+				      	return height*($scope.relPercentODS(odsIndex)) + "px";
+				    })
+			  })		
+
+			  d3.selectAll(".barra-ods-res")
+			  .each(function(d,i){
+			  	d3.select(this).style("width",null);
+			  	var width = d3.select(this).node().getBoundingClientRect().width;
+		      	var odsIndex = d3.select(this).attr("id").split("-")[1];
+			  	d3.select(this)
+				    .style("width", function(d){
+				      	return width*($scope.relPercentODS(odsIndex)) + "px";
+				    })
+			  })}
+
+		calculateBars();
+		d3.select(window).on('resize', calculateBars); 
+
+
 
 	});
 
@@ -29,6 +64,10 @@ angular.module('myApp.countries', ['ngRoute'])
 		return $scope.data.filter(function(obj){
 			return obj["PAÍS"] == country;
 		}).length
+	}	
+
+	$scope.relPercentODS = function(odsIndex){
+		return ods_totals[odsIndex]/max_total_ods;
 	}
 
 }])
