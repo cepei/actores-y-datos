@@ -34,9 +34,10 @@ angular.module('myApp.home', ['ngRoute'])
 		var W = window.innerWidth, H = window.innerHeight*4;
 		canvas.width = W;
 		canvas.height = H;
+		console.log(canvas.width*canvas.height);
 
 		// Some variables for later use
-		var particleCount = 300,
+		var particleCount = parseInt(canvas.width*canvas.height/10000),
 			particles = [],
 			minDist = 70,
 			dist;
@@ -196,8 +197,8 @@ angular.module('myApp.home', ['ngRoute'])
 				
 				// Some acceleration for the partcles 
 				// depending upon their distance
-				var ax = dx/2000,
-					ay = dy/2000;
+				var ax = dx/5000,
+					ay = dy/5000;
 				
 				// Apply the acceleration on the particles
 				p1.vx -= ax;
