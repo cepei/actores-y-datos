@@ -12,27 +12,27 @@
 	      <div class="cifras-fuentes col-xs-12 col-sm-12 col-md-9 col-lg-9 row">
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sector Público</div>
-	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-1">####</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-1">{{countByType("SECTOR PÚBLICO")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sector Privado</div>
-	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-2">####</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-2">{{countByType("SECTOR PRIVADO")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sociedad Civil</div>
-	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-3">####</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-3">{{countByType("SOCIEDAD CIVIL")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
-	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Sociedad Civil</div>
-	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-4">####</div>
+	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Academia</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-4">{{countByType("ACADEMIA")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente txt1">Filantropía</div>
-	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-5">####</div>
+	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-5">{{countByType("FILANTROPÍA")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente txt2">Organismos Multilaterales</div>
-	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-6">####</div>
+	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-6">{{countByType("ORGANISMOS MULTILATERALES")}}</div>
 	        </div>
 	      </div>
 	    </div>
@@ -40,7 +40,7 @@
 	    <div class="totales-data container-fluid row">
 	      <div class="total-ods hidden-xs col-sm-7 col-md-7 col-lg-7 container-fluid">
 	        <div class="titulo-total-ods">
-	          <h1><span id="numero-total-ods">......#</span> Total datasets por ODS</h1>
+	          <h1><span id="numero-total-ods">{{data.length}}</span> Total datasets por ODS</h1>
 	        </div>
 	        <div class="grafica-total-ods container-fluid row">
 	            <ul class="col-sm-12 col-md-12">
@@ -107,17 +107,17 @@
 	          <ul>
 	          	<a href="#!network-viz/mexico" class="text-info" >
 		            <li class="pais-data">
-		              <h2>MÉXICO <span id="mexico-data">###</span></h2>
+		              <h2>MÉXICO <span id="mexico-data">{{countByCountry("MÉXICO")}}</span></h2>
 		            </li>
 		        </a>
 		        <a href="#!network-viz/colombia" class="text-info" >
 		            <li class="pais-data">
-		              <h2>COLOMBIA <span id="colombia-data">###</span></h2>
+		              <h2>COLOMBIA <span id="colombia-data">{{countByCountry("COLOMBIA")}}</span></h2>
 		            </li>
 		        </a>
 		        <a href="#!network-viz/costa-rica" class="text-info" >
 		            <li class="pais-data">
-		              <h2>COSTA RICA <span id="costa-rica-data">###</span></h2>
+		              <h2>COSTA RICA <span id="costa-rica-data">{{countByCountry("COSTA RICA")}}</span></h2>
 		            </li>
 		        </a>
 	          </ul>
