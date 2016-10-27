@@ -4,9 +4,25 @@
   margin-top: 4vh;
   margin-bottom: 2vh;
 }
-.intro{
-  width: 100%;
-  margin: 10vh 0 20px 0;
+
+
+#bg-animation-canvas{
+  position: absolute;
+  top:0px;
+  /*height: 400vh;*/
+}
+
+
+
+
+.menu-home{
+  background-color: rgba(255,255,255,0.5);
+  /*padding: 0px!important;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*min-height: 11.7vh;*/
+
 }
 .intro .big-text{
   font-size: 2.25em;
