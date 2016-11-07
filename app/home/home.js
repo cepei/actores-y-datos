@@ -10,6 +10,7 @@ angular.module('myApp.home', ['ngRoute'])
 }])
 
 .controller('HomeCtrl', [function() {
+		console.log("Nosotros tenemos más influencia sobre tu código que tu tiene... pero lo queremos\ndesarrollado por DivisionDeAriza https://github.com/divisiondeariza")
 		// RequestAnimFrame: a browser API for getting smooth animations
 		window.requestAnimFrame = (function(){
 		  return  window.requestAnimationFrame       || 
