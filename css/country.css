@@ -1,8 +1,8 @@
 
-/*.container-fluid{
+.container-fluid{
 	margin:0px;
 	padding:0px;
-}*/
+}
 /** MENU LATERAL **/
 
 .menulateral {
@@ -417,7 +417,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,400,400i,900');
 .data-container{
 	padding: 0;
-	margin-top: 10vh;
 	min-height: 90vh;
 	background-color: white;
 }
@@ -442,9 +441,9 @@ ul.menu-nav li{
 	float: left;
 	list-style-type: none;
 	height: 85px;
-	padding: 31px 20px 0px 20px;
+	/*padding: 31px 20px 0px 20px;*/
     line-height: 20px;
-	border-left: dotted #282c59 1px;
+	/*border-left: dotted #282c59 1px;*/
 	text-align: center;
 	
 }
@@ -455,69 +454,29 @@ ul.menu-nav li a:hover{
 	text-decoration: none;
 	color: #99ffcc;
 }
-ul.redes{
-	float: left;
-	margin: 0;
-	padding: 0;
-	border-left: dotted #282c59 1px;
-}
+
 ul.redes li{
 	float: left;
 	list-style-type: none;
 	height: 85px;
 	    margin: 0 5px;
 	text-align: center;
-	color: #282c59;
+	/*color: #282c59;*/
 }
-.fb-icon{
-	width: 45px;
-	background: url(../img/icon_fb.png) center center no-repeat;
-}
-.fb-icon:hover{
-	background: url(../img/icon_fb-on.png) center center no-repeat;
-}
-.tw-icon{
-	width: 45px;
-	background: url(../img/icon_tw.png) center center no-repeat;
-}
-.tw-icon:hover{
-	background: url(../img/icon_tw-on.png) center center no-repeat;
-}
-.yt-icon{
-	width: 45px;
-	background: url(../img/icon_yt.png) center center no-repeat;
-}
-.yt-icon:hover{
-	background: url(../img/icon_yt-on.png) center center no-repeat;
-}
-ul.idiomas{
-	float: left;
-	margin: 0;
-	padding: 0;
-	float: left;
-	border-left: dotted #282c59 1px;
-}
-ul.idiomas li{
-	width: 100%;
-	font-family: 'Roboto';
-	font-size: 18px;
-	font-weight: 100;
-	text-align:center; 
-	list-style-type: none;
-	height: 42px;
-	padding:8px 10px; 
-}
+
+
+
 ul.idiomas li a{
-	text-align: center;
-	color: #282c59;
+	/*text-align: center;*/
+	/*color: #282c59;*/
 }
 ul.idiomas li a:hover{
 	text-decoration: none;
 	color: #99ffcc;
 }
-.border-idiomas{
+/*.border-idiomas{
 	border-bottom: dotted #282c59 1px;
-}
+}*/
 .datos-fuentes{
 	height: auto;
 	padding: 10px 15px;
