@@ -12,82 +12,80 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-
-  <link href="css/bootstrap.css" rel="stylesheet" />
-   <script src="js/bootstrap.js"></script>  
-   <link rel="stylesheet" href="css/styles.css">  
+  <link href="css/bootstrap.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bebasneue.css">   
   <link rel="stylesheet" href="css/home.css">  
   <link rel="stylesheet" href="css/country.css">
   <link rel="stylesheet" href="css/network-viz.css">  
-  <link href='https://fonts.googleapis.com/css?family=HelveticaNeue:400,300,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=LhelveticaNeue' rel='stylesheet' type='text/css'>
 
-
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+   <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/collapse.js"></script>
 
 </head>
 <body>
-      <div class="background-degrade">
-        <div class="menu-bar">
-          <div class="logo-container">
-            <a href="#">
-              <img src="images/logo_CEPEI.png"/>
-            </a>
-            <a href="#">
-              <img src="images/Telefónica_Logo.png"/>
-            </a>
-          </div>
+      <div class="container-fluid data-container">
+        <div class="container-fluid header-data-republica row">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
 
-          <nav class="col-xs-5 col-sm-5 col-lg-5">
-            <div class="menu-bar-links">
-              <div class="menu-link-container menu-link-container-right">
-                <a href="#sponsors">
-                  Aliados
-                </a>
-              </div>
-              <div class="menu-link-container menu-link-container-right">
-                <a href="#contact-us">
-                  Contáctenos
-                </a>
-              </div>
-              <div class="menu-link-container menu-link-container-right">
-                <a href="#">
-                 <img src="images/iconsNav/icon_fb.png"/>
-                </a>
-                <a href="#">
-                 <img src="images/iconsNav/icon_tw.png"/>
-                </a>
-                <a href="#">
-                 <img src="images/iconsNav/icon_yt.png"/>
-                </a>
-
-              </div>
-              <div class="menu-locale-container menu-link-container-right">
-                <div class="menu-bar-locale-buttons">
-                   <a href="#">
-                      EN
-                   </a>             
-                </div>
-                <div class="menu-bar-locale-buttons">
-                   <a href="#">
-                      ES
-                   </a>             
-                </div>
-              </div>
-            </div>
-          </nav>
-          <nav class="col-xs-3 col-sm-3 col-lg-3">
-            <div class="menu-bar-links">
-              <div class="menu-link-container menu-link-container-left">
-                <a href="#">
-                  ¿Qué es Data República?
-                </a>
-              </div>
-            </div>
-
-
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav menu-nav">
+                  <li>
+                    <a href="#" class="space-top" >¿Qué es
+                    <br>Data República?
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#novedades">Novedades</a>
+                  </li>
+                  <li>
+                    <a href="#sponsors">Aliados</a>
+                  </li>
+                  <li>
+                    <a href="#contact-us">Contacto</a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right row">
+                  <ul class="redes col-xs-6 col-sm-10 col-md-10 col-lg-10">
+                    <a href="#" target="blank">
+                      <li class="fb-icon"></li>
+                    </a>
+                    <a href="#" target="blank">
+                      <li class="tw-icon"> </li>
+                    </a>
+                    <a href="#" target="blank">
+                      <li class="yt-icon"></li>
+                    </a>   
+                  </ul>
+                  <ul class="idiomas col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                    <li class="border-idiomas">
+                      <a href="#">ES</a>
+                    </li>
+                    <li>
+                      <a href="#">EN</a>
+                    </li>
+                  </ul>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
           </nav>
 
+ 
         </div>
 
         <div class="container background-strips">
@@ -115,5 +113,6 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+
 </body>
 </html>

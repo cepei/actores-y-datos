@@ -1,213 +1,111 @@
-.menu-home-container{
-  width: 100%;
-  max-height: 35vh;
-  background-color: rgba(255,255,255,0.5);
-}
-
-
-
-
-
-.menu-home{
-  background-color: rgba(255,255,255,0.5);
-  /*padding: 0px!important;*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*min-height: 11.7vh;*/
-
-
-}
-
-
-
-.menu-home a{
-
-  align-items: center;
-
-}
-
-.menu-home div{
-  padding-top: 2vh;
-  font-size: 1vw;
-  color:#282c59;
-  text-align: center;
-
-
-}
-
-@media(min-width:768px) {
-  .menu-home{
-    height:100%;
-    width: 80%;
-  }
-
-.menu-home-container > div{
-  height: 35vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-}
-
-.menu-home h2{
-    margin-top: 0px;
-    margin-bottom: 2vh;
-    font-size: 3vw;
-    color:#282c59;
-    font-weight: 100;
-    width: 100%;
-
-}
-
-.menu-home h2:hover{
-  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
-}
-
-.home-separator{
-  width: 100%;
-  height: 5vh;
-  background-color: #282c59;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1em;
-}
-
-.home-separator span{
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-
-.scroll-icon{
-  max-height: 4vh;
-}
-
 .header-home {
-	width: 100%;
+  width: 100%;
   min-height: 30vh;
-  margin-top: 10vh;
+  margin-top: 4vh;
   margin-bottom: 2vh;
 }
-
-.header-home h1{
-	color: #282c59;
-  font-size: 12.0em;
-	font-size: 12vw;
-	text-align: center;
-	margin: 0 auto;
-	margin-bottom: 5px;
-  font-family: "BebasNewe", serif;
-  line-height: 0.5em;
-  letter-spacing: -0.04em;
-}
-
-.header a{
-  float: left;
-}
-
-.header {
-    background: url('../images/header_background.png') repeat;
-    height: auto;
-    width: 100%;
-    margin-top: 0;
-    float: left;
-}
-
-.header h2{
-  font-size: 2.1em;
-    font-weight: 200;
-    color: #fff;
-    padding: 10px 0 15px 31px;
-    float: left;
-    text-align: left;
-    line-height: 1em;
-}
-.img-header img{
-  float:right;
-  margin-top: 25px;
-    margin-right: 31px;
-}
-
 .intro{
   width: 100%;
-
+  margin: 10vh 0 20px 0;
 }
-
-.intro p{
-  font-family: 'Helvetica', serif;
-	width: 65%;
+.intro .big-text{
+  font-size: 2.25em;
+  text-align: center;
+  line-height: 36px;
+  color:#21285A;
+  font-family: 'BebasNeue', serif;
+}
+.small-text p{
+  font-family: 'Roboto', serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  width: 55%;
   margin: 0 auto;
 }
-
-.intro .big-text{
-  font-size: 3em;
-  font-size: 4vw;
-  text-align: center;
-  color:white;
-  font-family: "BebasNewe", serif;
-}
-
 .intro .small-text{
   font-size: 1.3em;
   font-size:  1vw;
   margin-top: 1.1em;
   text-align: center;
-  color: white;
+  color: #21285A;
 }
 
-@media(max-width:1000px) {
-  .intro .small-text{
-    font-size: 10px;
-  }
-}
-
-.home-section-title{
-  font-family: "BebasNewe", serif;
-  color:white;
-  text-align: center;
-  font-size:8vw;
+.menu-modulos-container{
+  float: left;
   width: 100%;
-  opacity: 0.8;
+  height: auto;
+  padding: 10px 0;
 }
-
-#novedades{
-  /*height: 100vh;*/
-  /*margin-top: 1vh;*/
-
-}
-
-#novedades .news-box{
-	background-color: #fff;
-  color:#282c59;
-  min-height: 35vh;
-  display: flex;
+.menu-modulos{
+  width: 28%;
+  margin: 0 2.6%;
+  padding: 10px;
+  height: auto;
   align-items: center;
   justify-content: center;
-  font-size: 2vmin;
-  font-weight: bold;
-  margin-bottom: 15vh;
-   background-color: rgba(255, 255, 255, 0.8);
+  z-index: 600;
+}
+.menu-modulos a{
+ align-items: center;
 }
 
-
-#novedades .news-box div{
-  margin:2vmin;
-
+.menu-modulos p{
+  font-family: 'Roboto';
+  font-weight: 400;
+  padding-top: 1.5vh;
+  font-size: 14px;
+  line-height: 16px;
+  color:#282c59;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
 }
-
-@media (max-width: 768px) { 
-  #novedades .news-box{
-    min-height: 14vh;
-    margin-top:2vh;
-    margin-bottom:1vh;
-    font-size: 2vmin;
-  }
-
+.menu-modulos a:hover{
+  text-decoration: none;
+  color: #23D2CD;
 }
-
+.menu-modulos p:hover{
+  color: #23D2CD;
+}
+.bg-content-modulos {
+  background-color: #EEEEEE;
+  margin-top: -210px;
+  height: 130px;
+  width: 100%;
+  z-index: 500;
+}
+.img-modulos{
+  width: auto;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: 82%;
+  background-position: center;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+.conecta-img{
+  background-image: url(../images/logo-conecta-home.png);
+}
+.publica-img{
+  background-image: url(../images/logo-publica-home.png);
+}
+.aprende-img{
+  background-image: url(../images/logo-aprende-home.png);
+}
+.img-modulos:hover{
+  background-color: #BDCC4A;
+}
+.conecta-img:hover{
+  background-image: url(../images/logo-conecta-home_on.png);
+}
+.publica-img:hover{
+  background-image: url(../images/logo-publica-home_on.png);
+}
+.aprende-img:hover{
+  background-image: url(../images/logo-aprende-home_on.png);
+}
 .home-scroll{
   margin-top: 1vh;
   margin-bottom: 1vh;
@@ -215,43 +113,147 @@
   align-items: center;
   justify-content: center;
   height: 7vh;
-
 }
-
-
-.sponsors-text{
-  font-size: 2vh;
-  margin-top: 1vh;
+.scrolldown{
+  height: 35px;
+  width: 35px;
+  background-image: url(../images/icon_scrolldown.png);
+}
+.scrolldown:hover{
+  background-image: url(../images/icon_scrolldown_on.png);
+}
+.scrollup{
+  height: 35px;
+  width: 35px;
+  background-image: url(../images/icon_scrollup.png);
+}
+.scrollup:hover{
+  background-image: url(../images/icon_scrollup_on.png);
+}
+.scroll-icon{
+  max-height: 4vh;
+}
+.home-section-title h2{
+  font-family: 'BebasNeue', serif;
+  color:#21285A;
   text-align: center;
-  color: white;
+  font-size:80px;
   width: 100%;
-  margin: 0 auto;
 }
-
-.sponsor-img-container{
-  display: flex;
+.novedades{
+  float: left;
+  margin: 20px 0;
+}
+.news-box{
+  width: 28%;
+  height: 210px;
+  margin: 0 2.6%;
+  padding: 38px 30px 20px 30px;
   align-items: center;
   justify-content: center;
-  height: 45vh;
+  background-color: #EEEEEE;
+  z-index: 600;
 }
-
-.sponsor-img-container img{
-  height: 40%
+.news-box p{
+  font-family: 'Roboto';
+  margin-bottom: 30px;
+  text-align: center;
 }
-
-
-
-@media (max-width: 768px) { 
-  .sponsor-img-container{
-    height: 10vh;
-  }
-  .sponsor-img-container img{
-    /*max-height: 100%;*/
-  }
+p.news-text{
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #666666;
+}
+p.news-important{
+  font-size: 18px;
+  line-height: 21px;
+  color: #21285A;
+  font-weight: 400;
+  text-align: center;
+}
+p.news-important a{
+  color: #21285A;
+}
+p.news-important a:hover{
+  text-decoration:none; 
+  color: #23D0CB;
+}
+.bg-content-news{
+  background-color: #23D0CB;
+  margin-top: -170px;
+  height: 130px;
+  width: 100%;
+  z-index: 500;
+}
+.logos-home {
+    float: left;
+    width: 100%;
+}
+.logos-home >div>h4{
+  font-family: 'BebasNeue', serif;
+  font-size: 25px;
+  color: #BDCC4A;
+  text-align: center;
+}
+.logo-cepei_home p{
+  font-family: 'Roboto';
+  text-align: center;
+  color:#282c59;
+}
+.logo-telefonica_home>a img {
+  margin-top: 40px;
+}
+.sponsors-text p{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  color:#282c59;
+  text-align: center;
+}
+.sponsor-img-container {
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  margin-top: -50px !important;
 
 }
-
-
+.padding-sponsors {
+  padding: 0;
+}
+.bg-countries-title {
+    height: 50px;
+    background-color: #BDCC4A;
+    z-index: 100;
+}
+.sponsor-images{
+  border-right: 1px dotted #21285A;
+}
+.sponsor-images.globales{
+  border-right: none !important;
+}
+.sponsor-images ul{
+  padding: 0;
+  margin: 0;
+}
+.sponsor-images ul li{
+  list-style-type: none;
+  padding: 8px 0px;
+}
+.sponsor-images ul li a img.img-responsive {
+    max-width: 90%;
+}
+.country-title{
+  height: 50px;
+  font-family: 'BebasNeue';
+  font-size:18px;
+  text-align: center;
+  color: #fff;
+  margin-top: -10px;
+}
+.sponsor-images.globales ul li a img.img-responsive {
+  max-width: 68%;
+}
 #contact-us{
   height: 100vh;
 }
@@ -276,4 +278,176 @@
     padding-right: 0.4em;
     width: 60vw;
     height: 50vh;
+}
+@media(min-width:1200px) {
+  .small-text p{
+    width: 50%;
+  }
+  .img-modulos{
+    width: 320px;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-size: 85%;
+  }
+  .menu-modulos p{
+    width: 80%;
+  }
+  .bg-content-modulos {
+    margin-top: -216px;
+    height: 130px;
+  }
+  .bg-content-news {
+    margin-top: ;
+  }
+  .sponsor-img-container {
+    padding: 10px;
+  }
+}
+@media(min-width:1500px) {
+  .sponsor-img-container {
+    padding: 10px 80px;
+  }
+}
+@media(max-width:1040px) {
+  .bg-content-modulos {
+    margin-top: -226px;
+  }
+  .news-box {
+    height: 220px;
+  }
+}
+@media(max-width:992px) {
+  .small-text p{
+    width: 65%;
+  }
+  .intro .big-text{
+    font-size: 2.2em;
+  }
+  .menu-home{
+    height:100%;
+    width: 80%;
+  }
+  .img-modulos{
+    background-size: 95%;
+  }
+  .bg-content-modulos {
+    margin-top: -226px;
+  }
+  .news-box {
+    width: 30%;
+    height: 230px;
+    margin: 0 1.6%;
+    padding: 40px 30px 20px 30px;
+  }
+  p.news-text {
+    font-size: 15px;
+  }
+  p.news-important{
+    font-size: 16px;
+  }
+  .bg-content-news {
+    margin-top: -180px;
+  }
+  .sponsor-images ul li a img.img-responsive {
+    max-width: 75%;
+  }
+  .sponsor-images.globales ul li a img.img-responsive {
+    max-width: 50%;
+  }
+  .globales>.country-title{
+    background-color: #bdcc4a;
+  }
+  .globales>.country-title h3 {
+    padding-top: 10px;
+  }
+}
+
+@media(max-width:800px) {
+  .bg-content-modulos {
+    margin-top: -243px;
+  }
+  .news-box {
+    height: 240px;
+    padding: 30px 30px 20px 30px;
+  }
+  .news-box p {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) { 
+  .header-home {
+    margin-top: 0vh;
+    margin-bottom: 2vh;
+  }
+  .intro{
+    margin: 7vh 0 10px 0;
+}
+  .small-text p{
+    width: 78%;
+  }
+  .intro .big-text{
+    font-size: 2em;
+    line-height: 1em;
+  }
+  .menu-modulos{
+    width: 100%;
+    margin: 10px auto;
+  }
+  .img-modulos{
+    background-size: 40%;
+  }
+  .menu-modulos p{
+    width: 60%;
+  }
+  .bg-content-modulos {
+    height: 0;
+  }
+  .bg-content-news {
+    height: 0;
+  }
+  .novedades {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+  .news-box{
+    width: 100%;
+    height: 180px;
+    margin: 10px auto;
+    padding: 40px 80px 20px 80px;
+  }
+  .logo-telefonica_home{
+    margin-bottom: 10px;
+  }
+  .logo-telefonica_home>a img {
+    margin-top: 10px;
+  }
+  .sponsor-images {
+    padding: 0 !important;
+  }
+  .sponsor-images ul {
+    padding: 12px 0;
+  }
+  .sponsor-images ul li {
+    margin: 20px 0;
+  }
+  .mexico>.country-title, .colombia>.country-title{
+    background-color: #bdcc4a;
+  }
+  .mexico>.country-title h3, .colombia>.country-title h3{
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 500px) { 
+  .small-text p{
+    width: 90%;
+  }
+  .news-box {
+    height: 200px;
+    padding: 40px 40px 20px 40px;
+  }
+  .img-modulos{
+    background-size: 60%;
+  }
 }
