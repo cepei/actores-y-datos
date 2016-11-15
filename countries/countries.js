@@ -49,7 +49,7 @@ angular.module('myApp.countries', ['ngRoute'])
 				    .style("width", function(d){
 				      	return width*($scope.relPercentODS(odsIndex)) + "px";
 				    })
-				    .select(".barra-value-ods")
+				    .select(".barra-value-ods") 
 			  		.html(ods_totals[odsIndex]);
 			  })}
 
