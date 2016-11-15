@@ -1,38 +1,49 @@
-<div class="network-container">
-    <div class="col-xs-1 col-sm-1 col-lg-1 network-conventions">
-        <div id="network-viz-header">
-
+<div class="network-container row container">
+    
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 container-fluid network-viz-container">
+        <div class="network-viz-intro">
+            <p>Navegue a través del mapa haciendo clic en alguno de los puntos en relación a los ODS, fuentes y datos.
+            <br>
+            En el panel derecho encontrará la información detallada y el enlace que lo conducira al dato.</p> 
         </div>
-        <div class="network-convention-box">
-            <div>
-                <div class="network-convention" ng-repeat="convention_type in ['ods', 'fuente', 'datos'] ">
-                    <svg height="30" width="30">
-                        <circle class="{{convention_type}}" cx="15" cy="15" r="12"></circle>
-                    </svg>
-                    <span>
-                        <b>{{convention_type}}</b>
-                    </span>
-                </div> 
-            </div>            
-
-        </div>
-    </div>
-    <div class="col-xs-11 col-sm-6 col-lg-6 network-viz-container">
-        <div id="network-viz-header">
-            <div>
-                <p>Navegue a través del mapa haciendo clic en alguno de los puntos en relación a los ODS, fuentes y datos.</p>
-                <p>En el panel derecho encontrará la información detallada y el enlace que lo conducira al dato.</p> 
+        <div class="conventions-laws container-fluid row">
+            <div class="network-convention-box col-xs-12 col-sm-7 col-md-7 col-lg-7 ">
+                <div>
+                    <div class="network-convention" ng-repeat="convention_type in ['ods', 'fuente', 'datos'] ">
+                        <svg height="30" width="30">
+                            <circle class="{{convention_type}}" cx="15" cy="15" r="12"></circle>
+                        </svg>
+                        <span>
+                            <b>{{convention_type}}</b>
+                        </span>
+                    </div> 
+                </div>            
+            </div>
+            <div class="col-xs-12 col-sm-5 col-lg-5 leyes-relacionadas"> 
+                <a href="">
+                    <h2>LEYES RELACIONADAS</h2>
+                </a>
             </div>
         </div>
-            <div id="forcemap"></div>
+        
+        <div class="col-xs-12 col-sm-12 col-lg-12" id="forcemap">
+        </div>
     </div>
 
-    <div class="col-xs-11 col-sm-5 col-lg-5 network-node-info-container">
-        <div id="network-viz-header">
-            <div class="country-name">
-                {{countryName.toUpperCase()}}
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 network-node-info-container container-fluid">
+        <div class="header-info-network row container-fluid">
+            <div class="conecta-network col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                <a href="">
+                    <img class="img-responsive" src="../images/logo-aprende-network.png">
+                </a>
             </div>
-       </div>
+            <div class="network-viz-header col-xs-12 col-sm-7 col-md-8 col-lg-8">
+                <div class="country-name">
+                    {{countryName.toUpperCase()}}
+                </div>
+            </div>
+        </div>
+            
         <div class=" network-node-info">
 
             <span class="network-instructions" ng-show="nodeName==''">
@@ -97,29 +108,23 @@
                     </div> 
 
             </div>
-
-            <div class ="network-download-links">
-                <span>Descargas</span>
-                <div class="pull-right">
-                    <a href="files/{{countryId}}.zip">
-                        <img src="images/iconsNav/Icons-downloadCSV.png"/>                    
-
-                        <span>
-                            CSV
-                        </span>
+ 
+        </div>
+        
+        <div class ="network-download-links row container-fluid">
+            <div class="txt-descarga-network col-xs-5 col-sm-4 col-md-5">
+                <h4>Descargas</h4>
+            </div>
+            <div class="descargas-network col-xs-7 col-sm-8 col-md-7 row">
+                <div class="item-csv col-xs-6 col-sm-6 col-md-6">
+                    <a href="files/{{countryId}}.zip"> 
+                        <h4>CSV</h4>  
                     </a>
                 </div>
-                <div class="pull-right">
-                    <a href="files/{{countryId}}.xlsx">
-                        <img src="images/iconsNav/Icons-downloadXLSX.png"/>                    
-
-                        <span>
-                            XLSX
-                        </span>
-                    </a>
-                </div>
-
-            </div> 
+                <div class="item-xlsx col-xs-6 col-sm-6 col-md-6">
+                    <a href="files/{{countryId}}.xlsx"><h4>XLSX</h4></a>
+                </div>    
+            </div>
         </div>
     </div>
 </div>
