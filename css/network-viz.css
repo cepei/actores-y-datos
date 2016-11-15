@@ -1,19 +1,27 @@
 .network-container{
   height: 100vh;
-  padding-top: 10vh;
+  padding-top: 10.6vh;
   /*margin-bottom: 0.5vh;*/
 }
-
+.network-viz-intro p{
+  padding: 14px;
+  font-family: 'Roboto';
+  font-weight: 100;
+  text-align: center;
+  color: #21285A;
+  margin-bottom: 0;
+}
 #forcemap{
   text-align: center;
   background-color: white;
   min-height: 83.5vh;
 }
-
+/*
 #forcemap svg{
-
+  width: 756px;
+  height: 756px;
 }
-
+*/
 
 .link {
   stroke: #000;
@@ -62,7 +70,6 @@ circle{
 }
 
 
-
 text {
   font: 12px sans-serif;
   pointer-events: none;
@@ -70,18 +77,16 @@ text {
 }
 
 .ods {
- fill:#34A6E4;
- color:#34A6E4;
+ fill:#23d2cd;
+ color:#23d2cd;
 }
-
 .fuente {
- fill:#3efcc2;
- color:blue;
+ fill:#bdcc4a;
+ color:#bdcc4a;
 }
-
 .datos {
- fill:grey;
- color:red;
+ fill:#666;
+ color:#666;
 }
 
 #tooltip{
@@ -143,38 +148,39 @@ text {
   
 }
 
-.network-node-info .network-instructions{
-  text-align:center;
+.conventions-laws{
+  height: 45px;
 }
-
-.network-conventions{
-  padding-left: 0px;
-  padding-right: 0px;
-  border-width: 0px;
-  border-style: solid;
-  border-right-width: 1px;
-  border-right-color: grey;
-  background-color: white;
-  color: black;
-  height: 100%;
-}
-
-.network-convention{
-  text-align: justify;
-  margin-top:3vh;
-  margin-bottom:3vh;
-  /*height: 100vh;*/
-}
-
 .network-convention-box{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 83.5vh;
+  background-color: #eee;
+  padding: 5px 20px;
 }
-
+.network-convention{
+  font-family: 'BebasNeue';
+  font-size: 22px;
+  color: #21285a;
+  text-align: justify;
+  float: left;
+  margin-right: 25px;
+}
+.leyes-relacionadas{
+  background-color: #666666;
+  height: 43px;
+}
+.leyes-relacionadas h2{
+  font-family: 'BebasNeue';
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  line-height: 43px;
+}
+.leyes-relacionadas:hover{
+  background-color: #bdcc4a;
+}
 .network-data {
-   text-transform: capitalize;
+  padding: 0 10px;
+  text-transform: capitalize;
 }
 
 .network-data .row{
@@ -184,8 +190,13 @@ text {
 
 
 .network-data h4{
-   text-align: center;
-   text-transform: uppercase;
+  font-family: 'BebasNeue';
+  font-size: 35px;
+  color: #23D0CB;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #21285A;
+  padding-bottom: 5px;
 }
 
 .iconos-ods-network img{
@@ -235,44 +246,52 @@ text {
 }
 
 .nodename{
+  font-family: 'Roboto';
+  font-weight: 400;
   text-align: center;
+  font-size: 24px;
 }
-
-#network-viz-header{
-  height: 6.5vh;
-  background-color: #282c59;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  font-size: 0.8vw;
-
-}
-
 
 #network-viz-header p{
   margin-bottom: 0;
 
 }
-
+.header-info-network {
+  margin-top: 20px !important;
+}
+.conecta-network {
+  border-right: dotted 1px #21285A;
+}
+.conecta-network img {
+  max-width: 80%;
+  margin: 0 auto;
+}
 .country-name{
-  color:#3efcc2;
+  color:#21285A;
   width: 100%;
   text-align: left;
-  font-size: 5vh;
-  font-family: "BebasNewe", serif;
+  font-size: 40px;
+  font-family: 'Roboto';
+  font-weight: 100;
+  line-height: 85px;
 }
-
+.network-instructions {
+    width: 100%;
+    font-family: 'Roboto';
+    text-align: center;
+    font-size: 16px;
+    display: block;
+    margin-top: 20px;
+}
 .network-header-row{
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1vw; 
-  color:#34A6E4;
+  font-size: 14px;
+  color: #BDCC4A;
   padding-top: 5px;
+  font-family: 'BebasNeue';
 }
 
 .network-row{
@@ -288,6 +307,8 @@ text {
 
 .network-row .graph-selector{
   cursor: pointer;
+  font-family: 'Roboto';
+  font-size: 12px;
 }
 
 
@@ -299,25 +320,50 @@ text {
 }
 
 .network-grey-row{
-  background-color: #BFBFBF;
-}
-
-.network-grey-row div{
-  background-color: #BFBFBF;
+  background-color: #EEE;
 }
 
 .network-download-links{
   position: absolute;
   bottom: 0px;
-  background-color: white;
   width: 100%;
   font-size: 4vh;
   padding-left: 10px;
   padding-right: 10px;
-  bor
+  height: 57px;
+  background-color: #eeeeee;
+}
+.network-download-links h4 {
+    color: #282c59;
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 57px;
+    margin: 0;
 }
 
-.network-download-links .pull-right{
-  padding-left: 10px;
-  padding-right: 10px;
+.item-csv a>h4 {
+    background-image: url(../images/iconsNav/icons-download_off.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 40px;
+}
+@media only screen and (max-width: 992px){
+  .network-download-links h4 {
+      font-size: 22px;
+  }
+  .network-download-links h4 {
+      font-size: 35px;
+  }
+}
+@media only screen and (max-width: 768px){
+  .network-container{
+    padding-top: 8.5vh;
+  }
+
+}
+@media only screen and (max-width: 500px){
+  .network-download-links h4 {
+      font-size: 30px;
+  }
 }

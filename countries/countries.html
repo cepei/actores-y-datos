@@ -1,8 +1,17 @@
 
 <!-- <div class="row"> -->
-	  <div class="container-fluid data-container">
-	    <div class="banner-conectar">
-	      <img class="img-responsive" src="img/banner-conectar.png" alt="Conectar Data">
+	<div class="container-fluid data-container">
+	    <div class="header-section row">
+	    	<div class="logo-modulo col-xs-12 col-sm-4 col-sm-push-8 col-md-4 col-md-push-8 col-lg-4 col-lg-push-8">
+	    		<img src="images/logo-conecta-modulo.png">
+	    	</div>
+	        <div class="title-modulo col-xs-12 col-sm-8 col-sm-pull-4 col-md-8 col-md-pull-4 col-lg-8 col-lg-pull-4">
+	        	<h1>UN ESPACIO COLABORATIVO Y ABIERTO</h1>
+	        	<h2>para actores y productores de datos</h2>
+	        	<div class="description-modulo">
+	        		<h3>Datos recopilados a la fecha para México, Colombia y Costa Rica</h3>
+	        	</div>
+	        </div>
 	    </div>
 
 	    <div class="datos-fuentes container-fluid">
@@ -23,7 +32,7 @@
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-3">{{countByType("SOCIEDAD CIVIL")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
-	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente">Academia</div>
+	          <div class="ccol-xs-12 col-sm-6 col-md-12 col-lg-6 circulo-fuente txt1">Academia</div>
 	          <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6 numero-fuente" id="fuente-4">{{countByType("ACADEMIA")}}</div>
 	        </div>
 	        <div class="col-xs-6 col-sm-4 col-md-2 cifra ">
@@ -39,37 +48,56 @@
 
 	    <div class="totales-data container-fluid row">
 	      <div class="total-ods hidden-xs col-sm-7 col-md-7 col-lg-7 container-fluid">
-	        <div class="titulo-total-ods">
+	        <div class="titulo-total">
 	          <h1><span id="numero-total-ods">{{data.length}}</span> Total datasets por ODS</h1>
 	        </div>
-	        <div class="grafica-total-ods container-fluid row">
-	            <ul class="col-sm-12 col-md-12">
+	        <div class="grafica-total-ods container">
+	            <ul class="">
 	              <li class="ods-text">ODS</li>
-	              <li class="barra-ods" id="ods-1">1</li>
-	              <li class="barra-ods" id="ods-2">2</li>
-	              <li class="barra-ods" id="ods-3">3</li>
-	              <li class="barra-ods" id="ods-4">4</li>
-	              <li class="barra-ods" id="ods-5">5</li>
-	              <li class="barra-ods" id="ods-6">6</li>
-	              <li class="barra-ods" id="ods-7">7</li>
-	              <li class="barra-ods" id="ods-8">8</li>
-	              <li class="barra-ods" id="ods-9">9</li>
-	              <li class="barra-ods" id="ods-10">10</li>
-	              <li class="barra-ods" id="ods-11">11</li>
-	              <li class="barra-ods" id="ods-12">12</li>
-	              <li class="barra-ods" id="ods-13">13</li>
-	              <li class="barra-ods" id="ods-14">14</li>
-	              <li class="barra-ods" id="ods-15">15</li>
-	              <li class="barra-ods" id="ods-16">16</li>
-	              <li class="barra-ods" id="ods-17">17</li>
+	              <div  ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]">
+		              <li class="barra-ods" id="ods-{{n}}">
+		              	<div class="ods-index-bar">{{n}}</div>
+		              	<div class="barra-value-ods"></div>
+		              </li>
+	              </div>
+
 	            </ul>
-	          <div class="text-value-ods col-sm-12 col-md-12">
+	          <div class="text-value-ods">
 	            <h5>Consumo y producción sostenibles</h5>
 	          </div> 
 	        </div>
+	        <div class="lista-ods container-fluid">
+	        		<span class="numero-ods">1</span>Fin de la pobreza •
+	        		<span class="numero-ods">2</span>Hambre cero •
+	        		<span class="numero-ods">3</span>Salud y bienestar •
+	        		<span class="numero-ods">4</span>Educación de calidad •
+	        		<span class="numero-ods">5</span>Igualdad de género •
+	        		<span class="numero-ods">6</span>Agua limpia y saneamiento •
+	        		<span class="numero-ods">7</span>Energía asequible y no contaminante •
+	        		<span class="numero-ods">8</span>Trabajo decente y crecimiento económico •
+	        		<span class="numero-ods">9</span>Industria, innovación e infraestructura •
+	        		<span class="numero-ods">10</span>Reducción de las desigualdades •
+	        		<span class="numero-ods">11</span>Ciudades y comunidades sostenibles
+	        		responsables •
+	        		<span class="numero-ods">13</span>Acción por el clima •
+	        		<span class="numero-ods">14</span>Vida submarina •
+	        		<span class="numero-ods">15</span>Vida de ecosistemas terrestres •
+	        		<span class="numero-ods">16</span>Paz, justicia e instituciones sólidas •
+	        		<span class="numero-ods">17</span>Alianzas para lograr los objetivos •
+	        </div>
+
+	        <!--
+	        <div class="valores-ods">
+	       		<ul>
+	            	<li class="barra-value-ods" id="value-ods-1">93</li>
+	              	<li class="barra-value-ods" id="value-ods-2">93</li>
+	            </ul>
+	        </div>
+			-->
+
 	      </div>
 	      <div class="total-ods-res col-xs-12 hidden-sm hidden-md hidden-lg container-fluid">
-	        <div class="titulo-total-ods">
+	        <div class="titulo-total">
 	          <h1><span id="numero-total-ods">{{data.length}}</span> Total datasets por ODS</h1>
 	        </div>
 	        <div class="grafica-total-ods-res container-fluid row">
@@ -78,46 +106,104 @@
 	          </div> 
 	          <ul class="col-xs-11">
 	            <li class="ods-text-res">ODS</li>
-	            <li class="barra-ods-res" id="ods-1">1</li>
-	            <li class="barra-ods-res" id="ods-2">2</li>
-	            <li class="barra-ods-res" id="ods-3">3</li>
-	            <li class="barra-ods-res" id="ods-4">4</li>
-	            <li class="barra-ods-res" id="ods-5">5</li>
-	            <li class="barra-ods-res" id="ods-6">6</li>
-	            <li class="barra-ods-res" id="ods-7">7</li>
-	            <li class="barra-ods-res" id="ods-8">8</li>
-	            <li class="barra-ods-res" id="ods-9">9</li>
-	            <li class="barra-ods-res" id="ods-10">10</li>
-	            <li class="barra-ods-res" id="ods-11">11</li>
-	            <li class="barra-ods-res" id="ods-12">12</li>
-	            <li class="barra-ods-res" id="ods-13">13</li>
-	            <li class="barra-ods-res" id="ods-14">14</li>
-	            <li class="barra-ods-res" id="ods-15">15</li>
-	            <li class="barra-ods-res" id="ods-16">16</li>
-	            <li class="barra-ods-res" id="ods-17">17</li>
+				<div  ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]">
+					<li class="barra-ods-res" id="ods-{{n}}">
+						<div class="ods-index-bar">{{n}}</div>
+						<div class="barra-value-ods horizontal-value-ods">93</div>
+						<!-- <div class="barra-value-ods"></div> -->
+					</li>
+				</div>
+<!-- 	              <li class="barra-ods-res" id="ods-1">
+	              	1
+	              	<div class="barra-value-ods" id="value-ods-1_h">93</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-2">
+	              	2
+	              	<div class="barra-value-ods" id="value-ods-2_h">83</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-3">
+	              	3
+	              	<div class="barra-value-ods" id="value-ods-3_h">126</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-4">
+	              	4
+	              	<div class="barra-value-ods" id="value-ods-4_h">103</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-5">
+	              	5
+	              	<div class="barra-value-ods" id="value-ods-5_h">55</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-6">
+	              	6
+	              	<div class="barra-value-ods" id="value-ods-6_h">45</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-7">
+	              	7
+	              	<div class="barra-value-ods" id="value-ods-7_h">51</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-8">
+	              	8
+	              	<div class="barra-value-ods" id="value-ods-8_h">146</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-9">
+	              	9
+	              	<div class="barra-value-ods" id="value-ods-9_h">79</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-10">
+	              	10
+	              	<div class="barra-value-ods" id="value-ods-10_h">93</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-11">
+	              	11
+	              	<div class="barra-value-ods" id="value-ods-11_h">104</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-12">
+	              	12
+	              	<div class="barra-value-ods" id="value-ods-12_h">68</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-13">
+	              	13
+	              	<div class="barra-value-ods" id="value-ods-13_h">37</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-14">
+	              	14
+	              	<div class="barra-value-ods" id="value-ods-14_h">31</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-15">
+	              	15
+	              	<div class="barra-value-ods" id="value-ods-15_h">63</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-16">
+	              	16
+	              	<div class="barra-value-ods" id="value-ods-16_h">116</div>
+	              </li>
+	              <li class="barra-ods-res" id="ods-17">
+	              	17
+	              	<div class="barra-value-ods" id="value-ods-17_h">27</div>
+	              </li> -->
 	          </ul>
 	          
 	        </div>
 	      </div>
 	      <div class="total-pais col-xs-12 col-sm-5 col-md-5 col-lg-5">
-	        <div class="titulo-total-pais">
+	        <div class="titulo-total">
 	          <h1>Total datasets por País</h1>
 	        </div>
 	        <div class="grafica-total-pais">
 	          <ul>
 	          	<a href="#!network-viz/mexico" class="text-info" >
 		            <li class="pais-data">
-		              <h2>MÉXICO <span id="mexico-data">{{countByCountry("MÉXICO")}}</span></h2>
+		              <h2>México <span id="mexico-data">{{countByCountry("MÉXICO")}}</span></h2>
 		            </li>
 		        </a>
 		        <a href="#!network-viz/colombia" class="text-info" >
 		            <li class="pais-data">
-		              <h2>COLOMBIA <span id="colombia-data">{{countByCountry("COLOMBIA")}}</span></h2>
+		              <h2>Colombia<span id="colombia-data">{{countByCountry("COLOMBIA")}}</span></h2>
 		            </li>
 		        </a>
 		        <a href="#!network-viz/costa-rica" class="text-info" >
 		            <li class="pais-data">
-		              <h2>COSTA RICA <span id="costa-rica-data">{{countByCountry("COSTA RICA")}}</span></h2>
+		              <h2>Costa Rica <span id="costa-rica-data">{{countByCountry("COSTA RICA")}}</span></h2>
 		            </li>
 		        </a>
 	          </ul>

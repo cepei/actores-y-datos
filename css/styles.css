@@ -28,7 +28,6 @@
        url('WebFont.svg#webfont') format('svg');
 }
 
-
 @font-face {
   font-family: "Roboto";
   font-style: normal;
@@ -52,10 +51,12 @@ h2 {
 
 }
 
-
 a{
   text-decoration:none;
   color:#000;
+}
+a:hover, a:focus {
+    text-decoration: none;
 }
 ul {
   font-size:12px;
@@ -230,7 +231,66 @@ ul.idiomas li a:hover{
   margin-bottom: 0.5vh;
 }
 
+/** MENU MÓDULOS**/
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
+    margin-left: 0px;
+}
+.navbar-brand {
+  float: left;
+  height: auto;
+  padding: 7px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
 /** CONTENIDO **/
+.header-section{
+    margin-top: 85px;
+    padding-top:10px;
+}
+.logo-modulo{
+  text-align: center;
+}
+.logo-modulo img{
+  max-width: 85%;
+}
+.title-modulo{
+  text-align: center;
+  padding-top: 10px;
+}
+.title-modulo h1{
+  font-family: 'BebasNeue';
+  font-size: 50px;
+  color: #BDCC4A;
+  margin: 0;
+}
+.title-modulo h2{
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-size: 36px;
+  color: #21285A;
+  margin: 0 0 20px 0;
+}
+.description-modulo{
+  width: 100%;
+  background-color: #EEEEEE;
+  padding: 10px;
+}
+.description-modulo-full {
+  width: 100%;
+  background-color: #EEEEEE;
+  padding: 10px;
+  float: left;
+  margin-top: 15px;
+}
+.description-modulo h3, .description-modulo-full h3{
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 100;
+  color: #21285A;
+  margin: 0;
+  text-align: center;
+} 
 
 .header {
   background: url('../images/header_background.jpg') repeat;
@@ -239,7 +299,7 @@ ul.idiomas li a:hover{
 }
 
 .header h1{
-  font-family: 'Helvetica', serif;
+  font-family: 'Roboto', serif;
   color: #fff;
   font-size: 30px;
   margin: 28px;
@@ -328,11 +388,43 @@ ul.idiomas li a:hover{
 }
 
 @media(min-width: 1200px){
-   
+  .logo-modulo img{
+    max-width: 100%;
+  }
+  .title-modulo h1{
+    font-size: 56px;
+  }
+  .title-modulo h2{
+    font-size: 40px;
+  }
+  .description-modulo h3{
+    font-size: 24px;
+  }    
+}
+@media(min-width: 1000px){
+  .logo-modulo img{
+    max-width: 75%;
+  }
 }
 @media(max-width:992px) {
+  .logo-modulo img{
+    max-width: 80%;
+  }
+  .title-modulo h1{
+    font-size: 40px;
+  }
+  .title-modulo h2{
+    font-size: 30px;
+  }
+  .description-modulo h3{
+    font-size: 20px;
+  }  
 }
-
+@media(max-width:850px) {
+  .logo-modulo img{
+    max-width: 100%;
+  }
+}
 @media(max-width:768px) {
   .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-top: #fff 1px dotted;
@@ -366,6 +458,10 @@ ul.idiomas li a:hover{
     border-left: solid #fff 1px;
     border-bottom: none;
   }
+
+  .header-section {
+    margin-top: 40px;
+  }
   
 }
 @media (max-width: 500px) { 
@@ -375,4 +471,14 @@ ul.idiomas li a:hover{
   .redes-res li{
     margin: 0 3px;
   }
+
+  .title-modulo h1{
+    font-size: 30px;
+  }
+  .title-modulo h2{
+    font-size: 20px;
+  }
+  .description-modulo h3{
+    font-size: 20px;
+  }  
 }
