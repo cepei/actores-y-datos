@@ -3,8 +3,10 @@
 angular.module('myApp.countries', ['ngRoute'])
 .controller('CountriesCtrl', ["$scope", "$routeParams", "$http", function($scope, $routeParams, $http) {
 	$scope.data = [];
+	$scope.uniqueData = [];
 	var ods_totals = [0];
 	var max_total_ods = 0;
+	var datos_names = []
 
 	$http.get("countries/data/allcountries.csv").then(
 	function(response){
@@ -14,6 +16,16 @@ angular.module('myApp.countries', ['ngRoute'])
 					return obj["ODS"].split(" ")[0] == i;
 				}).length
 		}
+
+		$scope.data.forEach(function(d,i,array){
+			var name = [d.DATOS, d.FUENTE, d["PAÍS"]].join("*");
+			if(datos_names.indexOf(name) == -1 ){
+				datos_names.push(name);
+				$scope.uniqueData.push(d);
+				}
+			}
+
+		)
 
 		max_total_ods = Math.max.apply(null,ods_totals)
 
@@ -76,13 +88,13 @@ angular.module('myApp.countries', ['ngRoute'])
 	});
 
 	$scope.countByType = function(type){
-		return $scope.data.filter(function(obj){
+		return $scope.uniqueData.filter(function(obj){
 			return obj["TIPO DE FUENTE"] == type;
 		}).length
 	}
 
 	$scope.countByCountry = function(country){
-		return $scope.data.filter(function(obj){
+		return $scope.uniqueData.filter(function(obj){
 			return obj["PAÍS"] == country;
 		}).length
 	}	
