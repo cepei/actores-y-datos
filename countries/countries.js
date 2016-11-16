@@ -3,8 +3,10 @@
 angular.module('myApp.countries', ['ngRoute'])
 .controller('CountriesCtrl', ["$scope", "$routeParams", "$http", function($scope, $routeParams, $http) {
 	$scope.data = [];
+	$scope.uniqueData = [];
 	var ods_totals = [0];
 	var max_total_ods = 0;
+	var datos_names = []
 
 	$http.get("countries/data/allcountries.csv").then(
 	function(response){
@@ -15,6 +17,16 @@ angular.module('myApp.countries', ['ngRoute'])
 				}).length
 		}
 
+		$scope.data.forEach(function(d,i,array){
+			var name = [d.DATOS, d.FUENTE, d["PAÍS"]].join("*");
+			if(datos_names.indexOf(name) == -1 ){
+				datos_names.push(name);
+				$scope.uniqueData.push(d);
+				}
+			}
+
+		)
+
 		max_total_ods = Math.max.apply(null,ods_totals)
 
 		function calculateBars()
@@ -22,21 +34,32 @@ angular.module('myApp.countries', ['ngRoute'])
 			d3.selectAll(".barra-ods")
 			  .each(function(d,i){
 			  	d3.select(this).style("height",null);
-			  	var height = d3.select(this).node().getBoundingClientRect().height;
+			  	var height = 280;
+			  	// var height = d3.select(this).node().getBoundingClientRect().height;
 		      	var odsIndex = d3.select(this).attr("id").split("-")[1];
+
+
+				d3.select(this)
+			    .select(".barra-value-ods")
+			  	.html(ods_totals[odsIndex])
+				.transition()
+				.delay(750)
+				.style("top", -height*($scope.relPercentODS(odsIndex)) + "px");
+
 			  	d3.select(this)
-				  	.style("margin-top", function(d){
-				      	return height*(1-$scope.relPercentODS(odsIndex)) + "px";
-				    })
-				    .style("padding-top", function(d){
-				      	return height*($scope.relPercentODS(odsIndex)-0.1) + "px";
-				    })
-				    .style("height", function(d){
-				      	return height*($scope.relPercentODS(odsIndex)) + "px";
-				    })
-				.select(".barra-value-ods")
-			  	.style("top", -height*($scope.relPercentODS(odsIndex)) + "px")
-			  	.html(ods_totals[odsIndex]);
+				.transition()
+				.delay(750)
+			    .style("height", function(d){
+			      	return height*($scope.relPercentODS(odsIndex)) + "px";
+			    })
+			  	.style("margin-top", function(d){
+			      	return height*(1-$scope.relPercentODS(odsIndex)) + "px";
+			    })
+			    .style("padding-top", function(d){
+			      	return height*($scope.relPercentODS(odsIndex)-0.1) + "px";
+			    })
+
+
 
 			  })
 
@@ -61,13 +84,13 @@ angular.module('myApp.countries', ['ngRoute'])
 	});
 
 	$scope.countByType = function(type){
-		return $scope.data.filter(function(obj){
+		return $scope.uniqueData.filter(function(obj){
 			return obj["TIPO DE FUENTE"] == type;
 		}).length
 	}
 
 	$scope.countByCountry = function(country){
-		return $scope.data.filter(function(obj){
+		return $scope.uniqueData.filter(function(obj){
 			return obj["PAÍS"] == country;
 		}).length
 	}	

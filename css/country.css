@@ -454,6 +454,9 @@ span#numero-total-ods{
 	margin-top: 0px;
 	height: 280px;
 	padding-top: 255px;
+	margin-top: 280px;
+	padding-top: 0px;
+	height: 1px;
 	background: rgba(35,208,202,1);
 	background: -moz-linear-gradient(top, rgba(35,208,202,1) 0%, rgba(189,204,74,1) 49%, rgba(33,39,90,1) 100%);
 	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(35,208,202,1)), color-stop(49%, rgba(189,204,74,1)), color-stop(100%, rgba(33,39,90,1)));

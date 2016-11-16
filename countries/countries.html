@@ -49,12 +49,12 @@
 	    <div class="totales-data container-fluid row">
 	      <div class="total-ods hidden-xs col-sm-7 col-md-7 col-lg-7 container-fluid">
 	        <div class="titulo-total">
-	          <h1><span id="numero-total-ods">{{data.length}}</span> Total datasets por ODS</h1>
+	          <h1><span id="numero-total-ods">{{uniqueData.length}}</span> Total datasets por ODS</h1>
 	        </div>
 	        <div class="grafica-total-ods container">
-	            <ul class="">
+	            <ul class="" >
 	              <li class="ods-text">ODS</li>
-	              <div  ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]">
+	              <div  ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]" >
 		              <li class="barra-ods" id="ods-{{n}}">
 		              	<div class="ods-index-bar">{{n}}</div>
 		              	<div class="barra-value-ods"></div>
@@ -86,19 +86,10 @@
 	        		<span class="numero-ods">17</span>Alianzas para lograr los objetivos •
 	        </div>
 
-	        <!--
-	        <div class="valores-ods">
-	       		<ul>
-	            	<li class="barra-value-ods" id="value-ods-1">93</li>
-	              	<li class="barra-value-ods" id="value-ods-2">93</li>
-	            </ul>
-	        </div>
-			-->
-
 	      </div>
 	      <div class="total-ods-res col-xs-12 hidden-sm hidden-md hidden-lg container-fluid">
 	        <div class="titulo-total">
-	          <h1><span id="numero-total-ods">{{data.length}}</span> Total datasets por ODS</h1>
+	          <h1><span id="numero-total-ods">{{uniqueData.length}}</span> Total datasets por ODS</h1>
 	        </div>
 	        <div class="grafica-total-ods-res container-fluid row">
 	          <div class="text-value-ods-res col-xs-1">
@@ -109,78 +100,10 @@
 				<div  ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]">
 					<li class="barra-ods-res" id="ods-{{n}}">
 						<div class="ods-index-bar">{{n}}</div>
-						<div class="barra-value-ods horizontal-value-ods">93</div>
-						<!-- <div class="barra-value-ods"></div> -->
+						<div class="barra-value-ods horizontal-value-ods"></div>
 					</li>
 				</div>
-<!-- 	              <li class="barra-ods-res" id="ods-1">
-	              	1
-	              	<div class="barra-value-ods" id="value-ods-1_h">93</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-2">
-	              	2
-	              	<div class="barra-value-ods" id="value-ods-2_h">83</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-3">
-	              	3
-	              	<div class="barra-value-ods" id="value-ods-3_h">126</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-4">
-	              	4
-	              	<div class="barra-value-ods" id="value-ods-4_h">103</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-5">
-	              	5
-	              	<div class="barra-value-ods" id="value-ods-5_h">55</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-6">
-	              	6
-	              	<div class="barra-value-ods" id="value-ods-6_h">45</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-7">
-	              	7
-	              	<div class="barra-value-ods" id="value-ods-7_h">51</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-8">
-	              	8
-	              	<div class="barra-value-ods" id="value-ods-8_h">146</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-9">
-	              	9
-	              	<div class="barra-value-ods" id="value-ods-9_h">79</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-10">
-	              	10
-	              	<div class="barra-value-ods" id="value-ods-10_h">93</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-11">
-	              	11
-	              	<div class="barra-value-ods" id="value-ods-11_h">104</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-12">
-	              	12
-	              	<div class="barra-value-ods" id="value-ods-12_h">68</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-13">
-	              	13
-	              	<div class="barra-value-ods" id="value-ods-13_h">37</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-14">
-	              	14
-	              	<div class="barra-value-ods" id="value-ods-14_h">31</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-15">
-	              	15
-	              	<div class="barra-value-ods" id="value-ods-15_h">63</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-16">
-	              	16
-	              	<div class="barra-value-ods" id="value-ods-16_h">116</div>
-	              </li>
-	              <li class="barra-ods-res" id="ods-17">
-	              	17
-	              	<div class="barra-value-ods" id="value-ods-17_h">27</div>
-	              </li> -->
+
 	          </ul>
 	          
 	        </div>
