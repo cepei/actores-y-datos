@@ -181,7 +181,22 @@ describe('myApp.network-viz module', function() {
                                                 {"DATOS": "dato1", "ODS":"10 ODS", "FUENTE":"fuente1"},]);
     }));
 
-
+    it('summarizeData should summarize data in order to avoid repeated DATOS', inject(function($controller) {
+      //spec body 
+      var networkCtrl = createController();
+      $httpBackend.expectGET("network-viz/data/country_names.json");
+      $httpBackend.expectGET("network-viz/data/ODSs.csv");
+      $httpBackend.flush();     
+      var inputData = [{"DATOS": "dato1", "ODS":"2 ODS", "FUENTE":"fuente1"},
+                        {"DATOS": "dato1", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                        {"DATOS": "dato2", "ODS":"1 ODS", "FUENTE":"fuente1"},
+                        {"DATOS": "dato1", "ODS":"10 ODS", "FUENTE":"fuente1"},]
+      var datum = {"name":"fuente1", "type": "fuente"}
+      $rootScope.clickNode(datum);
+      jasmine.clock().tick(100);
+      expect($rootScope.summarizedData).toEqual([{"DATOS": "dato1", "ODS":["1 ODS", "2 ODS", "10 ODS"], "FUENTE":"fuente1"},
+                                                {"DATOS": "dato2", "ODS":["1 ODS"], "FUENTE":"fuente1"},]);
+    }));
 
   });
 });

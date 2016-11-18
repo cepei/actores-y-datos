@@ -127,15 +127,19 @@ angular.module('myApp.network-viz', ['ngRoute'])
 						.attr("height", calculateODSImageSize)
 						.attr("width", calculateODSImageSize)
 
-
+				/*
+					Here the network is des-selected whenever somebody clicks into the document, 
+					unless it select an element which interact with the graph (Denoted for the class)
+				*/
 				d3.select("body").on("click",function(){
 					var element = d3.select(d3.event.target.parentElement)
-				    if (!element.classed("node") && !element.classed("network-row")) {
+				    if (!element.classed("node") && !element.classed("network-selectionable-element")) {
 				    	$scope.clickOutsideNode();
 				    }
 				});
 
 				function clickNode(rawnodedata){
+						console.log(rawnodedata);
 						var nodedata = rawnodedata;
 						if(rawnodedata.type == "ods" && parseInt(rawnodedata.name) === rawnodedata.name){
 							nodedata.name = ODSs.filter(function(d){ return parseInt(d.ODS.split(" ")[0]) == rawnodedata.name})[0].ODS;
@@ -148,6 +152,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
 					    setTimeout(function () {
 					        $scope.$apply(function () {
 								$scope.relatedToNode = $scope.getAssociatedRowsInDB(nodedata);
+								$scope.summarizedData = $scope.summarizeData($scope.relatedToNode); 
 								$scope.nodeName = nodedata.name;
 								$scope.nodeType = nodedata.type;
 								if(nodedata.type == "ods")
@@ -164,6 +169,30 @@ angular.module('myApp.network-viz', ['ngRoute'])
 				    									var is_source_associated = associatedList.indexOf(d.source.name) != -1;
 				    									var is_target_associated = associatedList.indexOf(d.target.name) != -1;
 				    									return is_source_associated && is_target_associated})
+
+				}
+
+				$scope.summarizeData = function(inputData){
+					var tempDataDict = {}
+					inputData.forEach(function(d,i, array){
+							if(tempDataDict[d.DATOS]){
+								if(tempDataDict[d.DATOS].ODS.indexOf(d.ODS)==-1)
+									tempDataDict[d.DATOS].ODS.push(d.ODS);}
+							else{
+								tempDataDict[d.DATOS] = angular.copy(d);
+								tempDataDict[d.DATOS].ODS=[d.ODS];
+							}
+						}
+					)
+
+					var summarizedData = [];
+					for(var key in tempDataDict){
+						var summarizedDatum = tempDataDict[key];
+						summarizedDatum.ODS = tempDataDict[key].ODS
+																.sort(function(a,b){return parseInt(a.split(" ")[0]) - parseInt(b.split(" ")[0])});
+						summarizedData.push(summarizedDatum)
+					}
+					return summarizedData;
 
 				}
 

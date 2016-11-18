@@ -275,13 +275,17 @@
                         </div>
                     </div>
                     <div class="network-table-data">
-                        <div ng-repeat = "datum in relatedToNode">
+                    <!-- {{summarizeData(relatedToNode)}} -->
+                        <div ng-repeat = "datum in summarizedData">
 
 
-                        <div class="row network-row" ng-class="{'network-grey-row':$even,'':$odd}">   
-
-                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.ODS,'type':'ods'})" ng-show="nodeType=='fuente'">
-                                {{datum.ODS.toLowerCase()}}
+                        <div class="row network-row network-selectionable-element" ng-class="{'network-grey-row':$even,'':$odd}">   
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-show="nodeType=='fuente'">
+                                <p ng-repeat = "ods in datum.ODS" class="network-selectionable-element">
+                                    <span ng-click="clickNode({'name':ods,'type':'ods'})">
+                                        {{ods.toLowerCase()}}
+                                    </span>
+                                </p>                                
                             </div>
 
                             <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.FUENTE,'type':'fuente'})" ng-hide="nodeType=='fuente'">
@@ -291,9 +295,15 @@
                             <div class="col-xs-2 col-sm-2 col-lg-2 ">
                                 {{datum['TIPO DE FUENTE'].toLowerCase()}}
                             </div>
-                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.ODS,'type':'ods'})" ng-show="nodeType=='datos'">
-                                {{datum.ODS.toLowerCase()}}
+ 
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-show="nodeType=='datos'">
+                                <p ng-repeat = "ods in datum.ODS" class="network-selectionable-element">
+                                    <span ng-click="clickNode({'name':ods,'type':'ods'})">
+                                        {{ods.toLowerCase()}}
+                                    </span>
+                                </p>                                
                             </div>
+
                             <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.DATOS,'type':'datos'})" ng-hide="nodeType=='datos'">
                                 {{datum.DATOS.toLowerCase()}}
                             </div>
@@ -309,6 +319,7 @@
                                 </div>
                             </div>
                         </div> 
+
                     </div>  
 
             </div>
