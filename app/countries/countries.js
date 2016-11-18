@@ -34,11 +34,7 @@ angular.module('myApp.countries', ['ngRoute'])
 				    .style("height", function(d){
 				      	return height*($scope.relPercentODS(odsIndex)) + "px";
 				    })
-				.select(".barra-value-ods")
-			  	.style("top", -height*($scope.relPercentODS(odsIndex)) + "px")
-			  	.html(ods_totals[odsIndex]);
-
-			  })
+			  })		
 
 			  d3.selectAll(".barra-ods-res")
 			  .each(function(d,i){
@@ -49,8 +45,6 @@ angular.module('myApp.countries', ['ngRoute'])
 				    .style("width", function(d){
 				      	return width*($scope.relPercentODS(odsIndex)) + "px";
 				    })
-				    .select(".barra-value-ods")
-			  		.html(ods_totals[odsIndex]);
 			  })}
 
 		calculateBars();

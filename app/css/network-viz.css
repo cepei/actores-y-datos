@@ -1,6 +1,6 @@
 .network-container{
   height: 100vh;
-  padding-top: 10.6vh;
+  padding-top: 13.6vh;
   /*margin-bottom: 0.5vh;*/
 }
 .network-viz-intro p{
@@ -118,7 +118,7 @@ text {
   border-style: solid;
   border-left-width: 1px;
   border-left-color: grey;
-  height: 100%;
+  height: auto;
   background-color: white;
   
 }
@@ -140,13 +140,6 @@ text {
   font-size:4em;
 }
 
-.network-node-info img{
-  float:left;
-  opacity:0.5;
-  padding-bottom: -16px;
-
-  
-}
 
 .conventions-laws{
   height: 45px;
@@ -178,6 +171,54 @@ text {
 .leyes-relacionadas:hover{
   background-color: #bdcc4a;
 }
+.ley-pais-title{
+  font-family: 'BebasNeue';
+  text-align: center;
+  color: #21285A;
+  font-size: 30px;
+}
+.items-ley-header{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+  padding: 6px 0 !important;
+  font-family: 'BebasNeue';
+  background-color: #BDCC4A;
+}
+.items-ley{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  line-height: 14px;
+  color: #21285A;
+  padding: 10px 0 !important;
+  font-family: 'Roboto';
+}
+.ley-gray-row{
+  background-color: #eee;
+}
+.img-ley-link {
+  height: 45px;
+  width: 45px;
+  margin: 0 auto;
+  text-align: center;
+  background-image: url(../images/ley-link_off.png);
+}
+.img-ley-link:hover{
+    background-image: url(../images/ley-link_on.png);
+}
+.button-close-leyes{
+  font-family: 'BebasNeue';
+  color: #fff;
+  border:none;
+}
+.btn.button-close-leyes:hover {
+    background-color: #BDCC4A;
+}
 .network-data {
   padding: 0 10px;
   text-transform: capitalize;
@@ -188,15 +229,18 @@ text {
   margin-right: 0px;
 }
 
-
+.network-data-ods{
+  height: 50px;
+  background-color: #21285A;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
 .network-data h4{
   font-family: 'BebasNeue';
   font-size: 35px;
   color: #23D0CB;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: #21285A;
-  padding-bottom: 5px;
+  text-align: left;
+  margin: 0;
 }
 
 .iconos-ods-network img{
@@ -232,12 +276,10 @@ text {
   text-align: center;
 }
 .ods-image img{
-  opacity: 1;
   margin: auto auto;
   display: inline;
   text-align: center;
-  float:none;
-  height: 12vh;
+  float:right;
 
 }
 
@@ -275,22 +317,110 @@ text {
   font-weight: 100;
   line-height: 85px;
 }
-.network-instructions {
+.network-instructions h6{
     width: 100%;
     font-family: 'Roboto';
     text-align: center;
     font-size: 16px;
     display: block;
-    margin-top: 20px;
+    margin: 20px 0;
+}
+.perfil-paises {
+    height: auto;
+    margin-top: 40px !important;
+}
+.item-perfil_1{
+  padding-top: 10px;
+  height: 210px;
+  border-right: 1px dotted #ddd;
+  border-bottom: 1px solid #ddd;
+
+}
+.item-perfil_1>.img-item {
+  width: 100%;
+  float: left;
+}
+.item-perfil_1>.img-item img{
+  float: none;
+}
+.item-perfil_1>.text-item{
+  text-align: center;
+  margin:5px 0;
+  float: left; 
+  width: 100%;
+}
+.item-perfil_1>.text-item h5{
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: #242a59;
+  font-size: 16px; 
+}
+.item-perfil_1>.text-item h5 small{
+  color: #242a59;
+}
+.item-perfil_1>.text-item h4{
+  font-family: 'BebasNeue';
+  color: #666;
+  font-size: 24px;
+  margin: 5px 0; 
+  line-height: 22px;
+}
+.item-perfil_1>.text-item p{
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: #242a59;
+  font-size: 12px; 
+  margin: 0 0 5px;
+}
+
+.item-perfil_2{
+  padding-top: 10px !important;
+  height: 130px;
+  border-right: 1px dotted #ddd;
+}
+.item-perfil_2>.img-item {
+  float: left;
+}
+.item-perfil_2>.img-item img{
+  float: none;
+}
+.item-perfil_2>.text-item{
+  margin:5px 0;
+
+}
+.item-perfil_2>.text-item h5{
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: #242a59;
+  font-size: 16px; 
+  text-align: left;
+}
+.item-perfil_2>.text-item h5 small{
+  color: #242a59;
+}
+.item-perfil_2>.text-item h4{
+  font-family: 'BebasNeue';
+  color: #666;
+  font-size: 24px;
+  margin: 5px 0; 
+  line-height: 22px;
+}
+.item-perfil_2>.text-item p{
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: #242a59;
+  font-size: 12px; 
+  margin: 0 0 5px;
 }
 .network-header-row{
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 14px;
+  font-size: 19px;
+  line-height: 19px;
   color: #BDCC4A;
-  padding-top: 5px;
+  padding: 6px 0;
   font-family: 'BebasNeue';
 }
 
@@ -324,8 +454,7 @@ text {
 }
 
 .network-download-links{
-  position: absolute;
-  bottom: 0px;
+  bottom: -13px;
   width: 100%;
   font-size: 4vh;
   padding-left: 10px;
@@ -348,22 +477,99 @@ text {
     background-position: left center;
     padding-left: 40px;
 }
+@media only screen and (min-width: 1200px){
+  .item-perfil_2{
+    height: 115px;
+  }
+}
 @media only screen and (max-width: 992px){
+  #forcemap{
+    border-bottom: solid 1px grey;
+  }
   .network-download-links h4 {
       font-size: 22px;
   }
   .network-download-links h4 {
       font-size: 35px;
   }
+  .conecta-network img {
+    max-width: 70%;
+  }
+  .country-name {
+    font-size: 50px;
+    line-height: 156px;
+  }
+  .item-perfil_1 {
+    padding-top: 10px;
+    height: 190px;
+  }
 }
 @media only screen and (max-width: 768px){
   .network-container{
     padding-top: 8.5vh;
   }
+  .country-name {
+    line-height: 106px;
+  }
+  .item-perfil_1>.text-item h5 small {
+    font-size: 100%;
+  }
+  .item-perfil_2 {
+    height: 160px;
+  }
+  .item-perfil_2>.text-item h5{
+    text-align: center;
+  }
+  .item-perfil_2>.text-item h4 {
+    text-align: center;
+  }
+
+}
+@media only screen and (max-width: 600px){
+  .items-ley-header{
+    font-size: 17px;
+    line-height: 17px;
+  }
+  .items-ley{
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .country-name {
+    line-height: 64px;
+  }
+  .item-perfil_1>.text-item h5 small {
+    font-size: 90%;
+  }
+  .img-ley-link {
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+
 
 }
 @media only screen and (max-width: 500px){
+  .items-ley-header{
+    font-size: 15px;
+    line-height: 15px;
+  }
+  .items-ley{
+    font-size: 10px;
+    line-height: 10px;
+  }
+  .conecta-network img {
+    max-width: 100%;
+  }
   .network-download-links h4 {
       font-size: 30px;
+  }
+  .country-name {
+    font-size: 35px;
+    line-height: 76px;
+  }
+  .item-perfil_1 {
+    height: 208px;
+  }
+  .item-perfil_2 {
+    height: 185px;
   }
 }
