@@ -245,21 +245,27 @@
                                     
                                 </span>
 
+
                             </span>
                         </h4>
                     </div>
 
                     <p class="nodename">{{nodeName.toLowerCase()}}
+
+                    <h4> {{nodeType}} </h4>
+                    <p class="nodename">{{nodeName.toLowerCase()}}
+
+
                     </p>
                     <div class="row network-header-row">     
                         <div class="col-xs-3 col-sm-3 col-lg-3">
-                            FUENTE
+                            {{{true: 'ODS', false: 'FUENTE'}[nodeType=='fuente']}}
                         </div>
                         <div class="col-xs-2 col-sm-2 col-lg-2">
                             TIPO FUENTE
                         </div>
                         <div class="col-xs-3 col-sm-3 col-lg-3">
-                            DATO
+                            {{{true: 'ODS', false: 'DATO'}[nodeType=='datos']}}
                         </div>
                         <div class="col-xs-2 col-sm-2 col-lg-2">
                             URL
@@ -268,16 +274,27 @@
                             FORMATO
                         </div>
                     </div>
-                    <div ng-repeat = "datum in relatedToNode">
+                    <div class="network-table-data">
+                        <div ng-repeat = "datum in relatedToNode">
 
-                        <div class="row network-row" ng-class="{'network-grey-row':$even,'':$odd}">     
-                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.FUENTE,'type':'fuente'})">
-                                {{datum.FUENTE.toLowerCase()}}
+
+                        <div class="row network-row" ng-class="{'network-grey-row':$even,'':$odd}">   
+
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.ODS,'type':'ods'})" ng-show="nodeType=='fuente'">
+                                {{datum.ODS.toLowerCase()}}
                             </div>
+
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.FUENTE,'type':'fuente'})" ng-hide="nodeType=='fuente'">
+                                {{datum.FUENTE.toLowerCase()}}
+                            </div>         
+
                             <div class="col-xs-2 col-sm-2 col-lg-2 ">
                                 {{datum['TIPO DE FUENTE'].toLowerCase()}}
                             </div>
-                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.DATOS,'type':'datos'})">
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.ODS,'type':'ods'})" ng-show="nodeType=='datos'">
+                                {{datum.ODS.toLowerCase()}}
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-lg-3 graph-selector" ng-click="clickNode({'name':datum.DATOS,'type':'datos'})" ng-hide="nodeType=='datos'">
                                 {{datum.DATOS.toLowerCase()}}
                             </div>
                             <div class="col-xs-2 col-sm-2 col-lg-2">
@@ -288,9 +305,11 @@
                             </div>
                             <div class="col-xs-2 col-sm-2 col-lg-2">
                                 {{datum.FORMATO.replace("*",", ")||"N/A"}}
+
+                                </div>
                             </div>
-                        </div>
-                    </div> 
+                        </div> 
+                    </div>  
 
             </div>
  
