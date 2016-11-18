@@ -127,7 +127,7 @@ text {
   background:url('../images/seccion-background.jpg') repeat;
   /*padding-left: -15px!important;*/
   color:#282c59;
-  overflow: auto;
+  /*overflow: auto;*/
   height: 83.5vh;
   
 }
@@ -183,6 +183,12 @@ text {
   text-transform: capitalize;
 }
 
+.network-table-data {
+  overflow: auto;
+  max-height: 50vh;
+}
+
+
 .network-data .row{
   margin-left: 0px;
   margin-right: 0px;
@@ -197,6 +203,7 @@ text {
   text-transform: uppercase;
   background-color: #21285A;
   padding-bottom: 5px;
+  height: 5vh
 }
 
 .iconos-ods-network img{
