@@ -34,87 +34,37 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="modal-title ley-pais-title" id="myModalLabel">COLOMBIA</h4>
+                            <h4 class="modal-title ley-pais-title" id="myModalLabel">{{countryName.toUpperCase()}}</h4>
                           </div>
                           <div class="modal-body">
                             <div class="items-ley-header container-fluid row">     
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                     INSTRUMENTO NORMATIVO
                                 </div>
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+<!--                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                     FECHA
-                                </div>
-                                <div class="col-xs-5 col-sm-5 col-lg-5">
+                                </div> -->
+                                <div class="col-xs-6 col-sm-6 col-lg-6">
                                     DESCRIPCIÓN
                                 </div>
                                 <div class="col-xs-2 col-sm-2 col-lg-2">
                                     LINK
                                 </div>
                             </div>
-                            <div class="items-ley container-fluid row">     
+                            <div class="items-ley container-fluid row" ng-repeat="law in laws">  
+
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                    MARCO JURÍDICO ACTUAL PARA LA IMPLEMENTACIÓN DE DATOS ABIERTOS EN COLOMBIA
+                                    {{law.NORMA}}
                                 </div>
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+<!--                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                     7/12/2011
-                                </div>
+                                </div> -->
                                 <div class="col-xs-5 col-sm-5 col-lg-5">
-                                    
+                                    {{law.DESCRIPCION}}
                                 </div>
                                 <div class="col-xs-2 col-sm-2 col-lg-2">
                                     
-                                        <a href="http://programa.gobiernoenlinea.gov.co/apc-aa-files/da4567033d075590cd3050598756222c/Datos_Abiertos_Anexo4_MarcoJuridoActual_2011.pdf" target="_blank">
-                                            <div class="img-ley-link"></div>
-                                        </a>
-                                </div>
-                            </div>
-                            <div class="items-ley ley-gray-row container-fluid row">     
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                    LEY 527
-                                </div>
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                   18/08/1999
-                                </div>
-                                <div class="col-xs-5 col-sm-5 col-lg-5">
-                                    Por medio de la cual se define y reglamenta el acceso y uso de los mensajes de datos, del comercio electrónico y de las firmas digitales, y se establecen las entidades de certificación y se dictan otras disposiciones.
-                                </div>
-                                <div class="col-xs-2 col-sm-2 col-lg-2">
-                                    
-                                        <a href="http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4276" target="_blank">
-                                            <div class="img-ley-link"></div>
-                                        </a>
-                                </div>
-                            </div>
-                            <div class="items-ley container-fluid row">     
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                    MARCO JURÍDICO ACTUAL PARA LA IMPLEMENTACIÓN DE DATOS ABIERTOS EN COLOMBIA
-                                </div>
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                    7/12/2011
-                                </div>
-                                <div class="col-xs-5 col-sm-5 col-lg-5">
-                                    
-                                </div>
-                                <div class="col-xs-2 col-sm-2 col-lg-2">
-                                    
-                                        <a href="http://programa.gobiernoenlinea.gov.co/apc-aa-files/da4567033d075590cd3050598756222c/Datos_Abiertos_Anexo4_MarcoJuridoActual_2011.pdf" target="_blank">
-                                            <div class="img-ley-link"></div>
-                                        </a>
-                                </div>
-                            </div>
-                            <div class="items-ley ley-gray-row container-fluid row">     
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                    LEY 527
-                                </div>
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                   18/08/1999
-                                </div>
-                                <div class="col-xs-5 col-sm-5 col-lg-5">
-                                    Por medio de la cual se define y reglamenta el acceso y uso de los mensajes de datos, del comercio electrónico y de las firmas digitales, y se establecen las entidades de certificación y se dictan otras disposiciones.
-                                </div>
-                                <div class="col-xs-2 col-sm-2 col-lg-2">
-                                    
-                                        <a href="http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4276" target="_blank">
+                                        <a href="{{law.LINK}}" target="_blank">
                                             <div class="img-ley-link"></div>
                                         </a>
                                 </div>
@@ -231,10 +181,6 @@
 
             </span>
             
-<!--             <div>
-                Here goes the bar 
-            </div> -->
-
             <div class = "network-data" ng-show="nodeName!=''">
                     <div class="network-data-ods">
                         <h4> 
@@ -275,7 +221,6 @@
                         </div>
                     </div>
                     <div class="network-table-data">
-                    <!-- {{summarizeData(relatedToNode)}} -->
                         <div ng-repeat = "datum in summarizedData">
 
 
