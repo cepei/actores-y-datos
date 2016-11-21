@@ -20,9 +20,62 @@
                 </div>            
             </div>
             <div class="col-xs-12 col-sm-5 col-lg-5 leyes-relacionadas"> 
-                <a href="">
+                <a href="" data-toggle="modal" data-target="#ley-pais">
                     <h2>LEYES RELACIONADAS</h2>
                 </a>
+                   <!-- Button trigger modal -->
+                    
+
+                    <!-- Modal -->
+                    <div class="modal" id="ley-pais" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title ley-pais-title" id="myModalLabel">{{countryName.toUpperCase()}}</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="items-ley-header container-fluid row">     
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    INSTRUMENTO NORMATIVO
+                                </div>
+<!--                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    FECHA
+                                </div> -->
+                                <div class="col-xs-6 col-sm-6 col-lg-6">
+                                    DESCRIPCIÓN
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-lg-2">
+                                    LINK
+                                </div>
+                            </div>
+                            <div class="items-ley container-fluid row" ng-repeat="law in laws">  
+
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    {{law.NORMA}}
+                                </div>
+<!--                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    7/12/2011
+                                </div> -->
+                                <div class="col-xs-5 col-sm-5 col-lg-5">
+                                    {{law.DESCRIPCION}}
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-lg-2">
+                                    
+                                        <a href="{{law.LINK}}" target="_blank">
+                                            <div class="img-ley-link"></div>
+                                        </a>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary button-close-leyes" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
             </div>
         </div>
         
@@ -32,12 +85,12 @@
 
     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 network-node-info-container container-fluid">
         <div class="header-info-network row container-fluid">
-            <div class="conecta-network col-xs-12 col-sm-5 col-md-4 col-lg-4">
+            <div class="conecta-network col-xs-4 col-sm-5 col-md-4 col-lg-4">
                 <a href="">
                     <img class="img-responsive" src="../images/logo-aprende-network.png">
                 </a>
             </div>
-            <div class="network-viz-header col-xs-12 col-sm-7 col-md-8 col-lg-8">
+            <div class="network-viz-header col-xs-8 col-sm-7 col-md-8 col-lg-8">
                 <div class="country-name">
                     {{countryName.toUpperCase()}}
                 </div>
@@ -47,17 +100,106 @@
         <div class=" network-node-info">
 
             <span class="network-instructions" ng-show="nodeName==''">
-                Haga clic en uno de los puntos de la gráfica
+                <h6> Haga clic en uno de los puntos de la gráfica</h6>
+<!-- 
+                <div class="perfil-paises container-fluid row">
+                    
+                    <div class="item-perfil_1
+                         col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div class="img-item">
+                                <img class="center-block" src="images/iconsPerfilPais/IconsPerfilPais_icon_PIB.png">
+                            </div>
+                            <div class="text-item">
+                                <h5>PIB</h5>
+                                <p>(Miles de millones)</p>
+                                <h4>1295</h4>
+                            </div>
+                    </div>
+
+                    <div class="item-perfil_1
+                         col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                            <div class="img-item">
+                                <img class="center-block" src="images/iconsPerfilPais/IconsPerfilPais_icon_NivelRenta.png">
+                            </div>
+                            <div class="text-item">
+                                <h5>Nivel de Renta</h5>
+                                <h4>Renta media</h4>
+                            </div>
+                    </div>
+
+                    <div class="item-perfil_1
+                         col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                            <div class="img-item">
+                                <img class="center-block" src="images/iconsPerfilPais/IconsPerfilPais_icon_Poblacion.png">
+                            </div>
+                            <div class="text-item">
+                                <h5>Población</h5>
+                                <p>(Millones)</p>
+                                <h4>127</h4>
+                            </div>
+                    </div>
+
+                    <div class="item-perfil_1
+                         col-xs-6 col-sm-3 col-md-4 col-lg-4">
+                            <div class="img-item">
+                                <img class="center-block" src="images/iconsPerfilPais/IconsPerfilPais_icon_TasaIncidencia.png">
+                            </div>
+                            <div class="text-item">
+                                <h5><small>Tasa de incidencia de la pobreza sobre la base de la línea nacional</small></h5>
+                                <h4>1295</h4>
+                            </div>
+                    </div>
+                    
+                    <div class="item-perfil_2
+                       
+                        col-xs-6 col-sm-6 col-md-6 col-lg-6 row container-fluid">
+                        <div class="img-item col-xs-12 col-sm-3 col-md-4 col-lg-4">
+                            <img class="center-block" src="images/iconsPerfilPais/IconsPerfilPais_icon_IndiceDesarrollo.png">
+                        </div>
+                        <div class="text-item col-xs-12 col-sm-9 col-md-8 col-lg-8">
+                            <h5>Índice de Desarrollo Humano</h5>
+                            <h4>0,756</h4>
+                        </div>
+                    </div>
+
+                    <div class="item-perfil_2
+                        col-xs-6 col-sm-6 col-md-6 col-lg-6 row container-fluid">
+                        <div class="img-item col-xs-12 col-sm-3 col-md-4 col-lg-4">
+                            <img class="center-block" src="images/iconsPerfilPais/IconsPerfilPais_icon_PosicionDesarrollo.png">
+                        </div>
+                        <div class="text-item col-xs-12 col-sm-9 col-md-8 col-lg-8">
+                            <h5>Posición en el índice de Desarrollo Humano</h5>
+                            <h4>0,756</h4>
+                        </div>
+                    </div>
+
+                </div> -->
+
+
+
+
+
             </span>
             
-<!--             <div>
-                Here goes the bar 
-            </div> -->
-
             <div class = "network-data" ng-show="nodeName!=''">
+                    <div class="network-data-ods">
+                        <h4> 
+                            {{nodeType}} 
+                            <span ng-show="nodeType=='ods'" class="ods-image" >
+                                <span>
+                                    <img src="images/images_ODS {{odsIndex}}.png"/>
+                                    
+                                </span>
 
-                    <h4> {{nodeType}} </h4>
+
+                            </span>
+                        </h4>
+                    </div>
+
+
+
                     <p class="nodename">{{nodeName.toLowerCase()}}
+
 
 
                     </p>
@@ -79,7 +221,6 @@
                         </div>
                     </div>
                     <div class="network-table-data">
-                    <!-- {{summarizeData(relatedToNode)}} -->
                         <div ng-repeat = "datum in summarizedData">
 
 
@@ -129,7 +270,7 @@
             </div>
  
         </div>
-        
+    
         <div class ="network-download-links row container-fluid">
             <div class="txt-descarga-network col-xs-5 col-sm-4 col-md-5">
                 <h4>Descargas</h4>
@@ -145,5 +286,6 @@
                 </div>    
             </div>
         </div>
+
     </div>
 </div>

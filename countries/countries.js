@@ -47,6 +47,7 @@ angular.module('myApp.countries', ['ngRoute'])
 				.style("top", -height*($scope.relPercentODS(odsIndex)) + "px");
 
 			  	d3.select(this)
+
 				.transition()
 				.delay(750)
 			    .style("height", function(d){
@@ -74,6 +75,7 @@ angular.module('myApp.countries', ['ngRoute'])
 				    })
 				    .select(".barra-value-ods") 
 			  		.html(ods_totals[odsIndex]);
+
 			  })}
 
 		calculateBars();
