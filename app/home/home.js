@@ -99,7 +99,7 @@ angular.module('myApp.home', ['ngRoute'])
 			// whether the arc is to be drawn in counter clockwise or 
 			// in a clockwise direction. False for clockwise.
 			this.draw = function() {
-				ctx.fillStyle = "white";
+				ctx.fillStyle = "black";
 				ctx.beginPath();
 				ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 				

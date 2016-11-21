@@ -277,7 +277,31 @@ describe('myApp.network-viz module', function() {
                 $httpBackend.flush();
                 expect($rootScope.laws).toEqual([{
                     "NORMA": "norma1",
-                    "DESCRIPCIÓN": "descripción",
+                    "DESCRIPCION": "descripción",
+                    "LINK": "link"
+                }]);
+            }));
+
+
+        });
+
+        describe('Country Info', function() {
+            it('should open right laws data file', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.expectGET("network-viz/data/laws/" + $routeParams.country + "_laws.csv");
+                $httpBackend.flush();
+            }));
+
+            it('should open right laws data file', inject(function($controller) {
+                //spec body 
+                var networkCtrl = createController();
+                $httpBackend.expectGET("network-viz/data/country_names.json");
+                $httpBackend.flush();
+                expect($rootScope.laws).toEqual([{
+                    "NORMA": "norma1",
+                    "DESCRIPCION": "descripción",
                     "LINK": "link"
                 }]);
             }));
