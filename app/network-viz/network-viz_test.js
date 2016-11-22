@@ -27,7 +27,12 @@ describe('myApp.network-viz module', function() {
                 .respond("ODS\n1 ODS\n2 ODS\n10 ODS\n");
 
             $httpBackend.when('GET', "network-viz/data/laws/" + $routeParams.country + "_laws.csv")
-                .respond("NORMA,DESCRIPCIÓN,LINK\nnorma1,descripción,link");
+                .respond("NORMA,DESCRIPCION,LINK\nnorma1,descripción,link");            
+
+            $httpBackend.when('GET', "network-viz/data/countries_info.csv")
+                .respond("ID,PAIS,PIB,RENTA,POBLACION,INCIDENCIA_POBREZA,DESARROLLO_HUMANO,POS_DESARROLLO_HUMANO\ncountry2,Country Name2,pib2,rent2,pop2,,inci_pov2,hum_dev2,pos_hum_dev2\nany_country_id,Country Name1,pib1,rent1,pop1,inci_pov,hum_dev,pos_hum_dev");
+
+
 
             // The $controller service is used to create instances of controllers
             var $controller = $injector.get('$controller');
@@ -273,7 +278,7 @@ describe('myApp.network-viz module', function() {
             it('should open right laws data file', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/country_names.json");
+                $httpBackend.expectGET("network-viz/data/laws/" + $routeParams.country + "_laws.csv");
                 $httpBackend.flush();
                 expect($rootScope.laws).toEqual([{
                     "NORMA": "norma1",
@@ -286,24 +291,30 @@ describe('myApp.network-viz module', function() {
         });
 
         describe('Country Info', function() {
-            it('should open right laws data file', inject(function($controller) {
+            it('should open right countries info file', inject(function($controller) {
                 //spec body 
 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/laws/" + $routeParams.country + "_laws.csv");
+                $httpBackend.expectGET("network-viz/data/countries_info.csv");
                 $httpBackend.flush();
             }));
 
-            it('should open right laws data file', inject(function($controller) {
+            it('should open right countries info file', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
                 $httpBackend.expectGET("network-viz/data/country_names.json");
                 $httpBackend.flush();
-                expect($rootScope.laws).toEqual([{
-                    "NORMA": "norma1",
-                    "DESCRIPCION": "descripción",
-                    "LINK": "link"
-                }]);
+                expect($rootScope.countryInfo).toEqual({
+                    "ID":"any_country_id",
+                    "PAIS":"Country Name1",
+                    "PIB": "pib1",
+                    "RENTA": "rent1",
+                    "POBLACION": "pop1",
+                    "INCIDENCIA_POBREZA":"inci_pov",
+                    "DESARROLLO_HUMANO":"hum_dev",
+                    "POS_DESARROLLO_HUMANO": "pos_hum_dev"
+
+                });
             }));
 
 
