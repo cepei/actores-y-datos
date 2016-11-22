@@ -23,7 +23,17 @@ angular.module('myApp.network-viz', ['ngRoute'])
 
     $http.get("network-viz/data/country_names.json").then(
         function(response) {
-            $scope.countryName = response.data[$scope.countryId]
+            $scope.countryName = response.data[$scope.countryId];
+        });
+
+    $http.get("network-viz/data/countries_info.csv").then(
+        function(response) {
+            $scope.countryInfo = d3.csv.parse(response.data)
+										.find(function(country){
+											console.log(country.id);
+											console.log($scope.countryId);
+											return country.ID == $scope.countryId;
+										});
         });
 
 
