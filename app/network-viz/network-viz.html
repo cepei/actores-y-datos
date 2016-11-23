@@ -81,6 +81,21 @@
         
         <div class="col-xs-12 col-sm-12 col-lg-12" id="forcemap">
         </div>
+        <div>
+            <span>Tipo de fuente </span>
+            <select>
+                <option ng-repeat="option in getAllFilterOptions('TIPO DE FUENTE')" value="{{option}}">{{option}}</option>
+            </select>                 
+        </div>        
+
+        <div>
+            <span>Disponible en linea</span>  
+            <select>
+                <option ng-repeat="option in getAllFilterOptions('DISPONIBLE EN LÍNEA')" value="{{option}}">{{option}}</option>
+            </select>           
+        </div>
+
+
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 network-node-info-container container-fluid">

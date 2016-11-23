@@ -30,40 +30,40 @@ angular.module('myApp.network-viz', ['ngRoute'])
         function(response) {
             $scope.countryInfo = d3.csv.parse(response.data)
 										.find(function(country){
-											console.log(country.id);
-											console.log($scope.countryId);
 											return country.ID == $scope.countryId;
 										});
         });
 
 
-    create_graph("network-viz/data/" + $routeParams.country + ".csv");
     var force,
         data = [];
+    create_graph("network-viz/data/" + $routeParams.country + ".csv");
+
 
     function create_graph(filename) {
         $http.get(filename).then(
             function(response) {
                 var rawdata = d3.csv.parse(response.data);
 
-                var width = Math.min(screen.height * 0.70, screen.width * 0.85),
-                    height = width,
+                var height = screen.height * 0.50,
+                    width = height,
                     radius = height * 0.4,
                     x_center = width / 2,
                     y_center = height / 2,
 
+
                     base_node = {
                         "base_radius": {
                             "ods": 0,
-                            "fuente": 3,
-                            "datos": 3
+                            "fuente": 3*height/540,
+                            "datos": 3*height/540
                         },
                         "charge": {
-                            "ods": -50,
-                            "fuente": -20,
-                            "datos": -5
+                            "ods": -50*(height/540) ,
+                            "fuente": -20*(height/540) ,
+                            "datos": -5*(height/540) 
                         }
-                    }
+                    };
                 $http.get("network-viz/data/ODSs.csv").then(function(response) {
                     var ODSs = d3.csv.parse(response.data);
                     data = rawdata.filter(rowContainsValidODS);
@@ -216,6 +216,15 @@ angular.module('myApp.network-viz', ['ngRoute'])
                             })
 
                     }
+                    $scope.getAllFilterOptions =function(field){
+                    	var filterOptions = ["all"]
+                    	data.forEach(function(d){
+                    		var option = d[field].toLowerCase();
+                    		if(filterOptions.indexOf(option)==-1)
+                    			filterOptions.push(option)
+                    	})
+                    	return filterOptions;
+                    }
 
                     $scope.summarizeData = function(inputData) {
                         var tempDataDict = {}
@@ -352,7 +361,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
                     }
 
                     function calculateODSImageSize(nodedata) {
-                        var weight = (1 + ocurrences[nodedata.type][nodedata.name] / ocurrences[nodedata.type]["__max"]);
+                        var weight = (height/540) * (1 + ocurrences[nodedata.type][nodedata.name] / ocurrences[nodedata.type]["__max"]);
                         return 30 * weight
                     }
 
