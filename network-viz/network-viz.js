@@ -30,40 +30,40 @@ angular.module('myApp.network-viz', ['ngRoute'])
         function(response) {
             $scope.countryInfo = d3.csv.parse(response.data)
 										.find(function(country){
-											console.log(country.id);
-											console.log($scope.countryId);
 											return country.ID == $scope.countryId;
 										});
         });
 
 
-    create_graph("network-viz/data/" + $routeParams.country + ".csv");
     var force,
         data = [];
+    create_graph("network-viz/data/" + $routeParams.country + ".csv");
+
 
     function create_graph(filename) {
         $http.get(filename).then(
             function(response) {
                 var rawdata = d3.csv.parse(response.data);
 
-                var width = Math.min(screen.height * 0.70, screen.width * 0.85),
-                    height = width,
+                var height = screen.height * 0.50,
+                    width = height,
                     radius = height * 0.4,
                     x_center = width / 2,
                     y_center = height / 2,
 
+
                     base_node = {
                         "base_radius": {
                             "ods": 0,
-                            "fuente": 3,
-                            "datos": 3
+                            "fuente": 3*height/540,
+                            "datos": 3*height/540
                         },
                         "charge": {
-                            "ods": -50,
-                            "fuente": -20,
-                            "datos": -5
+                            "ods": -50*(height/540) ,
+                            "fuente": -20*(height/540) ,
+                            "datos": -5*(height/540) 
                         }
-                    }
+                    };
                 $http.get("network-viz/data/ODSs.csv").then(function(response) {
                     var ODSs = d3.csv.parse(response.data);
                     data = rawdata.filter(rowContainsValidODS);
@@ -175,21 +175,76 @@ angular.module('myApp.network-viz', ['ngRoute'])
                         }
                     });
 
+                    $scope.clickFilter = function(field, value){
+
+                    	setTimeout(function() {
+                            $scope.$apply(function() {
+                                $scope.relatedToNode = $scope.relatedToNode
+                                							 .filter(function(d){
+                                							 	return d[field].toLowerCase() == value;
+                                							 })
+                                $scope.summarizedData = $scope.summarizeData($scope.relatedToNode);
+                            });
+                        }, 100);             	
+
+                    }
+
                     function clickNode(rawnodedata) {
-                        var nodedata = rawnodedata;
+                    	var nodedata = getNodeData(rawnodedata);
+                    	var associatedList =getAssociatedList(nodedata);
+                        updateSelectedInScope(nodedata);
+                        selectClickedNode(nodedata);
+                        highligthAssociatedNodes(associatedList);
+                        highlightAssociatedLinks(associatedList);
+
+                    }
+
+                    function highlightAssociatedLinks(associatedList){
+                        d3.selectAll(".link").classed("highligthed",
+                            function(d) {
+                                var is_source_associated = associatedList.indexOf(d.source.name) != -1;
+                                var is_target_associated = associatedList.indexOf(d.target.name) != -1;
+                                return is_source_associated && is_target_associated
+                            })
+
+                    }
+
+                    function highligthAssociatedNodes(associatedList){
+                        d3.selectAll(".node")
+                            .classed("highligthed", function(d) {
+                                return associatedList.indexOf(d.name) != -1
+                            })
+                    }
+
+                    function selectClickedNode(nodedata){
+                        d3.selectAll(".node") 
+                            .classed("selected", function(d) {
+                                return d.name == nodedata.name
+                            })                    	
+                    }
+
+
+                    function getAssociatedList(nodedata){
+                        var associated = $scope.getAssociatedNodes(nodedata);
+                        var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos)) 
+                        return associatedList;
+                        // associated.ods = associated.ods.map(function(d) {
+                        //     return parseInt(d.split(" ")[0])
+                        // });
+                    }
+
+                    function getNodeData(rawnodedata){                        
+                    	var nodedata = rawnodedata;
                         if (rawnodedata.type == "ods" && parseInt(rawnodedata.name) === rawnodedata.name) {
                             nodedata.name = ODSs.filter(function(d) {
                                 return parseInt(d.ODS.split(" ")[0]) == rawnodedata.name
                             })[0].ODS;
                         }
+                        return nodedata;
+                    }
 
-                        var associated = $scope.getAssociatedNodes(nodedata);
-                        var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos))
-                        associated.ods = associated.ods.map(function(d) {
-                            return parseInt(d.split(" ")[0])
-                        });
-
-                        setTimeout(function() {
+                    function updateSelectedInScope(nodedata){
+                    	setTimeout(function() {
                             $scope.$apply(function() {
                                 $scope.relatedToNode = $scope.getAssociatedRowsInDB(nodedata);
                                 $scope.summarizedData = $scope.summarizeData($scope.relatedToNode);
@@ -199,22 +254,16 @@ angular.module('myApp.network-viz', ['ngRoute'])
                                     $scope.odsIndex = parseInt(nodedata.name.split(" ")[0]);
                             });
                         }, 100);
+                    }
 
-
-                        d3.selectAll(".node")
-                            .classed("highligthed", function(d) {
-                                return associatedList.indexOf(d.name) != -1
-                            })
-                            .classed("selected", function(d) {
-                                return d.name == nodedata.name
-                            })
-                        d3.selectAll(".link").classed("highligthed",
-                            function(d) {
-                                var is_source_associated = associatedList.indexOf(d.source.name) != -1;
-                                var is_target_associated = associatedList.indexOf(d.target.name) != -1;
-                                return is_source_associated && is_target_associated
-                            })
-
+                    $scope.getAllFilterOptions =function(field){
+                    	var filterOptions = ["all"]
+                    	data.forEach(function(d){
+                    		var option = d[field].toLowerCase();
+                    		if(filterOptions.indexOf(option)==-1)
+                    			filterOptions.push(option)
+                    	})
+                    	return filterOptions;
                     }
 
                     $scope.summarizeData = function(inputData) {
@@ -352,7 +401,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
                     }
 
                     function calculateODSImageSize(nodedata) {
-                        var weight = (1 + ocurrences[nodedata.type][nodedata.name] / ocurrences[nodedata.type]["__max"]);
+                        var weight = (height/540) * (1 + ocurrences[nodedata.type][nodedata.name] / ocurrences[nodedata.type]["__max"]);
                         return 30 * weight
                     }
 

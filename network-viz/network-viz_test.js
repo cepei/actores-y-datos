@@ -16,7 +16,12 @@ describe('myApp.network-viz module', function() {
             };
             // backend definition common for all tests
             authRequestHandler = $httpBackend.when('GET', "network-viz/data/" + $routeParams.country + ".csv")
-                .respond("DATOS,ODS,FUENTE\ndato1,2 ODS,fuente1\ndato1,1 ODS,fuente1\ndato2,1 ODS,fuente1\ndato1,10 ODS,fuente1\n")
+                .respond(
+"DATOS,ODS,FUENTE,TIPO DE FUENTE,DISPONIBLE EN LÍNEA\n\
+dato1,2 ODS,fuente1,tipo1,Si\n\
+dato1,1 ODS,fuente1,tipo1,si\n\
+dato2,1 ODS,fuente1,tipo2,No\n\
+dato1,10 ODS,fuente1,tipo1,Si\n")
 
             $httpBackend.when('GET', "network-viz/data/country_names.json")
                 .respond({
@@ -162,8 +167,6 @@ describe('myApp.network-viz module', function() {
 
             it('getAssociatedRowsInDB should det associated rows to a ODS in database', inject(function($controller) {
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/country_names.json");
-                $httpBackend.expectGET("network-viz/data/ODSs.csv");
                 $httpBackend.flush();
                 var datum = {
                     "name": "1 ODS",
@@ -173,19 +176,21 @@ describe('myApp.network-viz module', function() {
                 expect(associated).toEqual([{
                     "DATOS": "dato1",
                     "ODS": "1 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "si"
                 }, {
                     "DATOS": "dato2",
                     "ODS": "1 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo2",
+                    "DISPONIBLE EN LÍNEA": "No"
                 }, ])
             }));
 
             it('should put relatedToNode names in scope correctly', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/country_names.json");
-                $httpBackend.expectGET("network-viz/data/ODSs.csv");
                 $httpBackend.flush();
                 var datum = {
                     "name": "fuente1",
@@ -196,19 +201,27 @@ describe('myApp.network-viz module', function() {
                 expect($rootScope.relatedToNode).toEqual([{
                     "DATOS": "dato1",
                     "ODS": "2 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
                 }, {
                     "DATOS": "dato1",
                     "ODS": "1 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "si"
                 }, {
                     "DATOS": "dato2",
                     "ODS": "1 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo2",
+                    "DISPONIBLE EN LÍNEA": "No"
                 }, {
                     "DATOS": "dato1",
                     "ODS": "10 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
                 }, ]);
             }));
 
@@ -216,8 +229,6 @@ describe('myApp.network-viz module', function() {
             it('should put rows in relatedToNode in scope correctly when typedata is dato', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/country_names.json");
-                $httpBackend.expectGET("network-viz/data/ODSs.csv");
                 $httpBackend.flush();
                 var datum = {
                     "name": "dato1",
@@ -228,23 +239,27 @@ describe('myApp.network-viz module', function() {
                 expect($rootScope.relatedToNode).toEqual([{
                     "DATOS": "dato1",
                     "ODS": "2 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
                 }, {
                     "DATOS": "dato1",
                     "ODS": "1 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "si"
                 }, {
                     "DATOS": "dato1",
                     "ODS": "10 ODS",
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
                 }, ]);
             }));
 
             it('summarizeData should summarize data in order to avoid repeated DATOS', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/country_names.json");
-                $httpBackend.expectGET("network-viz/data/ODSs.csv");
                 $httpBackend.flush();
                 var datum = {
                     "name": "fuente1",
@@ -255,11 +270,15 @@ describe('myApp.network-viz module', function() {
                 expect($rootScope.summarizedData).toEqual([{
                     "DATOS": "dato1",
                     "ODS": ["1 ODS", "2 ODS", "10 ODS"],
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
                 }, {
                     "DATOS": "dato2",
                     "ODS": ["1 ODS"],
-                    "FUENTE": "fuente1"
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo2",
+                    "DISPONIBLE EN LÍNEA": "No"
                 }, ]);
             }));
         });
@@ -278,7 +297,6 @@ describe('myApp.network-viz module', function() {
             it('should open right laws data file', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/laws/" + $routeParams.country + "_laws.csv");
                 $httpBackend.flush();
                 expect($rootScope.laws).toEqual([{
                     "NORMA": "norma1",
@@ -302,7 +320,6 @@ describe('myApp.network-viz module', function() {
             it('should open right countries info file', inject(function($controller) {
                 //spec body 
                 var networkCtrl = createController();
-                $httpBackend.expectGET("network-viz/data/country_names.json");
                 $httpBackend.flush();
                 expect($rootScope.countryInfo).toEqual({
                     "ID":"any_country_id",
@@ -316,6 +333,99 @@ describe('myApp.network-viz module', function() {
 
                 });
             }));
+
+
+        });
+
+        describe('Filters', function() {
+            it('getAllFilterOptions should get a list of all filter options of any given field ignoring case, plus an "all" option', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                expect($rootScope.getAllFilterOptions("DISPONIBLE EN LÍNEA")).toEqual(["all","si","no"])
+            }));
+
+            it('Should filter relatedToNode correctly', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                var datum = {
+                    "name": "fuente1",
+                    "type": "fuente"
+                }
+                $rootScope.clickNode(datum);
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+                jasmine.clock().tick(100);
+                expect($rootScope.relatedToNode).toEqual([{
+                    "DATOS": "dato1",
+                    "ODS": "2 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
+                }, {
+                    "DATOS": "dato1",
+                    "ODS": "1 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "si"
+                }, {
+                    "DATOS": "dato1",
+                    "ODS": "10 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
+                }, ])
+            }));
+
+            it('Should filter summarizedData correctly', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                var datum = {
+                    "name": "fuente1",
+                    "type": "fuente"
+                }
+                $rootScope.clickNode(datum);
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+                jasmine.clock().tick(100);
+                expect($rootScope.summarizedData).toEqual([{
+                    "DATOS": "dato1",
+                    "ODS": ["1 ODS", "2 ODS", "10 ODS"],
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
+                } ])
+            }));
+
+            it('Should filter relatedToNode correctly after several clicks', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                var datum = {
+                    "name": "fuente1",
+                    "type": "fuente"
+                }
+                $rootScope.clickNode(datum);
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "no");
+                jasmine.clock().tick(100);
+                expect($rootScope.relatedToNode).toEqual([{
+                    "DATOS": "dato2",
+                    "ODS": "1 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo2",
+                    "DISPONIBLE EN LÍNEA": "No"
+                } ])
+            }));
+
 
 
         });
