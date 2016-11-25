@@ -346,22 +346,86 @@ dato1,10 ODS,fuente1,tipo1,Si\n")
                 expect($rootScope.getAllFilterOptions("DISPONIBLE EN LÍNEA")).toEqual(["all","si","no"])
             }));
 
-            // it('should open right countries info file', inject(function($controller) {
-            //     //spec body 
-            //     var networkCtrl = createController();
-            //     $httpBackend.flush();
-            //     expect($rootScope.countryInfo).toEqual({
-            //         "ID":"any_country_id",
-            //         "PAIS":"Country Name1",
-            //         "PIB": "pib1",
-            //         "RENTA": "rent1",
-            //         "POBLACION": "pop1",
-            //         "INCIDENCIA_POBREZA":"inci_pov",
-            //         "DESARROLLO_HUMANO":"hum_dev",
-            //         "POS_DESARROLLO_HUMANO": "pos_hum_dev"
+            it('Should filter relatedToNode correctly', inject(function($controller) {
+                //spec body 
 
-            //     });
-            // }));
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                var datum = {
+                    "name": "fuente1",
+                    "type": "fuente"
+                }
+                $rootScope.clickNode(datum);
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+                jasmine.clock().tick(100);
+                expect($rootScope.relatedToNode).toEqual([{
+                    "DATOS": "dato1",
+                    "ODS": "2 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
+                }, {
+                    "DATOS": "dato1",
+                    "ODS": "1 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "si"
+                }, {
+                    "DATOS": "dato1",
+                    "ODS": "10 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
+                }, ])
+            }));
+
+            it('Should filter summarizedData correctly', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                var datum = {
+                    "name": "fuente1",
+                    "type": "fuente"
+                }
+                $rootScope.clickNode(datum);
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+                jasmine.clock().tick(100);
+                expect($rootScope.summarizedData).toEqual([{
+                    "DATOS": "dato1",
+                    "ODS": ["1 ODS", "2 ODS", "10 ODS"],
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo1",
+                    "DISPONIBLE EN LÍNEA": "Si"
+                } ])
+            }));
+
+            it('Should filter relatedToNode correctly after several clicks', inject(function($controller) {
+                //spec body 
+
+                var networkCtrl = createController();
+                $httpBackend.flush();
+                var datum = {
+                    "name": "fuente1",
+                    "type": "fuente"
+                }
+                $rootScope.clickNode(datum);
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+                jasmine.clock().tick(100);
+                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "no");
+                jasmine.clock().tick(100);
+                expect($rootScope.relatedToNode).toEqual([{
+                    "DATOS": "dato2",
+                    "ODS": "1 ODS",
+                    "FUENTE": "fuente1",
+                    "TIPO DE FUENTE": "tipo2",
+                    "DISPONIBLE EN LÍNEA": "No"
+                } ])
+            }));
+
 
 
         });

@@ -175,21 +175,76 @@ angular.module('myApp.network-viz', ['ngRoute'])
                         }
                     });
 
+                    $scope.clickFilter = function(field, value){
+
+                    	setTimeout(function() {
+                            $scope.$apply(function() {
+                                $scope.relatedToNode = $scope.relatedToNode
+                                							 .filter(function(d){
+                                							 	return d[field].toLowerCase() == value;
+                                							 })
+                                $scope.summarizedData = $scope.summarizeData($scope.relatedToNode);
+                            });
+                        }, 100);             	
+
+                    }
+
                     function clickNode(rawnodedata) {
-                        var nodedata = rawnodedata;
+                    	var nodedata = getNodeData(rawnodedata);
+                    	var associatedList =getAssociatedList(nodedata);
+                        updateSelectedInScope(nodedata);
+                        selectClickedNode(nodedata);
+                        highligthAssociatedNodes(associatedList);
+                        highlightAssociatedLinks(associatedList);
+
+                    }
+
+                    function highlightAssociatedLinks(associatedList){
+                        d3.selectAll(".link").classed("highligthed",
+                            function(d) {
+                                var is_source_associated = associatedList.indexOf(d.source.name) != -1;
+                                var is_target_associated = associatedList.indexOf(d.target.name) != -1;
+                                return is_source_associated && is_target_associated
+                            })
+
+                    }
+
+                    function highligthAssociatedNodes(associatedList){
+                        d3.selectAll(".node")
+                            .classed("highligthed", function(d) {
+                                return associatedList.indexOf(d.name) != -1
+                            })
+                    }
+
+                    function selectClickedNode(nodedata){
+                        d3.selectAll(".node") 
+                            .classed("selected", function(d) {
+                                return d.name == nodedata.name
+                            })                    	
+                    }
+
+
+                    function getAssociatedList(nodedata){
+                        var associated = $scope.getAssociatedNodes(nodedata);
+                        var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos)) 
+                        return associatedList;
+                        // associated.ods = associated.ods.map(function(d) {
+                        //     return parseInt(d.split(" ")[0])
+                        // });
+                    }
+
+                    function getNodeData(rawnodedata){                        
+                    	var nodedata = rawnodedata;
                         if (rawnodedata.type == "ods" && parseInt(rawnodedata.name) === rawnodedata.name) {
                             nodedata.name = ODSs.filter(function(d) {
                                 return parseInt(d.ODS.split(" ")[0]) == rawnodedata.name
                             })[0].ODS;
                         }
+                        return nodedata;
+                    }
 
-                        var associated = $scope.getAssociatedNodes(nodedata);
-                        var associatedList = associated.ods.concat(associated.fuente.concat(associated.datos))
-                        associated.ods = associated.ods.map(function(d) {
-                            return parseInt(d.split(" ")[0])
-                        });
-
-                        setTimeout(function() {
+                    function updateSelectedInScope(nodedata){
+                    	setTimeout(function() {
                             $scope.$apply(function() {
                                 $scope.relatedToNode = $scope.getAssociatedRowsInDB(nodedata);
                                 $scope.summarizedData = $scope.summarizeData($scope.relatedToNode);
@@ -199,23 +254,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
                                     $scope.odsIndex = parseInt(nodedata.name.split(" ")[0]);
                             });
                         }, 100);
-
-
-                        d3.selectAll(".node")
-                            .classed("highligthed", function(d) {
-                                return associatedList.indexOf(d.name) != -1
-                            })
-                            .classed("selected", function(d) {
-                                return d.name == nodedata.name
-                            })
-                        d3.selectAll(".link").classed("highligthed",
-                            function(d) {
-                                var is_source_associated = associatedList.indexOf(d.source.name) != -1;
-                                var is_target_associated = associatedList.indexOf(d.target.name) != -1;
-                                return is_source_associated && is_target_associated
-                            })
-
                     }
+
                     $scope.getAllFilterOptions =function(field){
                     	var filterOptions = ["all"]
                     	data.forEach(function(d){
