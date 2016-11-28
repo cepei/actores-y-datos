@@ -7,8 +7,9 @@ angular.module('myApp', [
   'myApp.countries',
   'myApp.sidebar',
   'myApp.network-viz',
+  'myApp.what-is',
   //'myApp.ecoView',
-  //r'myApp.view2',
+  // 'myApp.view2',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

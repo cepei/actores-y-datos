@@ -8,6 +8,15 @@ angular.module('myApp.countries', ['ngRoute'])
 	var max_total_ods = 0;
 	var datos_names = []
 
+	$http.get("network-viz/data/ODSs.csv").then(function(response) {
+		var ODSs = {}
+		d3.csv.parse(response.data)
+			  .forEach(function(d, i){
+			  	ODSs[d.ODS.split(" ")[0]] =  d.ODS;
+			  })
+		$scope.ODSs = ODSs;
+	})
+
 	$http.get("countries/data/allcountries.csv").then(
 	function(response){
 		$scope.data = d3.csv.parse(response.data);
@@ -29,6 +38,10 @@ angular.module('myApp.countries', ['ngRoute'])
 
 		max_total_ods = Math.max.apply(null,ods_totals)
 
+        var tip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
 		function calculateBars()
 		{
 			d3.selectAll(".barra-ods")
@@ -47,7 +60,6 @@ angular.module('myApp.countries', ['ngRoute'])
 				.style("top", -height*($scope.relPercentODS(odsIndex)) + "px");
 
 			  	d3.select(this)
-
 				.transition()
 				.delay(750)
 			    .style("height", function(d){
@@ -59,6 +71,26 @@ angular.module('myApp.countries', ['ngRoute'])
 			    .style("padding-top", function(d){
 			      	return height*($scope.relPercentODS(odsIndex)-0.1) + "px";
 			    })
+
+			    d3.select(this)
+			    .on("mouseover", function(d) {
+		            tip.html("<b>" + $scope.ODSs[odsIndex].toLowerCase() + "</b>" )
+		                .style("left", (d3.event.pageX) + 10 + "px")
+		                .style("top", (d3.event.pageY) + 10 + "px");
+
+		            tip.transition()
+		                .duration(200)
+		                .style("opacity", .7);
+
+
+
+		        }).on("mouseout", function(d) {
+                    tip.html("<b> </b>: ")
+                        .style("left", -100 + "px")
+                        .style("top", -100 + "px")
+                        .style("opacity", 0);
+
+                })
 
 
 
@@ -78,7 +110,8 @@ angular.module('myApp.countries', ['ngRoute'])
 				    .select(".barra-value-ods") 
 			  		.html(ods_totals[odsIndex]);
 
-			  })}
+			  })
+			}
 
 		calculateBars();
 		d3.select(window).on('resize', calculateBars); 
@@ -102,6 +135,8 @@ angular.module('myApp.countries', ['ngRoute'])
 	$scope.relPercentODS = function(odsIndex){
 		return ods_totals[odsIndex]/max_total_ods;
 	}
+
+
 
 }])
 .controller('CountryCtrl', ["$scope", "$routeParams", "$http",function($scope, $routeParams, $http) {

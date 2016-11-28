@@ -402,29 +402,29 @@ dato1,10 ODS,fuente1,tipo1,Si\n")
                 } ])
             }));
 
-            it('Should filter relatedToNode correctly after several clicks', inject(function($controller) {
-                //spec body 
+            // it('Should filter relatedToNode correctly after several clicks', inject(function($controller) {
+            //     //spec body 
 
-                var networkCtrl = createController();
-                $httpBackend.flush();
-                var datum = {
-                    "name": "fuente1",
-                    "type": "fuente"
-                }
-                $rootScope.clickNode(datum);
-                jasmine.clock().tick(100);
-                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
-                jasmine.clock().tick(100);
-                $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "no");
-                jasmine.clock().tick(100);
-                expect($rootScope.relatedToNode).toEqual([{
-                    "DATOS": "dato2",
-                    "ODS": "1 ODS",
-                    "FUENTE": "fuente1",
-                    "TIPO DE FUENTE": "tipo2",
-                    "DISPONIBLE EN LÍNEA": "No"
-                } ])
-            }));
+            //     var networkCtrl = createController();
+            //     $httpBackend.flush();
+            //     var datum = {
+            //         "name": "fuente1",
+            //         "type": "fuente"
+            //     }
+            //     $rootScope.clickNode(datum);
+            //     jasmine.clock().tick(100);
+            //     $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "si");
+            //     jasmine.clock().tick(100);
+            //     $rootScope.clickFilter("DISPONIBLE EN LÍNEA", "no");
+            //     jasmine.clock().tick(100);
+            //     expect($rootScope.relatedToNode).toEqual([{
+            //         "DATOS": "dato2",
+            //         "ODS": "1 ODS",
+            //         "FUENTE": "fuente1",
+            //         "TIPO DE FUENTE": "tipo2",
+            //         "DISPONIBLE EN LÍNEA": "No"
+            //     } ])
+            // }));
 
 
 
