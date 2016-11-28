@@ -1,39 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,400,400i,900');
 
-@font-face {
-    font-family: "BebasNewe";
-    src: url(fonts/BebasNeue.otf) format("truetype");
-}
 
 @font-face {
   font-family: "BebasNeue";
   src: url("fonts/3242FD_0_0.eot?#iefix") format("embedded-opentype"), url("fonts/3242FD_0_0.woff2") format("woff2"), url("fonts/3242FD_0_0.woff") format("woff"), url("fonts/3242FD_0_0.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: 'helvetica_ce_35_thinregular';
-    src: url('fonts/helvetica_neue_ce_35_thin-webfont.woff2') format('woff2'),
-         url('fonts/helvetica_neue_ce_35_thin-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face{ 
-  font-family: 'MyWebFont';
-  src: url('WebFont.eot');
-  src: url('WebFont.eot?#iefix') format('embedded-opentype'),
-       url('WebFont.woff') format('woff'),
-       url('WebFont.ttf') format('truetype'),
-       url('WebFont.svg#webfont') format('svg');
-}
-
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2") format("woff2");
-  unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 body {
@@ -394,7 +364,40 @@ ul.idiomas li a:hover{
 .container {
     width: auto;
 }
+/*FOOTER*/
+.footer-data-republica{
+  display: flex;
+  align-items: center;
+  background-color: #21285A;
+  padding: 30px !important;
+   color: #fff;
+}
 
+.agradecimiento-footer p{
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-size: 16px;
+  text-align:center; 
+}
+.data-tks{
+  font-family:'Bebasneue';
+  color: #23D0CB;
+  font-size:20px; 
+}
+.contactanos-footer{
+  font-family: 'BebasNeue';
+  font-size: 18px;
+  line-height: 20px;
+  text-align:center;
+  color: #23D0CB;
+}
+.contactanos-items p, .contactanos-items p a,  .creative-commons p, .creative-commons p a{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  text-align:center; 
+  color: #fff;
+}
 @media(min-width: 1200px){
   .logo-modulo img{
     max-width: 100%;
@@ -431,6 +434,15 @@ ul.idiomas li a:hover{
   .description-modulo h3{
     font-size: 20px;
   }  
+  .footer-data-republica{
+    display: block;
+  }
+  .agradecimiento-footer p {
+    margin: 10px auto;
+}
+  .creative-commons p{
+    margin-top: 20px;
+  }
 }
 @media(max-width:850px) {
   .logo-modulo img{
@@ -476,7 +488,13 @@ ul.idiomas li a:hover{
   }
 
   .header-section {
-    margin-top: 40px;
+    
+  }
+  .contactanos-footer {
+    margin: 15px auto;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 10px 0 8px 0;
   }
   
 }
