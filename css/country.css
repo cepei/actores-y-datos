@@ -365,6 +365,23 @@
 
 /* CONTENIDO CONECTA*/
 
+.desription-text-conecta{
+  width: 90%;
+  font-family: 'Roboto';
+  text-align: center;
+  color: #21285A;
+  margin: 0 auto;
+  padding: 10px 30px 5px 30px;
+  background-color: #fff;
+}
+.desription-text-conecta p{
+  font-size: 15px;
+  font-weight: 400;
+}
+.desription-text-conecta h3{
+  font-size: 20px;
+  font-weight: 100;
+}
 .datos-fuentes{
 	height: auto;
 	padding: 10px 15px;
@@ -415,16 +432,15 @@
 .titulo-total > h1{
 	color: #bdcc4a;
 	font-family: 'BebasNeue';
-	font-size: 50px;
-	    margin: 20px 0px 30px 0px;
-	line-height: 42px;
+	font-size: 40px;
+	margin: 20px 0px 30px 0px;
+	line-height: 41px;
 	text-align: center;
 }
 span#numero-total-ods{
 	color: #282c59;
 	font-family: 'BebasNeue';
-	font-size: 80px;
-	margin-right: 50px;
+	font-size: 55px;
 }
 .grafica-total-ods{
 	width: 85%;
@@ -454,9 +470,6 @@ span#numero-total-ods{
 	margin-top: 0px;
 	height: 280px;
 	padding-top: 255px;
-	margin-top: 280px;
-	padding-top: 0px;
-	height: 1px;
 	background: rgba(35,208,202,1);
 	background: -moz-linear-gradient(top, rgba(35,208,202,1) 0%, rgba(189,204,74,1) 49%, rgba(33,39,90,1) 100%);
 	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(35,208,202,1)), color-stop(49%, rgba(189,204,74,1)), color-stop(100%, rgba(33,39,90,1)));
@@ -835,11 +848,11 @@ span.numero-ods{
 	    font-size: 20px;
 	}
 	.titulo-total > h1 {
-		font-size: 40px;
+		line-height: 35px;
+		font-size: 35px;
 	}
 	span#numero-total-ods {
-	    font-size: 70px;
-	    margin-right: 20px;
+	    font-size: 50px;
 	}
 	.pais-data > h2{
 		font-size: 40px;
@@ -884,12 +897,9 @@ span.numero-ods{
 		padding: 0;
 		text-align: center;
 	}
-	.titulo-total > h1 {
-		font-size: 35px;
-	}
+
 	span#numero-total-ods {
-	    font-size: 40px;
-	    margin-right: 10px;
+	    font-size: 50px;
 	}
 	.total-pais {
 	    padding-top: 0px;

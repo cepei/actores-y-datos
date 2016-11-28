@@ -4,9 +4,9 @@
   /*margin-bottom: 0.5vh;*/
 }
 .network-viz-intro p{
-  padding: 14px;
+  padding: 15px;
   font-family: 'Roboto';
-  font-weight: 100;
+  font-weight: 400;
   text-align: center;
   color: #21285A;
   margin-bottom: 0;
@@ -14,7 +14,9 @@
 #forcemap{
   text-align: center;
   background-color: white;
-  /*min-height: 83.5vh;*/
+  /*
+  min-height: 83.5vh;
+  */
 }
 /*
 #forcemap svg{
@@ -22,7 +24,26 @@
   height: 756px;
 }
 */
-
+.contacto-info-usuario{
+  float: left;
+  background-color: #21285A;
+  padding: 10px 20px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+}
+.contacto-info-usuario p{
+  line-height: 16px;
+  font-size: 14px;
+}
+.contacto-info-usuario p a{
+  color: #fff;
+  font-size: 16px;
+}
+.contacto-info-usuario p a:hover{
+  color: #23d2cd;
+}
 .link {
   stroke: #000;
   opacity: 0.01;
@@ -127,7 +148,7 @@ text {
   background:url('../images/seccion-background.jpg') repeat;
   /*padding-left: -15px!important;*/
   color:#282c59;
-  /*overflow: auto;*/
+  overflow: auto;
   height: 83.5vh;
   
 }
@@ -224,12 +245,6 @@ text {
   text-transform: capitalize;
 }
 
-.network-table-data {
-  overflow: auto;
-  max-height: 50vh;
-}
-
-
 .network-data .row{
   margin-left: 0px;
   margin-right: 0px;
@@ -245,13 +260,8 @@ text {
   font-family: 'BebasNeue';
   font-size: 35px;
   color: #23D0CB;
-  text-transform: uppercase;
-  background-color: #21285A;
-  padding-bottom: 5px;
-  height: 5vh;
   text-align: left;
   margin: 0;
-
 }
 
 .iconos-ods-network img{
@@ -316,7 +326,7 @@ text {
   border-right: dotted 1px #21285A;
 }
 .conecta-network img {
-  max-width: 80%;
+  max-width: 110%;
   margin: 0 auto;
 }
 .country-name{
@@ -488,7 +498,15 @@ text {
     background-position: left center;
     padding-left: 40px;
 }
+@media only screen and (min-width: 1400px){
+   .conecta-network img {
+    max-width: 80%;
+  }
+}
 @media only screen and (min-width: 1200px){
+  .country-name{
+    line-height: 96px;
+  }
   .item-perfil_2{
     height: 115px;
   }
@@ -504,11 +522,11 @@ text {
       font-size: 35px;
   }
   .conecta-network img {
-    max-width: 70%;
+    max-width: 50%;
   }
   .country-name {
     font-size: 50px;
-    line-height: 156px;
+    line-height: 112px;
   }
   .item-perfil_1 {
     padding-top: 10px;
@@ -519,8 +537,14 @@ text {
   .network-container{
     padding-top: 8.5vh;
   }
+  .conecta-network img {
+    max-width: 80%;
+  }
   .country-name {
     line-height: 106px;
+  }
+  .leyes-relacionadas {
+    margin-bottom: 20px;
   }
   .item-perfil_1>.text-item h5 small {
     font-size: 100%;
@@ -546,7 +570,7 @@ text {
     line-height: 12px;
   }
   .country-name {
-    line-height: 64px;
+    line-height: 80px;
   }
   .item-perfil_1>.text-item h5 small {
     font-size: 90%;
