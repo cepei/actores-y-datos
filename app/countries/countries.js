@@ -96,7 +96,6 @@ angular.module('myApp.countries', ['ngRoute'])
 
 			  })
 
-
 			  d3.selectAll(".barra-ods-res")
 			  .each(function(d,i){
 			  	d3.select(this).style("width",null);
@@ -106,7 +105,6 @@ angular.module('myApp.countries', ['ngRoute'])
 				    .style("width", function(d){
 				      	return width*($scope.relPercentODS(odsIndex)) + "px";
 				    })
-
 				    .select(".barra-value-ods") 
 			  		.html(ods_totals[odsIndex]);
 

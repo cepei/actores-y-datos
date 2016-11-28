@@ -260,20 +260,8 @@ text {
   font-family: 'BebasNeue';
   font-size: 35px;
   color: #23D0CB;
-
-
   text-align: left;
   margin: 0;
-
-  text-align: center;
-  text-transform: uppercase;
-  background-color: #21285A;
-  padding-bottom: 5px;
-  height: 5vh
-
-  text-align: left;
-  margin: 0;
-
 }
 
 .iconos-ods-network img{

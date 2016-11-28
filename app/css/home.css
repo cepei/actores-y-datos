@@ -4,7 +4,10 @@
   margin-top: 4vh;
   margin-bottom: 2vh;
 }
-
+.intro{
+  width: 100%;
+  margin: 10vh 0 20px 0;
+}
 
 #bg-animation-canvas{
   position: absolute;
@@ -22,6 +25,7 @@
   align-items: center;
   justify-content: center;
   /*min-height: 11.7vh;*/
+
 
 }
 .intro .big-text{
@@ -66,7 +70,17 @@
  align-items: center;
 }
 
-
+.menu-modulos p{
+  font-family: 'Roboto';
+  font-weight: 400;
+  padding-top: 1.5vh;
+  font-size: 14px;
+  line-height: 16px;
+  color:#282c59;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
 .menu-home h2{
     margin-top: 0px;
     margin-bottom: 2vh;
@@ -76,7 +90,6 @@
     width: 100%;
     text-align: center;
   /*width: 70%;*/
-
 
 }
 .menu-modulos a:hover{
