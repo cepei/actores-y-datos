@@ -171,6 +171,68 @@
   font-size:80px;
   width: 100%;
 }
+.what-is-box {
+  float: left;
+  width: 80%;
+  height: auto;
+  margin: 10px 10%;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: #EEEEEE;
+}
+.what-is-box p{
+  font-family: 'Roboto', serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+}
+.subtitle-home h4{
+  font-family: 'BebasNeue', serif;
+  font-size: 25px;
+  color: #BDCC4A;
+  text-align: center;
+}
+.wf-title{
+  margin-top: 30px;
+}
+.w-find-items{
+  float: left;
+  width: 90%;
+  margin: 35px 5% !important;
+}
+.wf-modulo-title{
+  font-family: 'BebasNeue', serif;
+  font-size: 20px;
+}
+.wf-item {
+    padding: 10px 30px;
+}
+.wf-item.wf-aprende{
+  border-right: dotted 1px #BDCC4A;
+  border-left: dotted 1px #BDCC4A;
+}
+.team-title{
+  margin: 25px 0 15px 0;
+}
+.team-items{
+  width: 80%;
+  margin: 10px 10% !important; 
+  float: left;
+  text-align: center;
+  color: #666666;
+}
+.name-profile{
+  font-family: 'BebasNeue';
+  font-size: 18px;
+  color: #21285a;
+}
+.position-profile{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 15px;
+}
 .novedades{
   float: left;
   margin: 20px 0;
@@ -327,6 +389,10 @@ p.news-important a:hover{
     margin-top: -216px;
     height: 130px;
   }
+  .what-is-box {
+    width: 60%;
+    margin: 0 20%;
+  }
   .bg-content-news {
     margin-top: ;
   }
@@ -434,6 +500,15 @@ p.news-important a:hover{
   .bg-content-modulos {
     height: 0;
   }
+  .wf-item.wf-aprende{
+    border-right: none;
+    border-left: none;
+    border-top: dotted 1px #BDCC4A;
+    border-bottom: dotted 1px #BDCC4A;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin: 10px 0;
+  }
   .bg-content-news {
     height: 0;
   }
@@ -473,6 +548,13 @@ p.news-important a:hover{
 @media (max-width: 500px) { 
   .small-text p{
     width: 90%;
+  }
+  .home-section-title h2 {
+    font-size: 70px;
+  }
+  .team-items{
+    width: 100%;
+    margin: 20px 0% !important; 
   }
   .news-box {
     height: 200px;
