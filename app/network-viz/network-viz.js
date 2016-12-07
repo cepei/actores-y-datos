@@ -14,6 +14,8 @@ angular.module('myApp.network-viz', ['ngRoute'])
     $scope.data = [];
     $scope.nodeName = "";
 
+
+
     $http.get("network-viz/data/laws/" + $routeParams.country + "_laws.csv").then(
         function(response) {
         	$scope.laws = d3.csv.parse(response.data);
@@ -237,7 +239,7 @@ angular.module('myApp.network-viz', ['ngRoute'])
                     	var nodedata = rawnodedata;
                         if (rawnodedata.type == "ods" && parseInt(rawnodedata.name) === rawnodedata.name) {
                             nodedata.name = ODSs.filter(function(d) {
-                                return parseInt(d.ODS.split(" ")[0]) == rawnodedata.name
+                                return parseInt(d.ODS                                          .split(" ")[0]) == rawnodedata.name
                             })[0].ODS;
                         }
                         return nodedata;
