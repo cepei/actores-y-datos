@@ -25,4 +25,6 @@ These are the folders inside the app folder and their respective description
 
 ## Deploy
 
-For deploying the project the command used is ``gulp deploy``, this command uses the functionality of [gulp-gh-pages](https://www.npmjs.com/package/gulp-gh-pages) and was declared in **gulpfile.js** file
+For deploying the project as a GitHub page, the command used is ``gulp deploy``, this command uses the functionality of [gulp-gh-pages](https://www.npmjs.com/package/gulp-gh-pages) and was declared in **gulpfile.js** file (thus, installing gulp-gh-pages and gulp is needed).
+
+Also, please consider that deploying as a GitHub page is fine while the project is in development phase, for launch in production, is recomended to deploy somewhere else (your own server, preferably)
